@@ -1,5 +1,7 @@
 # Turing Decay
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22989632.svg)](https://doi.org/10.5281/zenodo.22989632)
+
 **A three-factor model of human detection of AI-generated content, with preregistered predictions for audio and video.**
 
 Jonathan Bussing · Independent researcher · Pilot study, September 2026
@@ -7,6 +9,12 @@ Jonathan Bussing · Independent researcher · Pilot study, September 2026
 Project page: `https://<your-username>.github.io/turing-decay/` (after enabling GitHub Pages)
 
 ---
+
+## Citation
+
+Bussing, J. (2026). *Turing Decay: A Three-Factor Model of Human Detection of AI-Generated Content, with Preregistered Predictions for Audio and Video* (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.22989632
+
+The preregistration is frozen in release v0.1.0 (September 27, 2026). Later releases change only links and metadata; any change to the analysis plan is recorded as a dated deviation.
 
 ## Summary
 
@@ -57,7 +65,7 @@ The face slope rests on about six generators, and StyleGAN3 appears only in trai
 
 1. Push this folder to a public GitHub repository named `turing-decay`.
 2. Settings → Pages → Source: *Deploy from a branch* → `main`, folder `/ (root)`.
-3. Update the project page URL above and the citation once a DOI or arXiv ID exists.
+3. Update the project page URL above once Pages is live, and add the arXiv ID when it exists.
 
 ## Archiving with Zenodo
 
