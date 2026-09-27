@@ -1,0 +1,18 @@
+study,pub_year,n,acc,generator,gen_date,paradigm,intervention,llm_expert,note
+Clark 2021 (GPT-2),2021,390,0.579,GPT-2,2019.13,passage,0,0,stories/news/recipes; 130 per domain
+Brown 2020 (GPT-3 175B),2020,80,0.52,GPT-3,2020.42,passage,0,0,~200-word news articles
+Clark 2021 (GPT-3),2021,390,0.499,GPT-3,2020.42,passage,0,0,
+Clark 2021 (GPT-3; instructions),2021,390,0.52,GPT-3,2020.42,passage,1,0,training condition
+Clark 2021 (GPT-3; examples),2021,390,0.55,GPT-3,2020.42,passage,1,0,training condition
+Clark 2021 (GPT-3; comparison),2021,390,0.53,GPT-3,2020.42,passage,1,0,training condition
+Gao 2023,2023,4,0.77,ChatGPT-3.5,2022.92,passage,0,0,domain-expert reviewers; primed that fakes present; 68% fakes/86% real
+Casal & Kessler 2023,2023,72,0.389,ChatGPT-3.5,2022.92,passage,0,0,linguists; research abstracts
+Fleckenstein 2024 S1,2024,89,0.494,ChatGPT,2022.92,passage,0,0,pre-service teachers; 45.1% AI / 53.7% human
+Fleckenstein 2024 S2,2024,200,0.554,ChatGPT,2022.92,passage,0,0,experienced teachers; 37.8% AI / 73% human
+German theses 2025,2025,63,0.605,GPT-4,2023.20,passage,0,0,lecturers; 57% AI / 64% human
+Russell 2025 (non-experts),2025,4,0.525,GPT-4o/Claude-3.5/o1-pro,2024.70,passage,0,0,TPR 56.7 FPR 51.7; many annotations
+Russell 2025 (frequent LLM users),2025,5,0.946,GPT-4o/Claude-3.5/o1-pro,2024.70,passage,0,1,TPR 92.7 FPR ~3.5
+Jones & Bergen 2025 (ELIZA),2025,250,0.77,ELIZA,1966.0,interactive,0,0,3-party Turing test; acc = 1 - win rate; n approximate
+Jones & Bergen 2025 (GPT-4o no persona),2025,250,0.79,GPT-4o,2024.37,interactive,0,0,n approximate
+Jones & Bergen 2025 (LLaMa-3.1 persona),2025,250,0.44,LLaMa-3.1-405B,2024.56,interactive,0,0,n approximate
+Jones & Bergen 2025 (GPT-4.5 persona),2025,250,0.27,GPT-4.5,2025.16,interactive,0,0,n approximate

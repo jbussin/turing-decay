@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Turing Decay</title>
+<meta name="description" content="Turing Decay: a three-factor model of how human detection of AI-generated content falls toward chance, with preregistered predictions for audio and video.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap">
+<style>
+:root{
+  --ground:#F5F6F8; --surface:#FFFFFF; --ink:#15181D; --muted:#5B6370; --faint:#8A919C; --rule:#DCE0E6;
+  --gan:#2F56E0; --t2i:#0E8F7E; --chance:#9AA1AB; --chip:#EBEEF3; --focus:#2F56E0;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#0E1116; --surface:#151A21; --ink:#E6E9EE; --muted:#9AA3AF; --faint:#6E7682; --rule:#262D37;
+    --gan:#7C9BFF; --t2i:#3CC7B0; --chance:#6E7682; --chip:#1D232C; --focus:#7C9BFF;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#0E1116; --surface:#151A21; --ink:#E6E9EE; --muted:#9AA3AF; --faint:#6E7682; --rule:#262D37;
+  --gan:#7C9BFF; --t2i:#3CC7B0; --chance:#6E7682; --chip:#1D232C; --focus:#7C9BFF;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;padding-inline:20px;padding-block:0}
+.wrap{max-width:760px;margin:0 auto;padding-block:56px 80px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2.6rem,7vw,4rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.65rem;font-weight:600}
+h3{font-size:1.15rem;font-weight:600}
+p{margin:0;max-width:65ch}
+a{color:var(--gan)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero{display:flex;flex-direction:column;gap:18px}
+.subtitle{font-family:var(--serif);font-size:1.3rem;line-height:1.35;color:var(--muted);max-width:40ch}
+.byline{font-size:.95rem;color:var(--muted)}
+.byline strong{color:var(--ink);font-weight:600}
+.buttons{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 .9rem var(--sans);padding:9px 16px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);text-decoration:none;cursor:pointer}
+.btn:hover{border-color:var(--ink)}
+.btn[aria-disabled="true"]{color:var(--faint);cursor:default;border-style:dashed}
+.btn[aria-disabled="true"]:hover{border-color:var(--rule)}
+section{display:flex;flex-direction:column;gap:16px}
+.figure{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.figure svg{width:100%;height:auto;display:block}
+.caption{font-size:.85rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 .82rem var(--sans);padding:6px 12px;border-radius:999px;border:1px solid transparent;background:var(--chip);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.chip .dot{width:9px;height:9px;border-radius:50%}
+.chip[aria-pressed="true"]{border-color:var(--ink);background:var(--surface)}
+.readout{font-family:var(--mono);font-size:.85rem;color:var(--ink);font-variant-numeric:tabular-nums;min-height:1.6em}
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px}
+.finding{display:flex;flex-direction:column;gap:6px;border-top:2px solid var(--ink);padding-top:12px}
+.finding .num{font-family:var(--serif);font-size:2.1rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.finding p{font-size:.93rem;color:var(--muted)}
+.law{font-family:var(--mono);font-size:clamp(.85rem,2.6vw,1.05rem);background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;overflow-x:auto;white-space:nowrap}
+.factors{display:flex;flex-direction:column;gap:20px}
+.factor-head{display:flex;flex-direction:column;gap:4px}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:999px;padding:3px;background:var(--chip);align-self:flex-start;flex-wrap:wrap}
+.seg button{font:500 .82rem var(--sans);border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+ol.preds{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:14px;counter-reset:h}
+ol.preds li{display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:68ch}
+ol.preds li::before{counter-increment:h;content:"H" counter(h);font-family:var(--mono);font-weight:500;color:var(--gan);padding-top:1px}
+ol.preds .refute{display:block;font-size:.88rem;color:var(--muted)}
+.note{font-size:.9rem;color:var(--muted);border-left:2px solid var(--rule);padding-left:14px}
+.files{font-family:var(--mono);font-size:.85rem;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;overflow-x:auto;margin:0;line-height:1.7;white-space:pre}
+.cite{position:relative}
+.cite pre{font-family:var(--mono);font-size:.82rem;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;overflow-x:auto;margin:0;white-space:pre}
+.cite .btn{position:absolute;top:10px;right:10px;padding:5px 12px;font-size:.8rem}
+footer{font-size:.82rem;color:var(--faint);border-top:1px solid var(--rule);padding-top:20px}
+svg text{font-family:var(--sans)}
+@media (max-width:520px){ .figure{padding:14px} ol.preds li{grid-template-columns:36px 1fr} }
+@media (prefers-reduced-motion:no-preference){ .mark{transition:opacity .2s,r .2s} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="hero">
+  <span class="eyebrow">Pilot study · September 2026</span>
+  <h1>Turing Decay</h1>
+  <p class="subtitle">A three-factor model of human detection of AI-generated content, with preregistered predictions for audio and video</p>
+  <p class="byline"><strong>Jonathan Bussing</strong> · Independent researcher</p>
+  <div class="buttons">
+    <span class="btn" aria-disabled="true" title="Preprint coming soon">Paper · coming soon</span>
+    <a class="btn" href="#reproduce">Code &amp; data</a>
+    <a class="btn" href="#predictions">Predictions</a>
+    <a class="btn" href="#citation">Cite</a>
+  </div>
+</header>
+
+<section aria-labelledby="fig1-title">
+  <div class="figure">
+    <h2 id="fig1-title" style="font-size:1.25rem">Each newer generator lowers accuracy. A new architecture resets it.</h2>
+    <svg id="faces" viewBox="0 0 720 360" role="img" aria-label="Untrained human accuracy on AI-generated faces by generator release date"></svg>
+    <div class="chips" id="gen-chips" role="group" aria-label="Select a generator"></div>
+    <div class="readout" id="gen-readout" aria-live="polite"></div>
+    <p class="caption">Untrained participants judging AI vs real faces, one dot per experiment (27 experiments from the table in Stockner et al., 2026). Rings are pooled random-effects means per generator. Dashed line: a coin flip.</p>
+  </div>
+</section>
+
+<section aria-labelledby="tldr">
+  <span class="eyebrow" id="tldr">Findings from the pilot</span>
+  <div class="findings">
+    <div class="finding"><span class="num">−5.3</span><h3>points per generator-year</h3><p>Within the GAN lineage, faces from generators released a year later were detected about 5 points less often (p = .006).</p></div>
+    <div class="finding"><span class="num">+0.2</span><h3>points per calendar year</h3><p>Against a fixed generator (StyleGAN2), five years of studies show no gain. Background exposure did not help (p = .82).</p></div>
+    <div class="finding"><span class="num">95%</span><h3>for frequent LLM users</h3><p>Novices spotted GPT-4o, Claude 3.5 and o1-pro text 52% of the time. People who use ChatGPT for writing spotted it 95% of the time.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="model">
+  <h2 id="model">The model</h2>
+  <p>The human advantage over chance, A, is set by three factors. Within an architecture family f it decays as generator capability C rises. Deployment effort D pushes it down, below zero if the prompting is good enough. Hands-on expertise E is the only factor that pushes back.</p>
+  <div class="law" aria-label="A equals A zero f times e to the minus lambda f times C minus C zero f, minus delta D, plus gamma E">A = A<sub>0,f</sub> · e<sup>−λ<sub>f</sub>(C − C<sub>0,f</sub>)</sup> − δ·D + γ·E</div>
+</section>
+
+<section aria-labelledby="factors">
+  <h2 id="factors">Three factors in text</h2>
+  <div class="factors">
+
+    <div class="figure">
+      <div class="factor-head"><span class="eyebrow">1 · Generator capability</span><h3>Same release date, bigger model, lower accuracy</h3></div>
+      <svg id="ladder" viewBox="0 0 720 320" role="img" aria-label="Human accuracy detecting GPT-3 news articles by model size"></svg>
+      <p class="caption">GPT-3 news articles, eight sizes released together (Brown et al., 2020). Accuracy falls 6.5 points per tenfold increase in parameters (r = −0.87), reaching chance at about 175B. Time is held constant, so capability is doing the work.</p>
+    </div>
+
+    <div class="figure">
+      <div class="factor-head"><span class="eyebrow">2 · Deployment effort</span><h3>How the model is prompted can outweigh which model it is</h3></div>
+      <svg id="turing" viewBox="0 0 720 230" role="img" aria-label="Interrogator accuracy identifying the AI in a three-party Turing test"></svg>
+      <p class="caption">Three-party Turing test, 5-minute chats (Jones &amp; Bergen, 2025). Accuracy is the share of games where the interrogator picked the real human. Below 50%, the AI was picked as human more often than the human was.</p>
+    </div>
+
+    <div class="figure">
+      <div class="factor-head"><span class="eyebrow">3 · Observer expertise</span><h3>Heavy users catch what novices miss</h3></div>
+      <div class="seg" role="group" aria-label="Who is reading">
+        <button type="button" id="seg-novice" aria-pressed="true">Novices</button>
+        <button type="button" id="seg-expert" aria-pressed="false">Frequent LLM users</button>
+      </div>
+      <svg id="expert" viewBox="0 0 720 120" role="img" aria-label="Accuracy detecting AI-written articles, novices versus frequent LLM users"></svg>
+      <p class="caption">Articles from GPT-4o, Claude 3.5 Sonnet and o1-pro (Russell et al., 2025). Based on 4 novices and 5 experts, so treat the size of the gap as provisional.</p>
+    </div>
+
+  </div>
+</section>
+
+<section aria-labelledby="predictions">
+  <h2 id="predictions">Preregistered predictions</h2>
+  <p>No audio or video accuracy data had been coded when these were written. Each applies to audio and video separately, and each names the result that would refute it.</p>
+  <ol class="preds">
+    <li><div><strong>Generator decay.</strong> Within a lineage, newer generators yield lower accuracy.<span class="refute">Refuted if the release-date slope is zero or positive in both modalities.</span></div></li>
+    <li><div><strong>Sawtooth reset.</strong> The first generator of a new architecture family is more detectable than the old lineage's trend predicts.<span class="refute">Refuted if the reset term is zero or negative.</span></div></li>
+    <li><div><strong>No background observer clock.</strong> For a fixed generator, untrained accuracy does not rise with the year a study was run.<span class="refute">Refuted if that slope is reliably above +2 points per year.</span></div></li>
+    <li><div><strong>Expertise.</strong> Heavy users of voice-cloning or video-generation tools detect better than untrained participants.<span class="refute">Refuted if the difference is zero or negative.</span></div></li>
+    <li><div><strong>Deployment effort.</strong> Curated or post-processed stimuli (phone-codec audio, compressed social video) are harder to catch than raw outputs of the same generator.<span class="refute">Refuted if the difference is zero or positive.</span></div></li>
+    <li><div><strong>Modality ordering.</strong> Video decays more slowly than audio.<span class="refute">Refuted if video's slope is steeper than audio's.</span></div></li>
+  </ol>
+  <p class="note">Point predictions, recorded for scoring: audio stays above chance for the newest generators studied, and video decays at under half the per-year rate of GAN faces.</p>
+</section>
+
+<section aria-labelledby="reproduce">
+  <h2 id="reproduce">Code &amp; data</h2>
+  <p>Everything behind the figures is in this repository. The analysis is a random-effects meta-regression (DerSimonian-Laird, Knapp-Hartung) in plain NumPy and SciPy.</p>
+<pre class="files">data/faces_pilot.csv        50 face experiments, coded
+data/text_pilot.csv         17 text results from 9 studies
+data/gpt3_size_ladder.csv   Brown et al. 2020, Table 3.11
+analysis/faces_pilot.py     two-clock models for faces
+analysis/text_pilot.py      text models and size ladder
+preregistration.md          hypotheses, coding scheme, analysis plan
+
+pip install -r requirements.txt
+python analysis/faces_pilot.py
+python analysis/text_pilot.py</pre>
+  <p class="note">Limitations: the face slope rests on about six generators; text variances are approximated from reported percentages; all coding was done by one author. See the preregistration for the full list.</p>
+</section>
+
+<section aria-labelledby="citation" class="cite">
+  <h2 id="citation">Citation</h2>
+  <div style="position:relative">
+<pre id="bibtex">@misc{bussing2026turingdecay,
+  title  = {Turing Decay: A Three-Factor Model of Human Detection of
+            AI-Generated Content, with Preregistered Predictions
+            for Audio and Video},
+  author = {Bussing, Jonathan},
+  year   = {2026},
+  note   = {Pilot study and preregistration}
+}</pre>
+    <button class="btn" type="button" id="copy-bib">Copy</button>
+  </div>
+</section>
+
+<footer>
+  Data sources: Stockner et al. (2026), <i>Computers in Human Behavior: Artificial Humans</i> 9, 100332; Clark et al. (2021); Brown et al. (2020); Casal &amp; Kessler (2023); Gao et al. (2023); Fleckenstein et al. (2024); Fiedler &amp; Döpke (2025); Russell et al. (2025); Jones &amp; Bergen (2025). Text and figures CC BY 4.0; code MIT.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs, parent, text) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; if (parent) parent.appendChild(e); return e; };
+  const pct = v => Math.round(v * 100) + '%';
+
+  /* ---------- Figure 1: faces ---------- */
+  const exps = [
+    ['Lago 2022','MixedGAN',.540],['Zhou 2019','MixedGAN',.748],
+    ['Caporusso 2020','StyleGAN',.605],['Kas 2020','StyleGAN',.680],['Moshel 2022','StyleGAN',.517],['Tucciarelli 2022 E1','StyleGAN',.477],['Tucciarelli 2022 E3','StyleGAN',.519],['Tucciarelli 2022 E4','StyleGAN',.534],
+    ['Bruza 2025','StyleGAN2',.485],['Dunn 2026','StyleGAN2',.526],['Frank 2024','StyleGAN2',.484],['Kramer & Cartledge 2024 E1','StyleGAN2',.527],['Kramer & Cartledge 2024 E2','StyleGAN2',.579],['Meyer 2022','StyleGAN2',.485],['Miller 2023','StyleGAN2',.427],['Nightingale & Farid 2022','StyleGAN2',.482],['Osinska 2025','StyleGAN2',.681],['Pehlivanoglu 2026','StyleGAN2',.489],['Shen 2021 E1','StyleGAN2',.491],['Shen 2021 E2','StyleGAN2',.497],['Shen 2021 E3','StyleGAN2',.497],['Wang 2025','StyleGAN2',.515],
+    ['Pocol 2024','Diffusion',.606],['Lawrence 2025','StableDiffusion',.835],['Maiano 2024','StableDiffusion',.706],['Kramer 2025 E1','GPT4o',.434],['Kramer 2025 E2','GPT4o',.516]
+  ];
+  const gens = [
+    {id:'MixedGAN', name:'Mixed GANs', date:2018.5, rel:'mid 2018', pooled:.644, k:2, lin:'gan'},
+    {id:'StyleGAN', name:'StyleGAN', date:2018.95, rel:'Dec 2018', pooled:.551, k:6, lin:'gan'},
+    {id:'StyleGAN2', name:'StyleGAN2', date:2019.95, rel:'Dec 2019', pooled:.504, k:14, lin:'gan'},
+    {id:'Diffusion', name:'Diffusion (unspecified)', date:2022.5, rel:'mid 2022', pooled:.606, k:1, lin:'t2i'},
+    {id:'StableDiffusion', name:'Stable Diffusion', date:2022.64, rel:'Aug 2022', pooled:.770, k:2, lin:'t2i'},
+    {id:'GPT4o', name:'GPT-4o images', date:2025.23, rel:'Mar 2025', pooled:.476, k:2, lin:'t2i'}
+  ];
+  const gmap = Object.fromEntries(gens.map(g => [g.id, g]));
+  const fs = document.getElementById('faces');
+  const X0 = 2018, X1 = 2026, L = 60, R = 690, T = 20, B = 310;
+  const fx = v => L + (v - X0) / (X1 - X0) * (R - L);
+  const fy = v => B - (v - .35) / (.9 - .35) * (B - T);
+  const axes = el('g', {}, fs);
+  [.4,.5,.6,.7,.8,.9].forEach(t => {
+    el('line', {x1:L, x2:R, y1:fy(t), y2:fy(t), stroke:'var(--rule)', 'stroke-width':1}, axes);
+    el('text', {x:L-10, y:fy(t)+4, 'text-anchor':'end', 'font-size':12, fill:'var(--muted)'}, axes, pct(t));
+  });
+  [2018,2020,2022,2024,2026].forEach(t => el('text', {x:fx(t), y:B+22, 'text-anchor':'middle', 'font-size':12, fill:'var(--muted)'}, axes, t));
+  el('text', {x:(L+R)/2, y:B+44, 'text-anchor':'middle', 'font-size':12, fill:'var(--muted)'}, axes, 'Generator release date');
+  el('line', {x1:L, x2:R, y1:fy(.5), y2:fy(.5), stroke:'var(--chance)', 'stroke-dasharray':'5 5', 'stroke-width':1.5}, axes);
+  el('text', {x:L+6, y:fy(.5)+16, 'text-anchor':'start', 'font-size':11, fill:'var(--muted)'}, axes, 'coin flip');
+  const lineOf = lin => gens.filter(g => g.lin === lin && g.id !== 'Diffusion');
+  ['gan','t2i'].forEach(lin => {
+    const pts = lineOf(lin).map(g => fx(g.date) + ',' + fy(g.pooled)).join(' ');
+    el('polyline', {points:pts, fill:'none', stroke:'var(--' + lin + ')', 'stroke-width':2, 'stroke-opacity':.55}, fs);
+  });
+  const dots = el('g', {}, fs);
+  const counts = {};
+  const dotEls = exps.map(([study, gid, acc]) => {
+    const g = gmap[gid]; counts[gid] = (counts[gid] || 0) + 1;
+    const j = ((counts[gid] % 5) - 2) * 3.5;
+    const c = el('circle', {class:'mark', cx:fx(g.date)+j, cy:fy(acc), r:5, fill:'var(--' + g.lin + ')', 'fill-opacity':.75}, dots);
+    el('title', {}, c, study + ': ' + pct(acc) + ' (' + g.name + ')');
+    c.dataset.gen = gid; return c;
+  });
+  const rings = gens.map(g => { const r = el('circle', {class:'mark', cx:fx(g.date), cy:fy(g.pooled), r:9, fill:'var(--surface)', stroke:'var(--' + g.lin + ')', 'stroke-width':2.5}, fs); el('title', {}, r, g.name + ' pooled: ' + pct(g.pooled)); r.dataset.gen = g.id; return r; });
+  el('text', {x:fx(2019.1), y:fy(.8), 'font-size':13, 'font-weight':600, fill:'var(--gan)'}, fs, 'GAN lineage');
+  el('text', {x:fx(2022.95), y:fy(.855), 'font-size':13, 'font-weight':600, fill:'var(--t2i)'}, fs, 'Text-to-image lineage');
+
+  const chips = document.getElementById('gen-chips'), readout = document.getElementById('gen-readout');
+  function select(id){
+    const g = gmap[id];
+    [...chips.children].forEach(b => b.setAttribute('aria-pressed', b.dataset.gen === id ? 'true' : 'false'));
+    dotEls.forEach(c => c.setAttribute('opacity', c.dataset.gen === id ? 1 : .22));
+    rings.forEach(r => { r.setAttribute('opacity', r.dataset.gen === id ? 1 : .35); r.setAttribute('r', r.dataset.gen === id ? 11 : 8); });
+    readout.textContent = g.name + ' · released ' + g.rel + ' · ' + g.k + (g.k === 1 ? ' experiment' : ' experiments') + ' · pooled accuracy ' + (g.pooled * 100).toFixed(1) + '%';
+  }
+  gens.forEach(g => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.dataset.gen = g.id; b.setAttribute('aria-pressed', 'false');
+    b.innerHTML = '<span class="dot" style="background:var(--' + g.lin + ')"></span>' + g.name;
+    b.addEventListener('click', () => select(g.id));
+    chips.appendChild(b);
+  });
+  select('StyleGAN2');
+
+  /* ---------- Size ladder ---------- */
+  const ladder = [['Small',125e6,.76],['Medium',350e6,.61],['Large',760e6,.68],['XL',1.3e9,.62],['2.7B',2.7e9,.62],['6.7B',6.7e9,.60],['13B',13e9,.55],['175B',175e9,.52]];
+  const ls = document.getElementById('ladder');
+  const lx = v => 60 + (v - 8) / (11.5 - 8) * 630, ly = v => 270 - (v - .4) / (.4) * 250;
+  [.4,.5,.6,.7,.8].forEach(t => { el('line', {x1:60, x2:690, y1:ly(t), y2:ly(t), stroke:'var(--rule)'}, ls); el('text', {x:50, y:ly(t)+4, 'text-anchor':'end', 'font-size':12, fill:'var(--muted)'}, ls, pct(t)); });
+  [[8,'100M'],[9,'1B'],[10,'10B'],[11,'100B']].forEach(([v,lab]) => el('text', {x:lx(v), y:292, 'text-anchor':'middle', 'font-size':12, fill:'var(--muted)'}, ls, lab));
+  el('text', {x:375, y:314, 'text-anchor':'middle', 'font-size':12, fill:'var(--muted)'}, ls, 'Parameters (log scale)');
+  el('line', {x1:60, x2:690, y1:ly(.5), y2:ly(.5), stroke:'var(--chance)', 'stroke-dasharray':'5 5', 'stroke-width':1.5}, ls);
+  el('text', {x:66, y:ly(.5)+16, 'text-anchor':'start', 'font-size':11, fill:'var(--muted)'}, ls, 'coin flip');
+  const L10 = ladder.map(d => Math.log10(d[1])), n = ladder.length;
+  const mx = L10.reduce((a,b) => a + b, 0) / n, my = ladder.reduce((a,d) => a + d[2], 0) / n;
+  const slope = L10.reduce((a,v,i) => a + (v - mx) * (ladder[i][2] - my), 0) / L10.reduce((a,v) => a + (v - mx) ** 2, 0), icpt = my - slope * mx;
+  el('line', {x1:lx(8), y1:ly(icpt + slope*8), x2:lx(11.4), y2:ly(icpt + slope*11.4), stroke:'var(--gan)', 'stroke-width':2, 'stroke-opacity':.45}, ls);
+  ladder.forEach(([m,p,a]) => { const c = el('circle', {cx:lx(Math.log10(p)), cy:ly(a), r:6, fill:'var(--gan)'}, ls); el('title', {}, c, 'GPT-3 ' + m + ': ' + pct(a)); el('text', {x:lx(Math.log10(p)), y:ly(a)-12, 'text-anchor':'middle', 'font-size':11.5, fill:'var(--ink)'}, ls, m); });
+
+  /* ---------- Turing test bars ---------- */
+  const tt = [['ELIZA (1966), baseline',.77,'plain'],['GPT-4o, no persona',.79,'plain'],['LLaMa-3.1-405B, humanlike persona',.44,'persona'],['GPT-4.5, humanlike persona',.27,'persona']];
+  const ts = document.getElementById('turing');
+  const bx = v => 250 + v * 440;
+  tt.forEach(([lab,v,kind],i) => {
+    const y = 16 + i * 48;
+    el('text', {x:240, y:y+19, 'text-anchor':'end', 'font-size':12.5, fill:'var(--ink)'}, ts, lab);
+    el('rect', {x:bx(0), y:y+4, width:440, height:22, rx:3, fill:'var(--chip)'}, ts);
+    const r = el('rect', {x:bx(0), y:y+4, width:v*440, height:22, rx:3, fill: kind === 'persona' ? 'var(--t2i)' : 'var(--faint)'}, ts);
+    el('title', {}, r, lab + ': ' + pct(v));
+    el('text', {x:bx(v) + (v > .5 ? -8 : 8), y:y+20, 'text-anchor': v > .5 ? 'end' : 'start', 'font-size':12, 'font-weight':600, fill: v > .5 ? 'var(--surface)' : 'var(--ink)'}, ts, pct(v));
+  });
+  el('line', {x1:bx(.5), x2:bx(.5), y1:10, y2:212, stroke:'var(--chance)', 'stroke-dasharray':'5 5', 'stroke-width':1.5}, ts);
+  el('text', {x:bx(.5), y:226, 'text-anchor':'middle', 'font-size':11, fill:'var(--muted)'}, ts, 'coin flip');
+
+  /* ---------- Expertise toggle ---------- */
+  const es = document.getElementById('expert');
+  const ex = v => 20 + v * 680;
+  el('rect', {x:ex(0), y:30, width:680, height:34, rx:4, fill:'var(--chip)'}, es);
+  const bar = el('rect', {class:'mark', x:ex(0), y:30, width:0, height:34, rx:4, fill:'var(--gan)'}, es);
+  const val = el('text', {x:0, y:53, 'font-size':15, 'font-weight':600, fill:'var(--surface)', 'text-anchor':'end'}, es, '');
+  el('line', {x1:ex(.5), x2:ex(.5), y1:22, y2:72, stroke:'var(--chance)', 'stroke-dasharray':'5 5', 'stroke-width':1.5}, es);
+  el('text', {x:ex(.5), y:90, 'text-anchor':'middle', 'font-size':11, fill:'var(--muted)'}, es, 'coin flip');
+  el('text', {x:ex(1), y:90, 'text-anchor':'end', 'font-size':11, fill:'var(--muted)'}, es, '100%');
+  const segN = document.getElementById('seg-novice'), segE = document.getElementById('seg-expert');
+  function setExp(expert){
+    const v = expert ? .946 : .525;
+    segN.setAttribute('aria-pressed', expert ? 'false' : 'true'); segE.setAttribute('aria-pressed', expert ? 'true' : 'false');
+    bar.setAttribute('width', v * 680); val.setAttribute('x', ex(v) - 10); val.textContent = (v * 100).toFixed(1) + '%';
+  }
+  segN.addEventListener('click', () => setExp(false)); segE.addEventListener('click', () => setExp(true));
+  setExp(false);
+
+  /* ---------- Copy BibTeX ---------- */
+  const copyBtn = document.getElementById('copy-bib'), bib = document.getElementById('bibtex');
+  copyBtn.addEventListener('click', () => {
+    const done = () => { copyBtn.textContent = 'Copied'; setTimeout(() => copyBtn.textContent = 'Copy', 1600); };
+    const fallback = () => { const s = window.getSelection(), r = document.createRange(); r.selectNodeContents(bib); s.removeAllRanges(); s.addRange(r); copyBtn.textContent = 'Selected'; };
+    try { navigator.clipboard.writeText(bib.textContent).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>

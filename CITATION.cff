@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Turing Decay: A Three-Factor Model of Human Detection of AI-Generated Content, with Preregistered Predictions for Audio and Video"
+type: software
+authors:
+  - family-names: Bussing
+    given-names: Jonathan
+    affiliation: Independent researcher
+version: 0.1.0
+date-released: 2026-09-27
+license: MIT
+keywords:
+  - AI-generated content
+  - deepfake detection
+  - human perception
+  - meta-analysis
+  - preregistration
+abstract: >-
+  Pilot re-analysis of 50 face experiments and 17 text results separating
+  generator release date from study date. Human detection accuracy falls with
+  generator capability within architecture lineages, resets when a new family
+  appears, does not improve with background exposure, and rises sharply with
+  hands-on expertise. Includes six preregistered predictions for audio and video.
