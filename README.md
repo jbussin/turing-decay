@@ -6,7 +6,7 @@
 
 Jonathan Bussing · Independent researcher · Pilot study, September 2026
 
-Project page: `https://<your-username>.github.io/turing-decay/` (after enabling GitHub Pages)
+Project page: `https://jbussin.github.io/turing-decay/` 
 
 ---
 
