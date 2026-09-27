@@ -64,16 +64,6 @@ Models are random-effects meta-regressions with DerSimonian-Laird between-study 
 
 The face slope rests on about six generators, and StyleGAN3 appears only in trained groups. Text variances are approximated. The expert–novice comparison rests on 9 annotators. All coding was done by one author without a second coder.
 
-## Enabling the page
-
-1. Push this folder to a public GitHub repository named `turing-decay`.
-2. Settings → Pages → Source: *Deploy from a branch* → `main`, folder `/ (root)`.
-3. Update the project page URL above once Pages is live, and add the arXiv ID when it exists.
-
-## Archiving with Zenodo
-
-Connect the repository at zenodo.org (GitHub integration), then create a GitHub release. Zenodo archives that release and mints a DOI. `CITATION.cff` supplies the metadata. Make the first release before any audio or video data are extracted, so the preregistration carries a dated, citable snapshot.
-
 ## Sources
 
 - Stockner, M., Convertino, G., Cambedda, S., & Mazzoni, G. (2026). Are humans able to discriminate between real and deepfake faces? *Computers in Human Behavior: Artificial Humans*, 9, 100332.
