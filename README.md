@@ -36,6 +36,9 @@ Six falsifiable predictions for audio and video are in [`preregistration.md`](pr
 | `data/faces_pilot.csv` | 50 face experiments coded from Stockner et al. (2026), Appendix A |
 | `data/text_pilot.csv` | 17 text results from 9 studies |
 | `data/gpt3_size_ladder.csv` | Brown et al. (2020), Table 3.11 |
+| `data/generator_lookup.csv` | Frozen audio and video generator table: release dates, architecture families (v0.2.0) |
+| `data/generator_lookup_rules.md` | Rules for assigning dates and families, including mixed and unnamed generators |
+| `data/generator_lookup_additions.csv` | Log of generators added during screening, after the freeze |
 | `analysis/faces_pilot.py` | Random-effects meta-regressions for faces |
 | `analysis/text_pilot.py` | Text models and the GPT-3 size ladder |
 

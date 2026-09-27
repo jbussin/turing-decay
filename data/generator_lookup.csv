@@ -1,0 +1,76 @@
+modality,generator,family,architecture,release_date,release_decimal,date_basis,source,confidence,notes
+audio,Unit-selection concatenative TTS,concatenative,unit selection,1996-05,1996.369,paper,"Hunt & Black, ICASSP 1996",medium,Use for studies naming generic concatenative or unit-selection systems
+audio,HTS (HMM-based speech synthesis),parametric/early neural TTS,HMM statistical parametric,2002-12,2002.953,toolkit release,hts.sp.nitech.ac.jp,medium,"Also covers generic ""statistical parametric"" systems"
+audio,WaveNet,parametric/early neural TTS,autoregressive neural vocoder,2016-09-12,2016.697,arXiv v1,arXiv:1609.03499,high,
+audio,Tacotron,parametric/early neural TTS,seq2seq acoustic model,2017-03-29,2017.238,arXiv v1,arXiv:1703.10135,high,
+audio,Deep Voice 3,parametric/early neural TTS,convolutional seq2seq,2017-10-20,2017.8,arXiv v1,arXiv:1710.07654,high,
+audio,CycleGAN-VC,speech-to-speech conversion,GAN voice conversion,2017-11-30,2017.912,arXiv v1,arXiv:1711.11293,high,
+audio,Tacotron 2,parametric/early neural TTS,seq2seq + WaveNet vocoder,2017-12-16,2017.956,arXiv v1,arXiv:1712.05884,high,
+audio,StarGAN-VC,speech-to-speech conversion,GAN voice conversion,2018-06-06,2018.427,arXiv v1,arXiv:1806.02169,high,
+audio,SV2TTS (speaker-verification transfer TTS),zero-shot cloning,speaker-embedding conditioned TTS,2018-06-12,2018.444,arXiv v1,arXiv:1806.04558,high,Includes the open-source Real-Time-Voice-Cloning implementation
+audio,WaveGlow,parametric/early neural TTS,flow-based vocoder,2018-10-31,2018.83,arXiv v1,arXiv:1811.00002,high,
+audio,AutoVC,speech-to-speech conversion,autoencoder voice conversion,2019-05-14,2019.364,arXiv v1,arXiv:1905.05879,high,
+audio,FastSpeech,parametric/early neural TTS,non-autoregressive acoustic model,2019-05-22,2019.386,arXiv v1,arXiv:1905.09263,high,
+audio,ASVspoof 2019 LA (dataset),mixed (dataset),mixed TTS and VC systems A01-A19,2019,2019.5,dataset release,asvspoof.org,medium,Code by constituent system when a study reports which ones; else use this row
+audio,MelGAN,parametric/early neural TTS,GAN vocoder,2019-10-08,2019.767,arXiv v1,arXiv:1910.06711,high,
+audio,Parallel WaveGAN,parametric/early neural TTS,GAN vocoder,2019-10-25,2019.814,arXiv v1,arXiv:1910.11480,high,
+audio,Glow-TTS,parametric/early neural TTS,flow-based acoustic model,2020-05-22,2020.388,arXiv v1,arXiv:2005.11129,high,
+audio,FastSpeech 2,parametric/early neural TTS,non-autoregressive acoustic model,2020-06-08,2020.434,arXiv v1,arXiv:2006.04558,high,
+audio,HiFi-GAN,parametric/early neural TTS,GAN vocoder,2020-10-12,2020.779,arXiv v1,arXiv:2010.05646,high,
+audio,VITS,parametric/early neural TTS,end-to-end VAE/GAN TTS,2021-06-11,2021.441,arXiv v1,arXiv:2106.06103,high,Single- or multi-speaker trained voices; zero-shot variants go under YourTTS
+audio,ASVspoof 2021 (dataset),mixed (dataset),"mixed, with codec/channel conditions",2021,2021.5,dataset release,asvspoof.org,medium,Channel/codec conditions also count toward deployment effort
+audio,WaveFake (dataset),mixed (dataset),six neural vocoders,2021-11-04,2021.841,arXiv v1,arXiv:2111.02813,high,
+audio,YourTTS,zero-shot cloning,zero-shot multispeaker VITS,2021-12-04,2021.923,arXiv v1,arXiv:2112.02418,high,
+audio,In-the-Wild (dataset),mixed (dataset),deepfakes of public figures from the web,2022-03-30,2022.241,arXiv v1,arXiv:2203.16263,high,Real-world stimuli; code deployment effort as 2
+audio,Tortoise TTS,zero-shot cloning,autoregressive + diffusion decoder,2022-04,2022.285,GitHub release,github.com/neonbjb/tortoise-tts; paper arXiv:2305.07243,medium,Code public about a year before the paper
+audio,so-vits-svc,speech-to-speech conversion,VITS-based singing/voice conversion,2022-09-22,2022.723,first commit,github.com/innnky/so-vits-svc (first commit); svc-develop-team/so-vits-svc is a March 2023 re-upload,high,Use the 2022 date even for studies using the svc-develop-team fork
+audio,FreeVC,speech-to-speech conversion,VITS-based voice conversion,2022-10-27,2022.819,arXiv v1,arXiv:2210.15418,high,
+audio,VALL-E,zero-shot cloning,neural codec language model,2023-01-05,2023.011,arXiv v1,arXiv:2301.02111,high,
+audio,ElevenLabs (beta platform),zero-shot cloning,commercial zero-shot cloning,2023-01,2023.038,product launch,en.wikipedia.org/wiki/ElevenLabs,medium,Use for ElevenLabs outputs dated Jan-Aug 2023 or unversioned
+audio,RVC (Retrieval-based Voice Conversion),speech-to-speech conversion,retrieval-augmented VITS conversion,2023-04-09,2023.268,first tagged release,"github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI, tag 1.0.230410",high,Commit history was re-imported in July 2026; release tags keep the original dates
+audio,Bark (Suno),zero-shot cloning,transformer codec LM,2023-04,2023.285,GitHub release,github.com/suno-ai/bark,medium,
+audio,NaturalSpeech 2,zero-shot cloning,latent diffusion TTS,2023-04-18,2023.293,arXiv v1,arXiv:2304.09116,high,
+audio,kNN-VC,speech-to-speech conversion,nearest-neighbour voice conversion,2023-05-30,2023.408,arXiv v1,arXiv:2305.18975,high,
+audio,Voicebox,zero-shot cloning,flow-matching speech model,2023-06-16,2023.455,announcement,ai.meta.com (paper arXiv:2306.15687),high,
+audio,ElevenLabs Multilingual v2,zero-shot cloning,commercial zero-shot cloning,2023-08-22,2023.638,product launch,techcrunch.com/2023/08/22/elevenlabs-voice-generating-tools-launch-out-of-beta/,high,Use for ElevenLabs outputs dated Aug 2023 to May 2025
+audio,XTTS v2 (Coqui),zero-shot cloning,GPT-style codec LM,2023-11,2023.871,model release,huggingface.co/coqui/XTTS-v2; paper arXiv:2406.04904,medium,
+audio,OpenVoice,zero-shot cloning,instant voice cloning,2023-12-03,2023.921,arXiv v1,arXiv:2312.01479,high,
+audio,NaturalSpeech 3,zero-shot cloning,factorized diffusion,2024-03-05,2024.175,arXiv v1,arXiv:2403.03100,high,
+audio,Seed-TTS,zero-shot cloning,autoregressive + diffusion,2024-06-04,2024.423,arXiv v1,arXiv:2406.02430,high,
+audio,VALL-E 2,zero-shot cloning,neural codec language model,2024-06-08,2024.434,arXiv v1,arXiv:2406.05370,high,
+audio,F5-TTS,zero-shot cloning,flow-matching DiT,2024-10-09,2024.77,arXiv v1,arXiv:2410.06885,high,
+audio,ElevenLabs v3,zero-shot cloning,commercial zero-shot cloning,2025-06,2025.452,product launch,en.wikipedia.org/wiki/ElevenLabs,medium,Use for ElevenLabs outputs dated June 2025 or later
+video,Face2Face,GAN reenactment,facial reenactment,2016-06,2016.454,paper (CVPR 2016),"Thies et al., CVPR 2016",medium,
+video,DeepFakes (original Reddit autoencoder),face-swap autoencoder,shared-encoder autoencoder,2017-12,2017.953,public release,"Motherboard report, Dec 2017",medium,"Use for generic ""deepfake"" face swaps with no tool named"
+video,FaceSwap (open-source),face-swap autoencoder,shared-encoder autoencoder,2017-12-15,2017.953,first commit,github.com/deepfakes/faceswap (first commit),high,
+video,DeepFaceLab,face-swap autoencoder,autoencoder face swap,2018-06-04,2018.422,first commit,github.com/iperov/DeepFaceLab (first commit); paper arXiv:2005.05535,high,Code public about two years before the paper
+video,FaceForensics++ (dataset),mixed (dataset),"Deepfakes, Face2Face, FaceSwap, NeuralTextures",2019-01-25,2019.066,arXiv v1,arXiv:1901.08971,high,Code by manipulation method when reported
+video,NeuralTextures,GAN reenactment,neural rendering reenactment,2019-04-28,2019.321,arXiv v1,arXiv:1904.12356,high,
+video,Celeb-DF (dataset),mixed (dataset),improved autoencoder face swaps,2019-09-27,2019.737,arXiv v1,arXiv:1909.12962,high,Family face-swap autoencoder when coded by method
+video,DFDC preview (dataset),mixed (dataset),mixed face swaps,2019-10-19,2019.797,arXiv v1,arXiv:1910.08854,high,
+video,First Order Motion Model,GAN reenactment,keypoint motion transfer,2019-12,2019.953,paper (NeurIPS 2019),"Siarohin et al., NeurIPS 2019",medium,
+video,FaceShifter,face-swap autoencoder,GAN face swap,2019-12-31,2019.997,arXiv v1,arXiv:1912.13457,high,
+video,DeeperForensics-1.0 (dataset),mixed (dataset),DF-VAE face swaps,2020-01-09,2020.022,arXiv v1,arXiv:2001.03024,high,
+video,DFDC (full dataset),mixed (dataset),mixed face swaps and reenactment,2020-06-12,2020.445,arXiv v1,arXiv:2006.07397,high,
+video,Wav2Lip,GAN reenactment,lip-sync,2020-08-23,2020.642,arXiv v1,arXiv:2008.10010,high,
+video,SimSwap,face-swap autoencoder,identity-injection face swap,2021-06-11,2021.441,arXiv v1,arXiv:2106.06340,high,
+video,Make-A-Video,diffusion/transformer text-to-video,text-to-video diffusion,2022-09-29,2022.742,arXiv v1,arXiv:2209.14792,high,
+video,Imagen Video,diffusion/transformer text-to-video,cascaded video diffusion,2022-10-05,2022.759,arXiv v1,arXiv:2210.02303,high,
+video,Phenaki,diffusion/transformer text-to-video,masked transformer video,2022-10-05,2022.759,arXiv v1,arXiv:2210.02399,high,
+video,SadTalker,GAN reenactment,audio-driven talking head,2022-11-22,2022.89,arXiv v1,arXiv:2211.12194,high,
+video,Runway Gen-2,diffusion/transformer text-to-video,commercial text-to-video,2023-03-20,2023.214,announcement,runwayml.com,medium,Public release June 2023
+video,Stable Video Diffusion,diffusion/transformer text-to-video,latent video diffusion,2023-11-21,2023.888,release,stability.ai,medium,
+video,Pika 1.0,diffusion/transformer text-to-video,commercial text-to-video,2023-11-28,2023.907,announcement,pika.art,medium,
+video,Sora (research preview),diffusion/transformer text-to-video,diffusion transformer,2024-02-15,2024.123,announcement,openai.com/sora,high,Use for 2024 studies with preview clips
+video,Veo,diffusion/transformer text-to-video,commercial text-to-video,2024-05-14,2024.366,announcement,deepmind.google,medium,
+video,Kling,diffusion/transformer text-to-video,diffusion transformer,2024-06-10,2024.44,press release,"ir.kuaishou.com (Kling announcement, June 10, 2024)",high,
+video,Luma Dream Machine,diffusion/transformer text-to-video,commercial text-to-video,2024-06-12,2024.445,product launch,lumalabs.ai,medium,
+video,Runway Gen-3 Alpha,diffusion/transformer text-to-video,commercial text-to-video,2024-06-17,2024.459,announcement,runwayml.com,medium,
+video,Hailuo video-01 (MiniMax),diffusion/transformer text-to-video,commercial text-to-video,2024-09,2024.705,product launch,en.wikipedia.org/wiki/MiniMax_Group,medium,
+video,Movie Gen,diffusion/transformer text-to-video,transformer video + audio,2024-10-04,2024.757,announcement,ai.meta.com,medium,
+video,HunyuanVideo,diffusion/transformer text-to-video,open diffusion transformer,2024-12-03,2024.921,release,github.com/Tencent/HunyuanVideo,medium,
+video,Sora (public),diffusion/transformer text-to-video,diffusion transformer,2024-12-09,2024.937,product launch,openai.com,high,Use for studies with Sora outputs generated after public launch
+video,Veo 2,diffusion/transformer text-to-video,commercial text-to-video,2024-12-16,2024.956,announcement,deepmind.google,medium,
+video,Wan 2.1,diffusion/transformer text-to-video,open diffusion transformer,2025-02-25,2025.151,release,github.com/Wan-Video,medium,
+video,Veo 3,diffusion/transformer text-to-video,text-to-video with native audio,2025-05-20,2025.381,announcement,cnbc.com/2025/05/20/google-ai-video-generator-audio-veo-3.html,high,
+video,Sora 2,diffusion/transformer text-to-video,video + audio generation,2025-09-30,2025.745,announcement,openai.com/index/sora-2/,high,
