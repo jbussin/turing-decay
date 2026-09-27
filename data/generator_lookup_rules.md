@@ -27,6 +27,11 @@ Frozen with `generator_lookup.csv` in release v0.2.0, before any audio or video 
 
 10. Generators not in this table are added during screening using rules 1–4, **before** the study's accuracy values are read. Each addition is logged in `generator_lookup_additions.csv` with the date it was added and the source used. Existing rows are not changed after the freeze. A date found to be wrong is corrected only in a dated deviations note, with the analysis reported both ways.
 
+## Family boundaries decided at the freeze
+
+12. **HMM and early neural TTS are one family** (`parametric/early neural TTS`), as the preregistration defines it. WaveNet therefore does not count as a family reset. The `architecture` column keeps the finer split for exploratory analysis only.
+13. **SV2TTS (2018) is zero-shot cloning**, because it clones an unseen speaker's voice from a few seconds of reference audio. The zero-shot family therefore starts in 2018, not with VALL-E (2023).
+
 ## Open-source repositories
 
 11. For tools released as code, the date is the first commit of the **original** repository, or the first tagged release when the commit history has been rewritten. Re-uploads and forks do not reset the date. Two cases in this table:
