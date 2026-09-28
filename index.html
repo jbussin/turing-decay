@@ -72,6 +72,18 @@ ol.preds li{display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:68ch}
 ol.preds li::before{counter-increment:h;content:"H" counter(h);font-family:var(--mono);font-weight:500;color:var(--gan);padding-top:1px}
 ol.preds .refute{display:block;font-size:.88rem;color:var(--muted)}
 .verdict{display:inline-block;margin-top:6px;font:500 .8rem var(--sans);color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:2px 10px}
+.hslider{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hslider input[type=range]{flex:1;min-width:180px;accent-color:var(--gan)}
+.hslider button{font:500 .85rem var(--sans);border:1px solid var(--rule);background:var(--chip);color:var(--ink);border-radius:999px;width:34px;height:34px;cursor:pointer}
+.hticks{display:flex;justify-content:space-between;font:500 .72rem var(--mono);color:var(--muted);padding:0 46px}
+@media (max-width:520px){.hticks{padding:0 40px}}
+.hticks span{cursor:pointer}
+.hticks span[aria-current="true"]{color:var(--ink);font-weight:600}
+.hhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hverdict{font:600 .8rem var(--sans);padding:4px 12px;border-radius:999px;background:var(--chip)}
+.hverdict[data-tone="good"]{background:color-mix(in srgb,var(--t2i) 18%,transparent)}
+.hverdict[data-tone="mixed"]{background:color-mix(in srgb,var(--gan) 14%,transparent)}
+.hnote{font-size:.9rem;color:var(--muted)}
 .note{font-size:.9rem;color:var(--muted);border-left:2px solid var(--rule);padding-left:14px}
 .files{font-family:var(--mono);font-size:.85rem;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;overflow-x:auto;margin:0;line-height:1.7;white-space:pre}
 .cite{position:relative}
@@ -170,6 +182,20 @@ svg text{font-family:var(--sans)}
 <section aria-labelledby="predictions">
   <h2 id="predictions">Preregistered predictions</h2>
   <p>Registered on 27 September 2026 (release v0.1.0), before any audio or video accuracy value was coded. Each applies to audio and video separately and names the result that would refute it. The verdicts come from the meta-analysis above.</p>
+  <div class="figure" id="hyp-viewer">
+    <div class="hhead"><h3 id="h-title">H1</h3><span class="hverdict" id="h-verdict"></span></div>
+    <p id="h-claim"></p>
+    <svg id="h-plot" viewBox="0 0 720 200" role="img" aria-labelledby="h-title"></svg>
+    <div class="hslider">
+      <button type="button" id="h-prev" aria-label="Previous prediction">&#8249;</button>
+      <input type="range" id="h-range" min="0" max="7" step="1" value="0" aria-label="Choose a prediction">
+      <button type="button" id="h-next" aria-label="Next prediction">&#8250;</button>
+    </div>
+    <div class="hticks" id="h-ticks"></div>
+    <p class="hnote" id="h-note"></p>
+    <p class="caption">Dots are estimates with 95% confidence intervals from the three-level meta-regression (125 groups, 58 studies). The shaded band is the region the preregistration predicted. Units are percentage points unless noted.</p>
+  </div>
+
   <ol class="preds">
     <li><div><strong>Generator decay.</strong> Within a lineage, newer generators yield lower accuracy.<span class="refute">Refuted if the release-date slope is zero or positive in both modalities.</span><span class="verdict">Not refuted · audio d′ declines, accuracy not significant; video flat</span></div></li>
     <li><div><strong>Sawtooth reset.</strong> The first generator of a new architecture family is more detectable than the old lineage's trend predicts.<span class="refute">Refuted if the reset term is zero or negative.</span><span class="verdict">Not supported · too few reset groups</span></div></li>
@@ -349,6 +375,78 @@ PYTHONPATH=analysis python analysis/av_sensitivity.py</pre>
   }
   segN.addEventListener('click', () => setExp(false)); segE.addEventListener('click', () => setExp(true));
   setExp(false);
+
+  /* ---------- Hypothesis slider ---------- */
+  const H = [
+    {k:'H1', t:'Generator decay', claim:'Newer generators should be harder to detect: a negative slope per year of generator release.', unit:'points per year of newer generator', ref:0, dir:-1,
+     rows:[['Audio',-1.29,-3.73,1.15],['Video',-0.13,-1.23,0.96]], verdict:'Not refuted', tone:'mixed',
+     note:'Audio points the predicted way, and its sensitivity (d′) falls 0.23 per year [−0.43, −0.04], which excludes zero. Accuracy alone is not significant, and video is flat.'},
+    {k:'H2', t:'Sawtooth reset', claim:'The first generator of a new family should be easier to detect than the old trend predicts: a positive reset.', unit:'points above the old lineage trend', ref:0, dir:1,
+     rows:[['Audio',-7.1,-27.3,13.1],['Video',2.9,-5.0,10.8]], verdict:'Not supported', tone:'none',
+     note:'Only 7 audio and 12 video groups test a first-of-family generator, so the intervals are wide.'},
+    {k:'H3', t:'No background observer clock', claim:'For a fixed generator, accuracy should not rise with the year a study was run: the interval should stay below +2 points per year.', unit:'points per calendar year, generator held fixed', ref:2, dir:-1,
+     rows:[['Audio',-0.3,-9.5,8.8],['Video',1.8,-0.8,4.4]], verdict:'Inconclusive', tone:'mixed',
+     note:'Neither estimate shows people improving with calendar time, but both intervals still reach past +2, so the registered test cannot confirm it yet.'},
+    {k:'H4', t:'Expertise', claim:'People with hands-on generator experience should detect better: a positive difference.', unit:'points, experts minus untrained', ref:0, dir:1,
+     rows:[['Audio',20.4,-7.3,48.0],['Video',-8.8,-23.4,5.7]], verdict:'Not testable', tone:'none',
+     note:'Only 3 audio and 2 video groups were experts. The audio gap is large but the interval is too wide to test.'},
+    {k:'H5', t:'Deployment effort', claim:'Curated or processed fakes (phone codecs, compression) should be harder to detect: a negative difference.', unit:'points, processed minus raw', ref:0, dir:-1,
+     rows:[['Audio',3.2,-4.6,11.0],['Video',-2.5,-7.5,2.5]], verdict:'Not supported', tone:'none',
+     note:'Video leans the predicted way (one-sided p = .16); audio does not.'},
+    {k:'H6', t:'Video decays more slowly', claim:'Video’s slope should be shallower than audio’s: a positive difference.', unit:'points per year, video slope minus audio slope', ref:0, dir:1,
+     rows:[['Video−audio',1.1,-1.3,3.5]], verdict:'Predicted direction', tone:'mixed',
+     note:'Video does decline more slowly than audio, as predicted, but the difference is not significant.'},
+    {k:'P1', t:'Audio still above chance', claim:'Point prediction: people should still beat chance on audio from the newest generators studied.', unit:'points above chance at the newest audio generator (2024)', ref:0, dir:1,
+     rows:[['Audio',11.7,3.9,19.4]], verdict:'Supported', tone:'good',
+     note:'At the newest audio generator in the data, people are still about 12 points above chance.'},
+    {k:'P2', t:'Video decays slowly', claim:'Point prediction: video should decline at under half the GAN-face rate, so faster than −2.7 points per year is a miss.', unit:'points per year of newer generator', ref:-2.65, dir:1,
+     rows:[['Video',-0.13,-1.23,0.96]], verdict:'Supported', tone:'good',
+     note:'Video’s whole interval lies above −2.7 points per year, half the face rate of −5.3.'}
+  ];
+  const hp = document.getElementById('h-plot'), hr = document.getElementById('h-range');
+  const hticks = document.getElementById('h-ticks');
+  H.forEach((h, i) => { const sp = document.createElement('span'); sp.textContent = h.k; sp.addEventListener('click', () => { hr.value = i; drawH(); }); hticks.appendChild(sp); });
+  const niceStep = span => { const raw = span / 5, m = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / m; return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * m; };
+  function drawH(){
+    const i = +hr.value, h = H[i];
+    document.getElementById('h-title').textContent = h.k + ' · ' + h.t;
+    document.getElementById('h-claim').textContent = h.claim;
+    const vd = document.getElementById('h-verdict'); vd.textContent = h.verdict; vd.dataset.tone = h.tone;
+    document.getElementById('h-note').textContent = h.note;
+    [...hticks.children].forEach((sp, j) => sp.setAttribute('aria-current', j === i ? 'true' : 'false'));
+    while (hp.firstChild) hp.removeChild(hp.firstChild);
+    const vals = h.rows.flatMap(r => [r[2], r[3]]).concat([h.ref]);
+    let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.12 || 1; lo -= pad; hi += pad;
+    const step = niceStep(hi - lo); lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step;
+    const W = Math.max(340, Math.min(720, hp.clientWidth || 720)), sm = W < 520, fs = sm ? 13 : 12;
+    const L = sm ? 92 : 130, R = W - (sm ? 16 : 30), top = 20, rowH = 46, B = top + h.rows.length * rowH + 10;
+    hp.setAttribute('viewBox', `0 0 ${W} ${B + 58}`);
+    const x = v => L + (v - lo) / (hi - lo) * (R - L);
+    const x0 = h.dir > 0 ? x(h.ref) : L, x1 = h.dir > 0 ? R : x(h.ref);
+    el('rect', {x:x0, y:top - 8, width:Math.max(0, x1 - x0), height:B - top + 8, fill:'var(--t2i)', 'fill-opacity':0.10}, hp);
+    el('text', {x:h.dir > 0 ? x1 - 6 : x0 + 6, y:B - 6, 'text-anchor':h.dir > 0 ? 'end' : 'start', 'font-size':11, fill:'var(--muted)'}, hp, 'predicted');
+    for (let t = lo; t <= hi + 1e-9; t += step) {
+      el('line', {x1:x(t), x2:x(t), y1:top - 8, y2:B, stroke:'var(--rule)'}, hp);
+      if (sm && Math.round((t - lo) / step) % 2) continue;
+      el('text', {x:x(t), y:B + 18, 'text-anchor':'middle', 'font-size':fs, fill:'var(--muted)', 'font-variant-numeric':'tabular-nums'}, hp, (Math.abs(t) < 1e-9 ? 0 : +t.toFixed(2)).toString().replace('-', '−'));
+    }
+    el('line', {x1:x(h.ref), x2:x(h.ref), y1:top - 8, y2:B, stroke:'var(--chance)', 'stroke-width':1.5, 'stroke-dasharray':'5 5'}, hp);
+    el('text', {x:sm ? W / 2 : (L + R) / 2, y:B + 42, 'text-anchor':'middle', 'font-size':sm ? 12 : fs, fill:'var(--muted)'}, hp, h.unit);
+    h.rows.forEach((r, j) => {
+      const y = top + 18 + j * rowH, c = r[0].startsWith('Audio') ? 'var(--gan)' : 'var(--t2i)';
+      el('text', {x:L - 12, y:y + 5, 'text-anchor':'end', 'font-size':sm ? 13 : 14, 'font-weight':600, fill:'var(--ink)'}, hp, r[0]);
+      el('line', {x1:x(r[2]), x2:x(r[3]), y1:y, y2:y, stroke:c, 'stroke-width':3, 'stroke-linecap':'round'}, hp);
+      el('circle', {cx:x(r[1]), cy:y, r:7, fill:c, stroke:'var(--surface)', 'stroke-width':2}, hp);
+      const fmt = v => { const d = Math.abs(v) < 1 ? 2 : 1, f = Math.pow(10, d); const r2 = Math.round(Math.abs(v) * f) / f; return (v > 0 ? '+' : v < 0 ? '-' : '') + r2.toFixed(d); };
+      el('text', {x:Math.min(Math.max(x(r[1]), L + 70), R - 70), y:y - 13, 'text-anchor':'middle', 'font-size':fs, fill:'var(--ink)', 'font-variant-numeric':'tabular-nums'}, hp, `${fmt(r[1])} [${fmt(r[2])}, ${fmt(r[3])}]`.replace(/-/g, '−'));
+    });
+    hr.setAttribute('aria-valuetext', h.k + ': ' + h.verdict);
+  }
+  hr.addEventListener('input', drawH);
+  let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(drawH, 120); });
+  document.getElementById('h-prev').addEventListener('click', () => { hr.value = Math.max(0, +hr.value - 1); drawH(); });
+  document.getElementById('h-next').addEventListener('click', () => { hr.value = Math.min(H.length - 1, +hr.value + 1); drawH(); });
+  drawH();
 
   /* ---------- Copy BibTeX ---------- */
   const copyBtn = document.getElementById('copy-bib'), bib = document.getElementById('bibtex');
