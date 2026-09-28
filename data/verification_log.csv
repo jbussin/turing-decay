@@ -1,0 +1,64 @@
+target,status,checked_on,source,note
+ST001,spot_checked_ok,2026-09-27,,values match source (earlier full-text read)
+ST005,verified,2026-09-27,https://www.nature.com/articles/s41467-024-51998-z,"Exp 1a 64/69/86/85%, Exp 1b 65/82/83% confirmed; fabricated audio in Exp 1 by voice actors, so only the visual channel is AI (Wav2Lip)"
+ST006,verified_fix,2026-09-27,https://arxiv.org/pdf/2107.09667,80% is plateau after warm-up (first 10 rounds 67%); true label shown after each round -> training_feedback set to 1
+ST018,verified,2026-09-27,https://www.nature.com/articles/s44260-024-00006-y,"51%, N=2016, 2 videos each confirmed"
+ST033,verified,2026-09-27,https://cise.ufl.edu/~butler/pubs/ccs24-warren-deepfake.pdf,65/71/81% and group Ns confirmed
+ST035,verified_flag,2026-09-27,https://arxiv.org/pdf/2108.01469,"'no idea' option counted as incorrect; G3 are faculty colleagues of the speaker, not audio professionals -> expertise 0"
+ST037,verified,2026-09-27,https://www.nature.com/articles/s41598-026-59364-3,"53.95%, d'=0.20, N=172 confirmed"
+ST049,verified,2026-09-27,https://pmc.ncbi.nlm.nih.gov/articles/PMC12779810/,"63%, N=1901, 70 videos confirmed"
+ST053,verified,2026-09-27,https://www.eurecom.fr/publication/7648/download/sec-publi-7648.pdf,"69% vs 66%, N=21, 112 videos confirmed"
+ST055,verified,2026-09-27,https://www.usenix.org/system/files/usenixsecurity25-yan-ziwei.pdf,"56.69% (N=204), 77.94% (N=114), 78 clips confirmed"
+ST065,drop,2026-09-27,https://arxiv.org/pdf/2402.18085,"72.6% is a majority vote of three evaluators per sample, not mean individual accuracy"
+ST071,drop,2026-09-27,,same 28 Spanish listeners and cell values as ST056-a (duplicate publication)
+ST074,verified,2026-09-27,https://www.mdpi.com/2624-599X/8/2/41,"54.88% (SD 11.36), GSM 63.7, VoIP 56.7, VoLTE 44.0, N=95, 18 clips confirmed"
+ST078,verified,2026-09-27,https://arxiv.org/html/2602.20061v1,"37.5%, N=22, 16 clips (8 AI, 8 human) confirmed; paper withdrawn on arXiv"
+ST096,verified,2026-09-27,https://arxiv.org/pdf/2505.22581,"60%, N=19, 20 videos confirmed"
+ST103,verified,2026-09-27,https://arxiv.org/html/2512.13281,"87.5%, 10 annotators incl. video-generation researchers confirmed"
+ST115,unverified_flag,2026-09-27,https://arxiv.org/html/2605.26136,"pooled 68.7% not found; source gives fakes 71.2% and genuine 64.1%, N=1768, feedback after every trial -> training_feedback 1"
+ST124,drop,2026-09-27,,"stimuli are point-light displays derived from videos, not audio/video deepfakes as presented"
+ST141,verified_fix,2026-09-27,https://hfarid.org/downloads/publications/cvprw26a.pdf,"N=376, 48 trials, authentic 60.0%, Seedance 77.8 / Veo 65.7 / Sora 62.0; balanced accuracy computed"
+ST047,verified_fix,2026-09-27,https://par.nsf.gov/servlets/purl/10524815,"180 per condition, between-subjects; hit and FA per condition; balanced accuracy computed"
+ST044,verified_flag,2026-09-27,https://arxiv.org/html/2508.21052,paper reports both 80 and 60 participants; 60 used; 20 videos each
+ST017,verified_flag,2026-09-27,https://arxiv.org/pdf/2312.05976,audio accuracy and SD per country confirmed; audio-arm N not reported (approximated)
+ST051,verified,2026-09-27,https://www.eneuro.org/content/eneuro/13/3/ENEURO.0300-25.2026.full.pdf,d' only; no percent correct
+ST133,verified_flag,2026-09-27,https://arxiv.org/html/2609.07369v1,"3-choice task (AI-generated / AI-manipulated / real); generators Wan 2.6, Veo 3.1, Grok Imagine 1.0, Kling 3.0, Wan 2.2, HunyuanVideo 1.5, LTX 2.3; several release dates unknown; left unresolved"
+ST102,verified_flag,2026-09-27,https://arxiv.org/html/2602.01284,"deepfakes collected from YouTube, tools unnamed; stays unresolved (rule 8)"
+ST082,not_resolved,2026-09-27,https://zenodo.org/records/19178899,record page does not name generators; PDF not read
+ST117,not_retrieved,2026-09-27,https://arxiv.org/html/2609.28659,HTTP 429 from arXiv
+ST140,not_retrieved,2026-09-27,https://arxiv.org/html/2609.11404,HTTP 429 from arXiv
+ST044-a,drop_from_model,2026-09-27,,pooled row; per-generator rows analysed (lookup rule 5)
+ST076-a,drop_from_model,2026-09-27,,pooled row; per-generator rows analysed (lookup rule 5)
+ST105-a,drop_from_model,2026-09-27,,pooled row; per-method rows analysed (lookup rule 5)
+ST105-h,drop_from_model,2026-09-27,,"unnamed ""SOTA methods""; no generator (lookup rule 8)"
+ST072,drop_from_model,2026-09-27,,"40% non-generative spoofs (replay, mimicry) not separable; N=2 authors"
+ST117,verified,2026-09-27,arXiv 2609.28659v1 source files,"N=80 (HP 31, HoH 15, d/Deaf 17, CI 17), 30 clips (15/15); TPR/TNR per group; generators FaceFusion, SyncTalk, HierSpeech++, Seed-VC"
+ST140,verified_flag,2026-09-27,arXiv 2609.11404v1 source files,"video EXP2b only: N=38, recall ~67%, false positives ~41%; audio arm is MOS only (excluded)"
+ST002,verified,2026-09-28,https://www.nature.com/articles/s41598-025-94170-3,"real 67.4%, AI clones 60.8% verbatim; balanced accuracy 64.1 and FA 32.6 follow exactly"
+ST003,verified,2026-09-28,https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0285333,"70.35% (unary), 85.59% (binary), n = 529 verbatim"
+ST004,verified,2026-09-28,https://pure.uva.nl/ws/files/67787899/1_s2.0_S2589004221013353_main.pdf,"57.6% (SD 11.6), t(209) verbatim"
+ST007,verified,2026-09-28,https://researchonline.jcu.edu.au/79985/1/79985.pdf,"60.70% (SD 13.00), 10 real + 10 fake"
+ST008,verified_flag,2026-09-28,https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0332692,"Exp 1a/1b: human labelled human 81%/62%, AI labelled human 41%/58%, d prime 1.30/0.10 verbatim -> balanced accuracy 70/52 exact; Exp 2 human 72% verbatim, AI rates (61/30) not found in text (figure) -> rows c,d medium"
+ST019,verified,2026-09-28,https://research-portal.uu.nl/ws/portalfiles/portal/263685873/Looks_real_feels_fake_conflict_detection_in_deepfake_videos.pdf,"72.38% (13.64) and 71.02% (17.30); authentic 89.39/80.08, deepfake 54.07/61.95"
+ST025,verified,2026-09-28,https://link.springer.com/article/10.1186/s13640-024-00641-4,"Exp 1 83.90% verbatim; Exp 2 86.63 = (48 x 93.90 + 37 x 77.20)/85, men and women rates verbatim"
+ST029,verified,2026-09-28,https://www.mdpi.com/2079-9292/12/21/4458,"'if the anchorage pairs were not included, the mean value would be 62%'"
+ST031,verified,2026-09-28,https://arxiv.org/html/2405.04097v2,"63.30% -> 67.98%, 110 participants verbatim"
+ST042,verified_flag,2026-09-28,https://orca.cardiff.ac.uk/id/eprint/176003/1/PF%20Attacks.pdf,"Tables 9-10 item ranges consistent with extraction; pooled values computed from item-level percentages, not re-derived"
+ST056,verified,2026-09-28,https://arxiv.org/pdf/2512.09221,"60.52% and 57.60%, 40 natural + 40 deepfake"
+ST061,verified,2026-09-28,https://researchonline.jcu.edu.au/90271/1/90271.pdf,"Study 1 .61 (SD .14), Study 2 .65 (SD .20)"
+ST066,verified_flag,2026-09-28,https://a11y.ist.psu.edu/downloads/real_vs_fake_audio.pdf,"paper overall accuracy (57/59/59%) includes non-generative replay spoofs; extracted rows exclude replay (E5), computed from per-type rates; bona fide 64/67/65% verbatim match FA"
+ST076,verified,2026-09-28,https://dl.designresearchsociety.org/cgi/viewcontent.cgi?article=1382&context=iasdr,"87 participants; real 64%; Veo 3 43%, LTX 79%, Wan VACE 49%"
+ST081,verified,2026-09-28,https://arxiv.org/html/2602.03374,"'The mean accuracy across participants was 66.4%', 40 participants"
+ST092,verified_flag,2026-09-28,https://arxiv.org/html/2601.10383,"single 0.68 (0.12), dual 0.66 (0.13), Exp 2 0.75 (bona fide 0.78, spoof 0.71) verbatim; row a hit/FA (63/30) are pooled over both task conditions"
+ST100,verified,2026-09-28,https://arxiv.org/html/2603.14658,"CharadesDF 0.784 (SD 0.132), DF40 0.743 (SD 0.122), 100 participants per dataset"
+ST108,verified,2026-09-28,https://redfame.com/journal/index.php/smc/article/download/8611/7364,"193 participants; video 56.4%, Sora 52.4%, genuine 63.0%; 3 genuine + 5 Sora"
+ST015,not_verified,2026-09-28,https://www.sciencedirect.com/science/article/pii/S0736585323001570,ScienceDirect bot check blocked access; values from earlier full-text read
+ST039,verified,2026-09-27,ACM full text,per-generator split from Table 4
+ST119,verified,2026-09-27,ACM full text,"N, trials, MaskGCT, dates from full text; accuracy is model estimate"
+ST134,checked,2026-09-27,ACM full text,qualitative only; no rate
+ST062,verified,2026-09-27,OSF prv6e taskD.csv,accuracy computed from trial data
+ST112,verified,2026-09-27,SSRN PDF (user-supplied),Table 3 video cells
+ST125,verified,2026-09-27,IET PDF (user-supplied),Fig. 14 counts; exploratory
+ST127,verified,2026-09-27,JISA PDF (user-supplied),confusion counts; N is responses
+ST026,ineligible,2026-09-27,SSRN PDF (user-supplied),still images (StyleGAN2)
+ST132,verified,2026-09-27,OSF uzh78 trial data (user-supplied CSVs),"exact accuracy, H, FA, d′ per condition; replaces A′/B″D derivation"

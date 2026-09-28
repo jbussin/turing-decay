@@ -71,6 +71,7 @@ ol.preds{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:col
 ol.preds li{display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:68ch}
 ol.preds li::before{counter-increment:h;content:"H" counter(h);font-family:var(--mono);font-weight:500;color:var(--gan);padding-top:1px}
 ol.preds .refute{display:block;font-size:.88rem;color:var(--muted)}
+.verdict{display:inline-block;margin-top:6px;font:500 .8rem var(--sans);color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:2px 10px}
 .note{font-size:.9rem;color:var(--muted);border-left:2px solid var(--rule);padding-left:14px}
 .files{font-family:var(--mono);font-size:.85rem;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;overflow-x:auto;margin:0;line-height:1.7;white-space:pre}
 .cite{position:relative}
@@ -87,14 +88,15 @@ svg text{font-family:var(--sans)}
 <div class="wrap">
 
 <header class="hero">
-  <span class="eyebrow">Pilot study · September 2026</span>
+  <span class="eyebrow">Preregistered meta-analysis · v0.3.0 · September 2026</span>
   <h1>Turing Decay</h1>
   <p class="subtitle">A three-factor model of human detection of AI-generated content, with preregistered predictions for audio and video</p>
   <p class="byline"><strong>Jonathan Bussing</strong> · Independent researcher · <a href="https://doi.org/10.5281/zenodo.22989632">doi:10.5281/zenodo.22989632</a></p>
   <div class="buttons">
-    <span class="btn" aria-disabled="true" title="Preprint coming soon">Paper · coming soon</span>
+    <a class="btn" href="paper/turing_decay.pdf">Paper (PDF)</a>
     <a class="btn" href="#reproduce">Code &amp; data</a>
     <a class="btn" href="https://doi.org/10.5281/zenodo.22989632">Zenodo · DOI</a>
+    <a class="btn" href="#av-results">Audio &amp; video results</a>
     <a class="btn" href="#predictions">Predictions</a>
     <a class="btn" href="#citation">Cite</a>
   </div>
@@ -117,6 +119,17 @@ svg text{font-family:var(--sans)}
     <div class="finding"><span class="num">+0.2</span><h3>points per calendar year</h3><p>Against a fixed generator (StyleGAN2), five years of studies show no gain. Background exposure did not help (p = .82).</p></div>
     <div class="finding"><span class="num">95%</span><h3>for frequent LLM users</h3><p>Novices spotted GPT-4o, Claude 3.5 and o1-pro text 52% of the time. People who use ChatGPT for writing spotted it 95% of the time.</p></div>
   </div>
+</section>
+
+<section aria-labelledby="av-results">
+  <h2 id="av-results">Audio and video: what the meta-analysis found</h2>
+  <p>We tested the preregistered predictions on 125 participant groups from 58 studies of AI-generated audio and video, screened from 7,609 records. A negative slope means people do worse against newer generators.</p>
+  <div class="findings">
+    <div class="finding"><span class="num">+17</span><h3>points above chance</h3><p>People still tell real from AI-generated audio and video better than a coin flip, for audio and video alike.</p></div>
+    <div class="finding"><span class="num">−0.23</span><h3>d′ per generator-year, audio</h3><p>Listeners' sensitivity falls with each year of newer voice generator (95% CI −0.43 to −0.04). Raw accuracy points the same way but is not significant.</p></div>
+    <div class="finding"><span class="num">1.3 yr</span><h3>half-life, text-to-video</h3><p>Video shows no decline overall, but within text-to-video generators people's margin above chance halves in about 1.3 years.</p></div>
+  </div>
+  <p class="note">Who is watching matters too: people caught clones of their own or a friend's voice 86–90% of the time, while strangers were at chance on the same clones. No directional prediction survives the registered correction for multiple tests, and 54 included studies report no usable numbers.</p>
 </section>
 
 <section aria-labelledby="model">
@@ -156,16 +169,16 @@ svg text{font-family:var(--sans)}
 
 <section aria-labelledby="predictions">
   <h2 id="predictions">Preregistered predictions</h2>
-  <p>No audio or video accuracy data had been coded when these were written. Each applies to audio and video separately, and each names the result that would refute it.</p>
+  <p>Registered on 27 September 2026 (release v0.1.0), before any audio or video accuracy value was coded. Each applies to audio and video separately and names the result that would refute it. The verdicts come from the meta-analysis above.</p>
   <ol class="preds">
-    <li><div><strong>Generator decay.</strong> Within a lineage, newer generators yield lower accuracy.<span class="refute">Refuted if the release-date slope is zero or positive in both modalities.</span></div></li>
-    <li><div><strong>Sawtooth reset.</strong> The first generator of a new architecture family is more detectable than the old lineage's trend predicts.<span class="refute">Refuted if the reset term is zero or negative.</span></div></li>
-    <li><div><strong>No background observer clock.</strong> For a fixed generator, untrained accuracy does not rise with the year a study was run.<span class="refute">Refuted if that slope is reliably above +2 points per year.</span></div></li>
-    <li><div><strong>Expertise.</strong> Heavy users of voice-cloning or video-generation tools detect better than untrained participants.<span class="refute">Refuted if the difference is zero or negative.</span></div></li>
-    <li><div><strong>Deployment effort.</strong> Curated or post-processed stimuli (phone-codec audio, compressed social video) are harder to catch than raw outputs of the same generator.<span class="refute">Refuted if the difference is zero or positive.</span></div></li>
-    <li><div><strong>Modality ordering.</strong> Video decays more slowly than audio.<span class="refute">Refuted if video's slope is steeper than audio's.</span></div></li>
+    <li><div><strong>Generator decay.</strong> Within a lineage, newer generators yield lower accuracy.<span class="refute">Refuted if the release-date slope is zero or positive in both modalities.</span><span class="verdict">Not refuted · audio d′ declines, accuracy not significant; video flat</span></div></li>
+    <li><div><strong>Sawtooth reset.</strong> The first generator of a new architecture family is more detectable than the old lineage's trend predicts.<span class="refute">Refuted if the reset term is zero or negative.</span><span class="verdict">Not supported · too few reset groups</span></div></li>
+    <li><div><strong>No background observer clock.</strong> For a fixed generator, untrained accuracy does not rise with the year a study was run.<span class="refute">Refuted if that slope is reliably above +2 points per year.</span><span class="verdict">Inconclusive · intervals still include +2 points per year</span></div></li>
+    <li><div><strong>Expertise.</strong> Heavy users of voice-cloning or video-generation tools detect better than untrained participants.<span class="refute">Refuted if the difference is zero or negative.</span><span class="verdict">Not testable · only 5 expert groups</span></div></li>
+    <li><div><strong>Deployment effort.</strong> Curated or post-processed stimuli (phone-codec audio, compressed social video) are harder to catch than raw outputs of the same generator.<span class="refute">Refuted if the difference is zero or positive.</span><span class="verdict">Not supported · video leans the predicted way (p = .16)</span></div></li>
+    <li><div><strong>Modality ordering.</strong> Video decays more slowly than audio.<span class="refute">Refuted if video's slope is steeper than audio's.</span><span class="verdict">Predicted direction · not significant</span></div></li>
   </ol>
-  <p class="note">Point predictions, recorded for scoring: audio stays above chance for the newest generators studied, and video decays at under half the per-year rate of GAN faces.</p>
+  <p class="note">Point predictions, recorded for scoring: audio stays above chance for the newest generators studied (supported: +11.7 points at the newest generator), and video decays at under half the per-year rate of GAN faces (supported: −0.1 points per year).</p>
 </section>
 
 <section aria-labelledby="reproduce">
@@ -174,14 +187,25 @@ svg text{font-family:var(--sans)}
 <pre class="files">data/faces_pilot.csv        50 face experiments, coded
 data/text_pilot.csv         17 text results from 9 studies
 data/gpt3_size_ladder.csv   Brown et al. 2020, Table 3.11
+data/av_extraction.csv      audio/video groups with verbatim quotes
+data/generator_lookup.csv   frozen generator release dates (v0.2.0)
+search/                     search, screening and PRISMA records
 analysis/faces_pilot.py     two-clock models for faces
 analysis/text_pilot.py      text models and size ladder
+analysis/av_preliminary.py  three-level meta-regression, H1–H6
+analysis/av_sensitivity.py  registered sensitivity analyses
+output/av_results.md        predictions scored
+paper/                      manuscript (LaTeX and PDF)
 preregistration.md          hypotheses, coding scheme, analysis plan
+deviations.md               dated deviations from the plan (D1–D6)
 
 pip install -r requirements.txt
 python analysis/faces_pilot.py
-python analysis/text_pilot.py</pre>
-  <p class="note">Limitations: the face slope rests on about six generators; text variances are approximated from reported percentages; all coding was done by one author. See the preregistration for the full list.</p>
+python analysis/text_pilot.py
+python analysis/code_generators.py
+python analysis/av_preliminary.py
+PYTHONPATH=analysis python analysis/av_sensitivity.py</pre>
+  <p class="note">Limitations: the face slope rests on about six generators; text variances are approximated from reported percentages; extraction and coding were AI-assisted and checked by one author; 54 of 148 included audio and video studies report no usable numbers, and authors were not contacted (deviation D6). See the paper for the full list.</p>
 </section>
 
 <section aria-labelledby="citation" class="cite">
@@ -196,14 +220,14 @@ python analysis/text_pilot.py</pre>
   publisher = {Zenodo},
   doi    = {10.5281/zenodo.22989632},
   url    = {https://doi.org/10.5281/zenodo.22989632},
-  note   = {Pilot study and preregistration}
+  note   = {Version 0.3.0: pilot, preregistration and audio/video meta-analysis}
 }</pre>
     <button class="btn" type="button" id="copy-bib">Copy</button>
   </div>
 </section>
 
 <footer>
-  Data sources: Stockner et al. (2026), <i>Computers in Human Behavior: Artificial Humans</i> 9, 100332; Clark et al. (2021); Brown et al. (2020); Casal &amp; Kessler (2023); Gao et al. (2023); Fleckenstein et al. (2024); Fiedler &amp; Döpke (2025); Russell et al. (2025); Jones &amp; Bergen (2025). Text and figures CC BY 4.0; code MIT.
+  Data sources: Stockner et al. (2026), <i>Computers in Human Behavior: Artificial Humans</i> 9, 100332; Clark et al. (2021); Brown et al. (2020); Casal &amp; Kessler (2023); Gao et al. (2023); Fleckenstein et al. (2024); Fiedler &amp; Döpke (2025); Russell et al. (2025); Jones &amp; Bergen (2025); and the 58 audio and video studies listed in <code>data/av_extraction.csv</code>. Text and figures CC BY 4.0; code MIT.
 </footer>
 
 </div>

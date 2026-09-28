@@ -1,1 +1,57 @@
 generator,modality,family,architecture,release_date,release_decimal,date_basis,source,confidence,added_on,reason
+GPT-SoVITS,audio,zero-shot cloning,few-shot VITS + GPT,2024-01-14,2024.036,code release,GitHub RVC-Boss/GPT-SoVITS repository created 2024-01-14 (GitHub API),high,2026-09-27,named in an included study; not in frozen table
+GPT-SoVITS v3,audio,zero-shot cloning,few-shot VITS + GPT,2025-02-28,2025.159,code release,GitHub release 20250228v3 (GitHub API),high,2026-09-27,named in an included study; not in frozen table
+StarGANv2-VC,audio,speech-to-speech conversion,GAN VC,2021-07-21,2021.551,arXiv,arXiv 2107.10394 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+PPG-VC,audio,speech-to-speech conversion,PPG-based VC,2021,2021.496,paper,"Liu et al. 2021, any-to-many VC with PPGs",low,2026-09-27,named in an included study; not in frozen table
+CosyVoice,audio,zero-shot cloning,LLM + flow matching,2024-07-07,2024.514,arXiv,arXiv 2407.05407 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+JETS,audio,parametric/early neural TTS,end-to-end TTS,2022-03-31,2022.244,arXiv,arXiv 2203.16852 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+MMS TTS (Fairseq),audio,parametric/early neural TTS,VITS-based multilingual,2023-05-22,2023.386,arXiv,arXiv 2305.13516 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+Play.ht 2.0,audio,zero-shot cloning,commercial cloning,2023-09,2023.704,product,Play.ht product announcement,low,2026-09-27,named in an included study; not in frozen table
+MLAAD (dataset),audio,mixed (dataset),dataset,2024-01,2024.038,arXiv,arXiv 2401.09512 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+ASVspoof 5 (dataset),audio,mixed (dataset),dataset,2024-08,2024.62,arXiv,arXiv 2408.08739 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+VoiceWukong (dataset),audio,mixed (dataset),dataset,2024-09,2024.705,arXiv,arXiv 2409.06348 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+AudioLDM,audio,general audio (exploratory),latent diffusion,2023-01-29,2023.077,arXiv,arXiv 2301.12503 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+AudioLDM 2,audio,general audio (exploratory),latent diffusion,2023-08-10,2023.605,arXiv,arXiv 2308.05734 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+DCASE 2023 Task 7 systems,audio,general audio (exploratory),challenge submissions,2023-06,2023.452,challenge,DCASE 2023 Task 7 results,low,2026-09-27,named in an included study; not in frozen table
+Suno v3,music,AI music (exploratory),text-to-music,2024-03-21,2024.219,product,Suno v3 announcement,medium,2026-09-27,named in an included study; not in frozen table
+Udio,music,AI music (exploratory),text-to-music,2024-04-10,2024.273,product,Udio public launch,medium,2026-09-27,named in an included study; not in frozen table
+Mureka,music,AI music (exploratory),text-to-music,2025,2025.496,product,Mureka launch,low,2026-09-27,named in an included study; not in frozen table
+SOUNDRAW,music,AI music (exploratory),generative music service,2020,2020.497,product,SOUNDRAW launch,low,2026-09-27,named in an included study; not in frozen table
+Veo 3.1,video,diffusion/transformer text-to-video,T2V,2025-10-15,2025.786,product,"TechCrunch 2025-10-15, ""Google releases Veo 3.1, adds it to Flow video editor""",high,2026-09-27,named in an included study; not in frozen table
+Seedance 1.0 Pro,video,diffusion/transformer text-to-video,T2V,2025-06-10,2025.438,arXiv,arXiv 2506.09113 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+LTX-Video,video,diffusion/transformer text-to-video,T2V/I2V,2024-11-20,2024.885,code release,GitHub Lightricks/LTX-Video created 2024-11-20 (GitHub API),high,2026-09-27,named in an included study; not in frozen table
+Wan VACE,video,diffusion/transformer text-to-video,video editing,2025-03-10,2025.186,arXiv,arXiv 2503.07598,medium,2026-09-27,named in an included study; not in frozen table
+Wan 2.2,video,diffusion/transformer text-to-video,T2V,2025-07-28,2025.57,code release,GitHub Wan-Video/Wan2.2 created 2025-07-28 (GitHub API),high,2026-09-27,named in an included study; not in frozen table
+Open-Sora 2.0,video,diffusion/transformer text-to-video,T2V,2025-03-12,2025.192,arXiv,arXiv 2503.09642 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+Allegro,video,diffusion/transformer text-to-video,T2V,2024-10-20,2024.801,arXiv,arXiv 2410.15458 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+RAVE (video editing),video,diffusion/transformer text-to-video,diffusion video editing,2023-12-07,2023.932,arXiv,arXiv 2312.04524 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+InsightFace inswapper,video,face-swap autoencoder,face swap,2023-04-02,2023.249,code release,"insightface v0.7 release 2023-04-02 (GitHub API), which introduced the inswapper model",low,2026-09-27,named in an included study; not in frozen table
+Framer,video,diffusion/transformer text-to-video,interpolation,2024-10-24,2024.811,arXiv,arXiv 2410.18978 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+DiffuEraser,video,diffusion/transformer text-to-video,video inpainting,2025-01-17,2025.044,arXiv,arXiv 2501.10018 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+ProPainter,video,diffusion/transformer text-to-video,transformer video inpainting,2023-09-07,2023.682,arXiv,arXiv 2309.03897 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+FSGAN,video,face-swap autoencoder,GAN face swap,2019-08-16,2019.622,arXiv,arXiv 1908.05932,medium,2026-09-27,named in an included study; not in frozen table
+Diff2Lip,video,GAN reenactment,diffusion lip sync,2023-08,2023.619,arXiv,arXiv 2308.09716 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+LatentSync,video,GAN reenactment,latent diffusion lip sync,2024-12-12,2024.945,arXiv,arXiv 2412.09262 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+TPSMM,video,GAN reenactment,motion transfer,2022-03-27,2022.233,arXiv,arXiv 2203.14367 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+HyperReenact,video,GAN reenactment,face reenactment,2023-07-20,2023.548,arXiv,arXiv 2307.10797 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+FADM,video,GAN reenactment,diffusion reenactment,2023-04-06,2023.26,arXiv,arXiv 2304.03199 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+AniFaceDiff,video,GAN reenactment,diffusion reenactment,2024-06-19,2024.464,arXiv,arXiv 2406.13272 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+FaceFusion,video,face-swap autoencoder,face swap tool,2023-08-17,2023.625,code release,GitHub facefusion/facefusion created 2023-08-17 (GitHub API),medium,2026-09-27,named in an included study; not in frozen table
+"DFD (Google DeepFakeDetection, dataset)",video,mixed (dataset),dataset,2019-09-24,2019.729,blog,Google AI blog,medium,2026-09-27,named in an included study; not in frozen table
+DeepFake-TIMIT (dataset),video,mixed (dataset),dataset,2018-12-20,2018.967,arXiv,arXiv 1812.08685 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+UADFV (dataset),video,mixed (dataset),dataset,2018-06-07,2018.43,arXiv,arXiv 1806.02877 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+DF40 (dataset),video,mixed (dataset),dataset,2024-06-19,2024.464,arXiv,arXiv 2406.13495 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+AV-Deepfake1M (dataset),audiovisual,mixed (dataset),dataset,2023-11-26,2023.901,arXiv,arXiv 2311.15308 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+Trusted Media Challenge (dataset),audiovisual,mixed (dataset),dataset,2022-01-13,2022.033,arXiv,arXiv 2201.04788 (month from arXiv ID; day not confirmed),medium,2026-09-27,named in an included study; not in frozen table
+SyncTalk,video,GAN reenactment,NeRF talking head / lip sync,2023-11-29,2023.91,arXiv,arXiv 2311.17590 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+FoR Fake-or-Real (dataset),audio,mixed (dataset),dataset,2019-10,2019.786,paper,"Reimao & Tzerpos, SpeD 2019",medium,2026-09-27,named in an included study; not in frozen table
+MaskGCT,audio,zero-shot cloning,masked generative codec TTS,2024-09-01,2024.667,arXiv,arXiv 2409.00750 v1,medium,2026-09-27,named in an included study; not in frozen table
+HierSpeech++,audio,zero-shot cloning,hierarchical VAE zero-shot TTS,2023-11-21,2023.888,arXiv,arXiv 2311.12454 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+Seed-VC,audio,speech-to-speech conversion,zero-shot diffusion VC,2024-11-15,2024.872,arXiv,arXiv 2411.09943 v1 (OpenAlex),high,2026-09-27,named in an included study; not in frozen table
+Wan 2.6,video,diffusion/transformer text-to-video,T2V (commercial),2025-12,2025.953,paper table,"DF26 (arXiv 2609.07369) Table 1, release month",medium,2026-09-27,named in an included study; not in frozen table
+Grok Imagine 1.0,video,diffusion/transformer text-to-video,T2V (commercial),2026-01,2026.038,paper table,"DF26 (arXiv 2609.07369) Table 1, release month",medium,2026-09-27,named in an included study; not in frozen table
+Kling 3.0,video,diffusion/transformer text-to-video,T2V (commercial),2026-02,2026.123,paper table,"DF26 (arXiv 2609.07369) Table 1, release month",medium,2026-09-27,named in an included study; not in frozen table
+HunyuanVideo 1.5,video,diffusion/transformer text-to-video,T2V/I2V (open),2025-11,2025.871,paper table,"DF26 (arXiv 2609.07369) Table 1, release month",medium,2026-09-27,named in an included study; not in frozen table
+LTX 2.3,video,diffusion/transformer text-to-video,T2V/I2V (open),2026-03,2026.2,paper table,"DF26 (arXiv 2609.07369) Table 1, release month",medium,2026-09-27,named in an included study; not in frozen table
+Celeb-DF++ (dataset),video,mixed (dataset),dataset,2025-07,2025.534,arXiv,Celeb-DF++ paper,low,2026-09-27,named in an included study; not in frozen table
+DeepSpeak v2 (dataset),video,mixed (dataset),dataset,2025,2025.496,dataset,DeepSpeak v2 release,low,2026-09-27,named in an included study; not in frozen table

@@ -1,0 +1,9 @@
+database,date_run,query_file_section,filters,hits,export_file,notes
+OpenAlex,2026-09-27,search_protocol.md §1,year>=2016,7814,exports/openalex_2026-09-27.csv,"Run via the OpenAlex API (title_and_abstract.search filter, cursor paging) from a browser; meta.count was 7812 at start, index grew by 2 during retrieval; 7801 unique OpenAlex IDs"
+PubMed,2026-09-27,search_protocol.md §2,2016:3000[dp],359,exports/pubmed_2026-09-27.csv,Run via NCBI E-utilities esearch + efetch with the §2 string verbatim
+IEEE Xplore,2026-09-27,search_protocol.md §3,2016-2026,1790,exports/ieee_2026-09-27.csv,Run via the Xplore site's search service with the §3 command string verbatim
+OpenAlex cited-by Diel 2024,2026-09-27,search_protocol.md §4,,53,exports/citations_2026-09-27.csv,
+OpenAlex cited-by Stockner 2026,2026-09-27,search_protocol.md §4,,1,exports/citations_2026-09-27.csv,
+References of Diel 2024,2026-09-27,search_protocol.md §4,,103,exports/citations_2026-09-27.csv,137 references listed; 103 resolved in OpenAlex
+References of Stockner 2026,2026-09-27,search_protocol.md §4,,98,exports/citations_2026-09-27.csv,100 references listed; 98 resolved in OpenAlex
+Merged (search/merge.py),2026-09-27,,,7609,records.csv,"10,218 retrieved; 2,609 duplicates removed by DOI then normalized title; 166 unique records came only from citation searching; 770 lack an abstract"

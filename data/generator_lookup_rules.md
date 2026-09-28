@@ -1,6 +1,6 @@
 # Generator lookup: coding rules
 
-Frozen with `generator_lookup.csv` in release v0.2.0, before any audio or video accuracy value was extracted. These rules implement the "Generator release date", "Architecture family" and "Family reset" variables in `preregistration.md`.
+Frozen with `generator_lookup.csv` in release v0.2.0 (doi:10.5281/zenodo.23002314), before any audio or video accuracy value was extracted. These rules implement the "Generator release date", "Architecture family" and "Family reset" variables in `preregistration.md`.
 
 ## Release date
 

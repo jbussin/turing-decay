@@ -1,0 +1,292 @@
+row_id,study_id,modality,generator_verbatim,components,release_decimal,family,coding_status,coding_note
+ST001-a,ST001,video,Deepfake Detection Challenge (DFDC) dataset videos,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST001-b,ST001,video,Deepfake Detection Challenge (DFDC) dataset videos,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST001-c,ST001,video,Deepfake Detection Challenge (DFDC) dataset videos,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST002-a,ST002,audio,ElevenLabs' Instant Voice Cloning API,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,"unversioned ElevenLabs IVC, rule 3"
+ST003-a,ST003,audio,"VITS (trained on LJSpeech for English, CSMSC for Mandarin)",VITS,2021.441,parametric/early neural TTS,coded,
+ST003-b,ST003,audio,"VITS (trained on LJSpeech for English, CSMSC for Mandarin)",VITS,2021.441,parametric/early neural TTS,coded,
+ST004-a,ST004,video,MIT project DetectDeepfake: 'the most difficult videos for AI classifiers to classify from Kaggle's DeepFake Detection Challenge' (DFDC),DFDC (full dataset),2020.445,mixed (dataset),coded,hardest DFDC items (curation)
+ST005-a,ST005,video,Presidential Deepfakes Dataset (PDD): 'applying a deepfake lip-syncing algorithm to real videos' (Wav2Lip); fabricated audio by 'professional voice-actors reading the script',Wav2Lip,2020.642,GAN reenactment,coded,audio from voice actors (human)
+ST005-b,ST005,video,Presidential Deepfakes Dataset (PDD): 'applying a deepfake lip-syncing algorithm to real videos' (Wav2Lip); fabricated audio by 'professional voice-actors reading the script',Wav2Lip,2020.642,GAN reenactment,coded,voice actor audio
+ST005-c,ST005,audiovisual,Presidential Deepfakes Dataset (PDD): 'applying a deepfake lip-syncing algorithm to real videos' (Wav2Lip); fabricated audio by 'professional voice-actors reading the script',Wav2Lip,2020.642,GAN reenactment,coded,voice actor audio
+ST005-d,ST005,audiovisual,Presidential Deepfakes Dataset (PDD): 'applying a deepfake lip-syncing algorithm to real videos' (Wav2Lip); fabricated audio by 'professional voice-actors reading the script',Wav2Lip,2020.642,GAN reenactment,coded,voice actor audio
+ST005-e,ST005,video,Presidential Deepfakes Dataset (PDD): 'applying a deepfake lip-syncing algorithm to real videos' (Wav2Lip); fabricated audio by 'professional voice-actors reading the script',Wav2Lip,2020.642,GAN reenactment,coded,
+ST005-f,ST005,audiovisual,Presidential Deepfakes Dataset (PDD): 'applying a deepfake lip-syncing algorithm to real videos' (Wav2Lip); fabricated audio by 'professional voice-actors reading the script',Wav2Lip,2020.642,GAN reenactment,coded,voice actor audio
+ST005-g,ST005,audiovisual,Presidential Deepfakes Dataset (PDD): 'applying a deepfake lip-syncing algorithm to real videos' (Wav2Lip); fabricated audio by 'professional voice-actors reading the script',Wav2Lip,2020.642,GAN reenactment,coded,voice actor audio
+ST005-h,ST005,audiovisual,Enhanced PDD: Wav2Lip lip-sync with 'visual touch ups with the DeepFaceLab library'; audio from 'Eleven Labs' text-to-speech product' trained on the speakers' voices,Wav2Lip;DeepFaceLab;ElevenLabs (beta platform),2020.701,zero-shot cloning,coded,"pooled components, rule 6; data 2023-06"
+ST005-i,ST005,audiovisual,Enhanced PDD: Wav2Lip lip-sync with 'visual touch ups with the DeepFaceLab library'; audio from professional voice actor,Wav2Lip;DeepFaceLab,2019.532,GAN reenactment,coded,voice actor audio
+ST005-j,ST005,audiovisual,"Barari et al. 2021 videos: 'two deepfakes of Bernie Sanders and Hilary Clinton from the Agarwal et al 2019 dataset, which involve face swapping' plus four other public deepfakes (Boris Johnson, Trump x2, Obama)",FaceSwap (open-source),2017.953,face-swap autoencoder,coded,Agarwal 2019 face swaps; generic
+ST005-k,ST005,audiovisual,Enhanced PDD text-to-speech deepfakes (Wav2Lip + DeepFaceLab visuals; Eleven Labs TTS audio),,,,not_needed,
+ST005-l,ST005,audiovisual,Enhanced PDD text-to-speech deepfakes (Wav2Lip + DeepFaceLab visuals; Eleven Labs TTS audio),Wav2Lip;DeepFaceLab;ElevenLabs Multilingual v2,2020.901,zero-shot cloning,coded,data 2023-12
+ST006-a,ST006,audio,ASVspoof 2019 (logical access) evaluation attacks A07-A19,ASVspoof 2019 LA (dataset),2019.5,mixed (dataset),coded,attacks A07-A19
+ST007-a,ST007,video,DeepFake Detection Challenge (DFDC) dataset,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST008-a,ST008,audio,ElevenLabs 'Voice Design' model,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,Voice Design rows coded to Multilingual v2 (low)
+ST008-b,ST008,audio,ElevenLabs 'Instant Voice Cloning function (with the Eleven Multilingual v2 model)'; source voices from CSTR VCTK database,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,Voice Design rows coded to Multilingual v2 (low)
+ST008-c,ST008,audio,ElevenLabs 'Voice Design' model,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,Voice Design rows coded to Multilingual v2 (low)
+ST008-d,ST008,audio,ElevenLabs 'Instant Voice Cloning function (with the Eleven Multilingual v2 model)',ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,Voice Design rows coded to Multilingual v2 (low)
+ST009-a,ST009,video,DeeperForensics-1.0 dataset,DeeperForensics-1.0 (dataset),2020.022,mixed (dataset),coded,
+ST009-b,ST009,video,Celeb-DF dataset,Celeb-DF (dataset),2019.737,mixed (dataset),coded,
+ST009-c,ST009,video,DFDC dataset,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST009-d,ST009,video,Deep Fake Detection (DFD) dataset,"DFD (Google DeepFakeDetection, dataset)",2019.729,mixed (dataset),coded,
+ST009-e,ST009,video,FaceForensics++ dataset,FaceForensics++ (dataset),2019.066,mixed (dataset),coded,
+ST009-f,ST009,video,DeepFake-TIMIT dataset,DeepFake-TIMIT (dataset),2018.967,mixed (dataset),coded,
+ST009-g,ST009,video,UADFV dataset,UADFV (dataset),2018.43,mixed (dataset),coded,
+ST010-a,ST010,audio,"Synthesia; Yepic; Respeecher; Play.ht; WellSaid Labs; Google (TTV, voice cloning, voice masking)",,,,unresolved,"commercial mix of tools, versions unknown; rule 8 class assignment pending"
+ST010-b,ST010,video,"DeepFaceLab; DeepFaceLive; FaceSwap; SimSwap; commercial services (face swap, head generation, lip sync)",,,,unresolved,"commercial mix of tools, versions unknown; rule 8 class assignment pending"
+ST010-c,ST010,audiovisual,"Synthesia; Yepic; Respeecher; Play.ht; WellSaid Labs; Google (TTV, voice cloning, voice masking) | DeepFaceLab; DeepFaceLive; FaceSwap; SimSwap; commercial services (face swap, head generation, lip sync)",,,,unresolved,"commercial mix of tools, versions unknown; rule 8 class assignment pending"
+ST011-a,ST011,video,DeepFaceLab [35],DeepFaceLab,2018.422,face-swap autoencoder,coded,
+ST011-b,ST011,video,FF-DF (FaceForensics++ FaceSwap technique) [38],DeepFakes (original Reddit autoencoder),2017.953,face-swap autoencoder,coded,FF++ Deepfakes method
+ST011-c,ST011,video,Celeb-DF [26],Celeb-DF (dataset),2019.737,mixed (dataset),coded,
+ST011-d,ST011,video,DeepFaceLab [35],DeepFaceLab,2018.422,face-swap autoencoder,coded,
+ST011-e,ST011,video,FF-DF (FaceForensics++ FaceSwap technique) [38],DeepFakes (original Reddit autoencoder),2017.953,face-swap autoencoder,coded,
+ST011-f,ST011,video,DeepFaceLab [35],DeepFaceLab,2018.422,face-swap autoencoder,coded,
+ST011-g,ST011,video,FF-DF (FaceForensics++ FaceSwap technique) [38],DeepFakes (original Reddit autoencoder),2017.953,face-swap autoencoder,coded,
+ST011-h,ST011,video,DeepFaceLab [35],DeepFaceLab,2018.422,face-swap autoencoder,coded,
+ST011-i,ST011,video,FF-DF (FaceForensics++ FaceSwap technique) [38],DeepFakes (original Reddit autoencoder),2017.953,face-swap autoencoder,coded,
+ST012-a,ST012,video,DeepFaceLab (face swap of actor as fictional official 'John Carter'),,,,not_needed,
+ST012-b,ST012,video,'generative-AI video software' (unnamed; trained on a single 3-minute video of an actor playing fictional influencer 'Amelia Palmer'),,,,not_needed,
+ST013-a,ST013,video,"Facebook Deepfake Detection Challenge (DFDC) videos, hand-picked into five difficulty categories",DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST014-a,ST014,video,,,,,not_needed,
+ST015-a,ST015,video,Celeb-DF dataset,Celeb-DF (dataset),2019.737,mixed (dataset),coded,
+ST016-a,ST016,video,,,,,not_needed,
+ST017-a,ST017,audio,Tacotron 2 acoustic model + Hifi-GAN vocoder trained on LJSpeech,HiFi-GAN,2020.779,parametric/early neural TTS,coded,Tacotron 2 + HiFi-GAN; pipeline dated by newest component
+ST017-b,ST017,audio,Tacotron 2 acoustic model + Hifi-GAN vocoder trained on HUI dataset,HiFi-GAN,2020.779,parametric/early neural TTS,coded,Tacotron 2 + HiFi-GAN; pipeline dated by newest component
+ST017-c,ST017,audio,Tacotron 2 acoustic model + Hifi-GAN vocoder trained on CSMSC dataset,HiFi-GAN,2020.779,parametric/early neural TTS,coded,Tacotron 2 + HiFi-GAN; pipeline dated by newest component
+ST018-a,ST018,video,Facebook Deepfake Detection Challenge (DFDC) dataset,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST019-a,ST019,video,"Celeb-DF (Li et al., 2020): 20 pairs of deepfake and authentic videos",Celeb-DF (dataset),2019.737,mixed (dataset),coded,
+ST019-b,ST019,video,"Celeb-DF (Li et al., 2020): 20 pairs of deepfake and authentic videos",Celeb-DF (dataset),2019.737,mixed (dataset),coded,
+ST020-a,ST020,video,,,,,not_needed,
+ST021-a,ST021,audio,DCASE 2023 Challenge Task 7 (Foley sound synthesis) submitted systems,DCASE 2023 Task 7 systems,2023.452,general audio (exploratory),exploratory,non-speech audio
+ST022-a,ST022,video,"'SAEHD (High Definition Styled AutoEncoder) model (trained over 65,000 iterations)' (DeepFaceLab SAEHD) on an actor playing a fictional politician",,,,not_needed,
+ST022-b,ST022,video,"'SAEHD (High Definition Styled AutoEncoder) model (trained over 65,000 iterations)' (DeepFaceLab SAEHD) on an actor playing a fictional politician",,,,not_needed,
+ST023-a,ST023,video,"Deepfake Detection Challenge (DFDC) videos (stimuli from Groh et al. 2022, ST001)",,,,not_needed,
+ST023-b,ST023,video,"Deepfake Detection Challenge (DFDC) videos (stimuli from Groh et al. 2022, ST001)",,,,not_needed,
+ST024-a,ST024,audiovisual,,,,,not_needed,
+ST025-a,ST025,audio,YourTTS (Coqui TTS toolkit),YourTTS,2021.923,zero-shot cloning,coded,
+ST025-b,ST025,audio,YourTTS (Coqui TTS toolkit),YourTTS,2021.923,zero-shot cloning,coded,
+ST025-c,ST025,audio,YourTTS (Coqui TTS toolkit),YourTTS,2021.923,zero-shot cloning,coded,
+ST026-a,ST026,image,,,,,drop,ineligible: still images
+ST026-b,ST026,image,,,,,drop,ineligible: still images
+ST027-a,ST027,video,DFDCp (Deepfake Detection Challenge preview dataset),DFDC preview (dataset),2019.797,mixed (dataset),coded,
+ST028-a,ST028,audiovisual,"'videos created by Agarwal et al. (2019) and a mix of other publicly available deepfakes' (face swaps of Trump, Obama, Biden, Warren)",FaceSwap (open-source),2017.953,face-swap autoencoder,coded,Agarwal 2019 face swaps and public deepfakes; generic (rule 8)
+ST028-b,ST028,audiovisual,Agarwal et al. (2019) videos and other public deepfakes,FaceSwap (open-source),2017.953,face-swap autoencoder,coded,Agarwal 2019 face swaps and public deepfakes; generic (rule 8)
+ST029-a,ST029,audio,"'Real-Time Voice Cloning repository' using 'SV2TTS framework' (Tacotron synthesizer, WaveRNN vocoder, GE2E encoder)",SV2TTS (speaker-verification transfer TTS),2018.444,zero-shot cloning,coded,
+ST030-a,ST030,video,'lip-sync technology' (tool unnamed),,,,not_needed,
+ST031-a,ST031,audiovisual,"FakeAVCeleb dataset: 'SV2TTS...Wav2Lip, Faceswap, and Fsgan'",SV2TTS (speaker-verification transfer TTS);Wav2Lip;FaceSwap (open-source);FSGAN,2019.165,face-swap autoencoder,coded,"FakeAVCeleb constituents, rule 7"
+ST031-b,ST031,audiovisual,"FakeAVCeleb dataset: 'SV2TTS...Wav2Lip, Faceswap, and Fsgan'",SV2TTS (speaker-verification transfer TTS);Wav2Lip;FaceSwap (open-source);FSGAN,2019.165,face-swap autoencoder,coded,"FakeAVCeleb constituents, rule 7"
+ST032-a,ST032,audiovisual,Synthesia,,,,not_needed,
+ST033-a,ST033,audio,ASVspoof2021 (dataset),ASVspoof 2021 (dataset),2021.5,mixed (dataset),coded,
+ST033-b,ST033,audio,WaveFake (dataset),WaveFake (dataset),2021.841,mixed (dataset),coded,
+ST033-c,ST033,audio,FakeAVCeleb (audio: SV2TTS real-time voice cloning),SV2TTS (speaker-verification transfer TTS),2018.444,zero-shot cloning,coded,FakeAVCeleb audio
+ST034-a,ST034,video,'advanced techniques like Deepface' (unspecified),,,,not_needed,
+ST035-a,ST035,audio,Tacotron 2 + WaveGlow (trained on target professor's lecture recordings),WaveGlow,2018.83,parametric/early neural TTS,coded,Tacotron 2 + WaveGlow; pipeline dated by newest component
+ST035-b,ST035,audio,Tacotron 2 + WaveGlow (trained on target professor's lecture recordings),WaveGlow,2018.83,parametric/early neural TTS,coded,Tacotron 2 + WaveGlow; pipeline dated by newest component
+ST035-c,ST035,audio,Tacotron 2 + WaveGlow (trained on target professor's lecture recordings),WaveGlow,2018.83,parametric/early neural TTS,coded,Tacotron 2 + WaveGlow; pipeline dated by newest component
+ST035-d,ST035,audio,Tacotron 2 + WaveGlow (trained on target professor's lecture recordings),WaveGlow,2018.83,parametric/early neural TTS,coded,Tacotron 2 + WaveGlow; pipeline dated by newest component
+ST036-a,ST036,video,not named,,,,not_needed,
+ST037-a,ST037,audio,ElevenLabs Instant Voice Cloning (stimuli from Lavan et al.),ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,rule 3
+ST038-a,ST038,audiovisual,,,,,not_needed,
+ST039-a,ST039,audio,"ASVspoof2021 LA and DF attack segments (4 fake, 4 bona fide VCTK clips)",ASVspoof 2021 (dataset),2021.5,mixed (dataset),coded,LA+DF segments
+ST039-b,ST039,audio,ElevenLabs voice cloning of four volunteer speakers reading VCTK sentences (2023-24),ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,"ElevenLabs cloning 2023-24, rule 3"
+ST040-a,ST040,video,,,,,not_needed,
+ST041-a,ST041,video,,,,,not_needed,
+ST042-a,ST042,audio,Tortoise TTS zero-shot model (partial fake speech segments),Tortoise TTS,2022.285,zero-shot cloning,coded,partial fakes
+ST042-b,ST042,audiovisual,Tortoise zero-shot model for TTS segments and FreeVC for VC speech; videos from YouTube-8m dataset,Tortoise TTS;FreeVC,2022.552,speech-to-speech conversion,coded,
+ST043-a,ST043,video,"clips from FaceForensics++ and the Deepfake Detection Challenge dataset (refs 50, 51)",FaceForensics++ (dataset);DFDC (full dataset),2019.755,mixed (dataset),coded,pooled datasets
+ST044-a,ST044,video,"Sora, Veo2, Allegro AI, RAVE, InsightFace, Framer, DiffuEraser, ProPainter, AKiRA",,,,drop,pooled row; per-generator rows used (rule 5)
+ST044-b,ST044,video,"Sora, Veo2, Allegro AI (text-to-video)",Sora (public);Veo 2;Allegro,2024.898,diffusion/transformer text-to-video,coded,
+ST044-c,ST044,video,"Sora, Veo2, Allegro AI (image-to-video)",Sora (public);Veo 2;Allegro,2024.898,diffusion/transformer text-to-video,coded,
+ST044-d,ST044,video,"Sora, Veo2, Allegro AI (image+text-to-video)",Sora (public);Veo 2;Allegro,2024.898,diffusion/transformer text-to-video,coded,
+ST044-e,ST044,video,RAVE,RAVE (video editing),2023.932,diffusion/transformer text-to-video,coded,partial manipulation
+ST044-f,ST044,video,InsightFace,InsightFace inswapper,2023.249,face-swap autoencoder,coded,partial
+ST044-g,ST044,video,Framer,Framer,2024.811,diffusion/transformer text-to-video,coded,partial
+ST044-h,ST044,video,"DiffuEraser, ProPainter",DiffuEraser;ProPainter,2024.363,diffusion/transformer text-to-video,coded,partial
+ST044-i,ST044,video,AKiRA,,,,unresolved,AKiRA date unknown
+ST045-a,ST045,video,,,,,not_needed,
+ST046-a,ST046,audiovisual,,,,,not_needed,
+ST047-a,ST047,video,DFDC (Deepfake Detection Challenge preview dataset),DFDC preview (dataset),2019.797,mixed (dataset),coded,
+ST047-b,ST047,video,DFDC (Deepfake Detection Challenge preview dataset),DFDC preview (dataset),2019.797,mixed (dataset),coded,
+ST047-c,ST047,video,DFDC (Deepfake Detection Challenge preview dataset),DFDC preview (dataset),2019.797,mixed (dataset),coded,
+ST047-d,ST047,video,DFDC (Deepfake Detection Challenge preview dataset),DFDC preview (dataset),2019.797,mixed (dataset),coded,
+ST047-e,ST047,video,DFDC (Deepfake Detection Challenge preview dataset),DFDC preview (dataset),2019.797,mixed (dataset),coded,
+ST048-a,ST048,audiovisual,a deepfake video of the American actor Tom Cruise created and made public by the VFX artist Chris Ume,DeepFaceLab,2018.422,face-swap autoencoder,coded,"DeepTomCruise (Chris Ume); tool per press reports, low"
+ST048-b,ST048,audiovisual,a deepfake video of the American actor Tom Cruise created and made public by the VFX artist Chris Ume,DeepFaceLab,2018.422,face-swap autoencoder,coded,"DeepTomCruise (Chris Ume); tool per press reports, low"
+ST048-c,ST048,audiovisual,a deepfake video of the American actor Tom Cruise created and made public by the VFX artist Chris Ume,DeepFaceLab,2018.422,face-swap autoencoder,coded,"DeepTomCruise (Chris Ume); tool per press reports, low"
+ST049-a,ST049,video,Deepfake Detection Challenge (DFDC) dataset,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST050-a,ST050,video,Google Deepfake dataset,,,,not_needed,
+ST051-a,ST051,audio,GPT-SoVITS-V3 (non-fine-tuned AI),GPT-SoVITS v3,2025.159,zero-shot cloning,coded,
+ST051-b,ST051,audio,GPT-SoVITS-V3 (fine-tuned AI),GPT-SoVITS v3,2025.159,zero-shot cloning,coded,
+ST051-c,ST051,audio,GPT-SoVITS-V3 (non-fine-tuned AI),GPT-SoVITS v3,2025.159,zero-shot cloning,coded,
+ST051-d,ST051,audio,GPT-SoVITS-V3 (fine-tuned AI),GPT-SoVITS v3,2025.159,zero-shot cloning,coded,
+ST052-a,ST052,music,"ProgGP (Transformer-based, progressive metal); genre-CTRL (rock) - symbolic (tablature) generation",,,,not_needed,
+ST053-a,ST053,video,Celeb-DF-B (beautification-filtered subset of CelebDF / Celeb-DF),Celeb-DF (dataset),2019.737,mixed (dataset),coded,beautification filters (post-processing)
+ST053-b,ST053,video,Celeb-DF-B (beautification-filtered subset of CelebDF / Celeb-DF),Celeb-DF (dataset),2019.737,mixed (dataset),coded,beautification filters (post-processing)
+ST054-a,ST054,video,,,,,not_needed,
+ST055-a,ST055,audio,VoiceWukong: 19 advanced commercial tools and 15 open-source tools; 34 generation methods (29 for TTS and 5 for VC),VoiceWukong (dataset),2024.705,mixed (dataset),coded,
+ST055-b,ST055,audio,VoiceWukong: 19 advanced commercial tools and 15 open-source tools; 34 generation methods (29 for TTS and 5 for VC),VoiceWukong (dataset),2024.705,mixed (dataset),coded,
+ST056-a,ST056,audio,"ElevenLabs' Text-to-Speech (TTS) software, Eleven Multilingual v2 model (default settings)",ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,
+ST056-b,ST056,audio,"ElevenLabs' Text-to-Speech (TTS) software, Eleven Multilingual v2 model (default settings)",ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,
+ST057-a,ST057,video,same stimulus set as Groh et al. 2021 (DFDC),,,,not_needed,
+ST058-a,ST058,audio,,,,,not_needed,
+ST059-a,ST059,audiovisual,,,,,not_needed,
+ST060-a,ST060,audiovisual,"political deepfakes, lower- and higher-quality versions (tool not named)",,,,unresolved,"political deepfakes, tool not named"
+ST060-b,ST060,audiovisual,political deepfakes (tool not named),,,,unresolved,"political deepfakes, tool not named"
+ST060-c,ST060,audiovisual,political deepfakes (tool not named),,,,unresolved,"political deepfakes, tool not named"
+ST060-d,ST060,audiovisual,political deepfakes (tool not named),,,,unresolved,"political deepfakes, tool not named"
+ST061-a,ST061,video,Deepfake Detection Challenge (DFDC) Dataset,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST061-b,ST061,video,Deepfake Detection Challenge (DFDC) Dataset,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST061-c,ST061,video,Deepfake Detection Challenge (DFDC) Dataset,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST061-d,ST061,video,Deepfake Detection Challenge (DFDC) Dataset,DFDC (full dataset),2020.445,mixed (dataset),coded,
+ST062-a,ST062,audio,ElevenLabs Instant Voice Cloning,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,rule 3
+ST062-b,ST062,audio,ElevenLabs Instant Voice Cloning,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,rule 3
+ST062-c,ST062,audio,ElevenLabs Instant Voice Cloning,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,rule 3
+ST063-a,ST063,audio,ElevenLabs' Instant Voice Cloning services,,,,not_needed,
+ST064-a,ST064,video,"existing deepfakes and real videos of well-known politicians and celebrities (Tom Cruise, Barack Obama, Volodymyr Zelenskyy deepfakes)",,,,not_needed,
+ST065-a,ST065,audio,"FREE-VC, StarGANv2-VC, PPG-VC",FreeVC;StarGANv2-VC;PPG-VC,2021.955,speech-to-speech conversion,coded,"pooled, rule 6"
+ST066-a,ST066,audio,ASVspoof Challenge (Logical Access / Deep Fake datasets) - TTS; ASVspoof Challenge Deep Fake (DF) dataset - 'Deep Fake',ASVspoof 2019 LA (dataset);ASVspoof 2021 (dataset),2020.5,mixed (dataset),coded,
+ST066-b,ST066,audio,ASVspoof Challenge (Logical Access / Deep Fake datasets) - TTS,ASVspoof 2019 LA (dataset),2019.5,mixed (dataset),coded,
+ST066-c,ST066,audio,ASVspoof Challenge Deep Fake (DF) dataset - 'Deep Fake',ASVspoof 2021 (dataset),2021.5,mixed (dataset),coded,
+ST066-d,ST066,audio,ASVspoof Challenge (Logical Access / Deep Fake datasets) - TTS; ASVspoof Challenge Deep Fake (DF) dataset - 'Deep Fake',ASVspoof 2019 LA (dataset);ASVspoof 2021 (dataset),2020.5,mixed (dataset),coded,
+ST066-e,ST066,audio,ASVspoof Challenge (Logical Access / Deep Fake datasets) - TTS,ASVspoof 2019 LA (dataset),2019.5,mixed (dataset),coded,
+ST066-f,ST066,audio,ASVspoof Challenge Deep Fake (DF) dataset - 'Deep Fake',ASVspoof 2021 (dataset),2021.5,mixed (dataset),coded,
+ST066-g,ST066,audio,ASVspoof Challenge (Logical Access / Deep Fake datasets) - TTS; ASVspoof Challenge Deep Fake (DF) dataset - 'Deep Fake',ASVspoof 2019 LA (dataset);ASVspoof 2021 (dataset),2020.5,mixed (dataset),coded,
+ST066-h,ST066,audio,ASVspoof Challenge (Logical Access / Deep Fake datasets) - TTS,ASVspoof 2019 LA (dataset),2019.5,mixed (dataset),coded,
+ST066-i,ST066,audio,ASVspoof Challenge Deep Fake (DF) dataset - 'Deep Fake',ASVspoof 2021 (dataset),2021.5,mixed (dataset),coded,
+ST067-a,ST067,audiovisual,,,,,not_needed,
+ST068-a,ST068,video,,,,,not_needed,
+ST069-a,ST069,audiovisual,,,,,not_needed,
+ST070-a,ST070,audiovisual,"six different methods collected from a public video sharing website, ranging from prosthetic makeup to Deepfakes",,,,not_needed,
+ST071-a,ST071,audio,"ElevenLabs' Text-to-Speech (TTS) software, Eleven Multilingual v2 model",ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,
+ST072-a,ST072,audio,"TTS: MelGAN, Google WaveNet, Descript; VC: ASSEM-VC; plus replay (ASVspoof 2017) and human mimicry; genuine: FoR dataset, LJ Speech dataset, Obama's public speeches",,,,drop,"40% non-generative spoofs, N=2 authors"
+ST073-a,ST073,audio,"a deepfake generation system (not named in abstract); voices from volunteers and publicly available podcasts (prominent people, e.g. the UK Prime Minister)",,,,not_needed,
+ST074-a,ST074,audio,ElevenLabs (commercial few-shot voice cloning),ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,rule 3
+ST074-b,ST074,audio,ElevenLabs (commercial few-shot voice cloning),ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,rule 3
+ST074-c,ST074,audio,ElevenLabs (commercial few-shot voice cloning),ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,rule 3
+ST074-d,ST074,audio,ElevenLabs (commercial few-shot voice cloning),ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,rule 3
+ST075-a,ST075,audiovisual,,,,,not_needed,
+ST076-a,ST076,video,Google's Veo 3 (text-to-video); Lightricks LTX Video (image-to-video); Wan VACE (outpainting),,,,drop,pooled row; per-generator rows used
+ST076-b,ST076,video,Google's Veo 3,Veo 3,2025.381,diffusion/transformer text-to-video,coded,
+ST076-c,ST076,video,Lightricks LTX Video,LTX-Video,2024.885,diffusion/transformer text-to-video,coded,
+ST076-d,ST076,video,Wan VACE,Wan VACE,2025.186,diffusion/transformer text-to-video,coded,
+ST077-a,ST077,audio,"ElevenLabs 'Voice Design' model, clones created December 2024",ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,"ElevenLabs Voice Design, Dec 2024"
+ST078-a,ST078,audio,"Play.ht (personas ""Michael"" and ""Matt"")",Play.ht 2.0,2023.704,zero-shot cloning,coded,withdrawn paper; unversioned product
+ST079-a,ST079,video,Qianhe (face-swapping tool),,,,not_needed,
+ST079-b,ST079,video,Qianhe (face-swapping tool),,,,not_needed,
+ST080-a,ST080,audio,Google's Wavenet text-to-speech synthesizer,,,,not_needed,
+ST081-a,ST081,video,Google Veo 3.1 (October 2025),Veo 3.1,2025.786,diffusion/transformer text-to-video,coded,
+ST082-a,ST082,video,"Sora or Kling (per paper: ""AI models like Sora or Kling"")",Sora 2;Kling,2025.092,diffusion/transformer text-to-video,coded,"""AI models like Sora or Kling""; versions per data date (rule 3), Kling version unresolved"
+ST083-a,ST083,video,"not reported (manipulated videos, tool unknown)",,,,excluded_rule8,generator not reported
+ST084-a,ST084,video,,,,,not_needed,
+ST085-a,ST085,video,,,,,not_needed,
+ST086-a,ST086,video,,,,,not_needed,
+ST087-a,ST087,video,,,,,no_generator,community data; check
+ST088-a,ST088,audio,advanced machine voice (Google Duplex-era) and simple machine voice (not named in abstract),,,,not_needed,
+ST089-a,ST089,video,,,,,not_needed,
+ST090-a,ST090,video,,,,,no_generator,check source
+ST090-b,ST090,video,,,,,no_generator,check source
+ST090-c,ST090,video,,,,,no_generator,check source
+ST090-d,ST090,video,,,,,no_generator,check source
+ST091-a,ST091,audio,"ElevenLabs Starter, Instant Voice Cloning, Eleven Multilingual v2 model",ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,ElevenLabs IVC Multilingual v2 (named)
+ST092-a,ST092,audio,TorToise (per-speaker models trained on YouTube material of four newsreaders),Tortoise TTS,2022.285,zero-shot cloning,coded,
+ST092-b,ST092,audio,TorToise (per-speaker models trained on YouTube material of four newsreaders),Tortoise TTS,2022.285,zero-shot cloning,coded,
+ST092-c,ST092,audio,TorToise (per-speaker models trained on YouTube material of four newsreaders),Tortoise TTS,2022.285,zero-shot cloning,coded,
+ST093-a,ST093,music,"Suno, Udio, and Mureka",Suno v3;Udio;Mureka,2024.663,AI music (exploratory),exploratory,music
+ST094-a,ST094,audiovisual,,,,,not_needed,
+ST095-a,ST095,video,,,,,no_generator,check source
+ST096-a,ST096,audiovisual,"ArEnAV dataset: text edits by GPT-4.1-mini; TTS XTTS-v2, Fairseq Arabic TTS, GPT-TTS, OpenVoice-v2 conversion; lip-sync Diff2Lip and LatentSync",XTTS v2 (Coqui);MMS TTS (Fairseq);OpenVoice;Diff2Lip;LatentSync,2023.948,GAN reenactment,coded,"GPT-TTS component undated, omitted"
+ST097-a,ST097,music,,,,,not_needed,
+ST098-a,ST098,audio,"LJ JETS, YourTTS, XTTS V2, GPT-SoVITS, CosyVoice, ElevenLabs",JETS;YourTTS;XTTS v2 (Coqui);GPT-SoVITS;CosyVoice;ElevenLabs v3,2023.673,zero-shot cloning,coded,localization task; ElevenLabs version per data date
+ST098-b,ST098,audio,"LJ JETS, YourTTS, XTTS V2, GPT-SoVITS, CosyVoice, ElevenLabs",JETS;YourTTS;XTTS v2 (Coqui);GPT-SoVITS;CosyVoice;ElevenLabs v3,2023.673,zero-shot cloning,coded,localization task; ElevenLabs version per data date
+ST099-a,ST099,video,open-source video generators (aggregate),,,,unresolved,unnamed open-source aggregate
+ST099-b,ST099,video,"closed-source video generators (aggregate, incl. Seedance2.0 and Kling)",,,,unresolved,closed-source aggregate
+ST099-c,ST099,video,Seedance2.0,,,,unresolved,Seedance 2.0 date unknown
+ST099-d,ST099,video,Kling,Kling,2024.44,diffusion/transformer text-to-video,coded,version unresolved; coded to table row (low)
+ST100-a,ST100,video,"CharadesDF: ""publicly available face-swapping tools"" (not named)",FaceSwap (open-source),2017.953,face-swap autoencoder,coded,"generic face swap, rule 8"
+ST100-b,ST100,video,"DF40 (10 forgery techniques, not enumerated in text read)",DF40 (dataset),2024.464,mixed (dataset),coded,
+ST101-a,ST101,video,FaceForensics++ dataset,,,,not_needed,
+ST102-a,ST102,video,"in-the-wild deepfakes from YouTube and other public sources (face swapping, lipsyncing, and facial reenactment)",,,,unresolved,in-the-wild mix
+ST103-a,ST103,audiovisual,"Veo3.1-Fast, Wan2.2-A14B, Opensora-V2, HunyuanVideo",Veo 3.1;Wan 2.2;Open-Sora 2.0;HunyuanVideo,2025.367,diffusion/transformer text-to-video,coded,
+ST104-a,ST104,audio,AudioLDM2 +AudioSR (inpainting),AudioLDM 2,2023.605,general audio (exploratory),exploratory,non-speech
+ST104-b,ST104,audio,AudioLDM2 +AudioSR (inpainting),AudioLDM 2,2023.605,general audio (exploratory),exploratory,non-speech
+ST104-c,ST104,audio,AudioLDM1 (inpainting),AudioLDM,2023.077,general audio (exploratory),exploratory,non-speech
+ST105-a,ST105,video,"AniFaceDiff, TPSMM, FaceVid, HyperReenact, FaceFusion, FADM, SOTA methods",,,,drop,pooled row
+ST105-b,ST105,video,AniFaceDiff,AniFaceDiff,2024.464,GAN reenactment,coded,implausible d-prime; verify
+ST105-c,ST105,video,TPSMM,TPSMM,2022.233,GAN reenactment,coded,verify
+ST105-d,ST105,video,FaceVid,,,,unresolved,FaceVid undated
+ST105-e,ST105,video,HyperReenact,HyperReenact,2023.548,GAN reenactment,coded,verify
+ST105-f,ST105,video,FaceFusion,FaceFusion,2023.625,face-swap autoencoder,coded,verify
+ST105-g,ST105,video,FADM,FADM,2023.26,GAN reenactment,coded,verify
+ST105-h,ST105,video,SOTA methods,,,,drop,unnamed SOTA methods
+ST106-a,ST106,audiovisual,AV-Deepfake1M,AV-Deepfake1M (dataset),2023.901,mixed (dataset),coded,
+ST106-b,ST106,audiovisual,TMC (Trusted Media Challenge dataset),Trusted Media Challenge (dataset),2022.033,mixed (dataset),coded,
+ST107-a,ST107,video,,,,,not_needed,
+ST108-a,ST108,video,OpenAI's Sora,Sora (public),2024.937,diffusion/transformer text-to-video,coded,
+ST109-a,ST109,video,not reported (deepfakes of Obama and Elon Musk collected from Twitter and YouTube),,,,not_needed,
+ST110-a,ST110,music,SOUNDRAW,SOUNDRAW,2020.497,AI music (exploratory),exploratory,music
+ST111-a,ST111,music,Suno AI and Udio AI,Suno v3;Udio,2024.246,AI music (exploratory),exploratory,music
+ST112-a,ST112,video,Wan Video 2.2 (open-source text-to-video); real clips from pexels.com,Wan 2.2,2025.57,diffusion/transformer text-to-video,coded,named with version
+ST112-b,ST112,video,Wan Video 2.2 (open-source text-to-video); real clips from pexels.com,Wan 2.2,2025.57,diffusion/transformer text-to-video,coded,named with version
+ST113-a,ST113,video,"deepfake video task ""adapted from Köbis et al. (2021)"" (videos not further specified)",Celeb-DF (dataset),2019.737,mixed (dataset),coded,Koebis 2021 stimuli
+ST114-a,ST114,video,,,,,no_generator,check source
+ST115-a,ST115,audio,"138 TTS and VC systems across 10 architecture families (Seq2Seq, VITS, XTTS, Flow, Diffusion, AR-LM, VC, Commercial, ASVspoof 5); fakes from ASVspoof 5 and English subset of MLAAD; bona fide from LJSpeech, In-The-Wild, ASVspoof 5",MLAAD (dataset);ASVspoof 5 (dataset),2024.329,mixed (dataset),coded,pooled over 138 systems; approximated by source datasets
+ST115-b,ST115,audio,Commercial (commercial TTS APIs; individual products not named in retrieved text),,,,unresolved,"commercial family, products unnamed"
+ST115-c,ST115,audio,AR-LM (autoregressive language-model TTS; systems from MLAAD English subset),VALL-E,2023.011,zero-shot cloning,coded,"family label, earliest of class (rule 8)"
+ST115-d,ST115,audio,Seq2Seq,Tacotron,2017.238,parametric/early neural TTS,coded,"family label, rule 8"
+ST115-e,ST115,audio,Flow (flow-matching TTS),Glow-TTS,2020.388,parametric/early neural TTS,coded,"family label, rule 8"
+ST115-f,ST115,audio,ASVspoof 5,ASVspoof 5 (dataset),2024.62,mixed (dataset),coded,
+ST116-a,ST116,video,,,,,not_needed,
+ST118-a,ST118,video,puppetry deepfakes (tool not named in abstract),,,,not_needed,
+ST119-a,ST119,audio,"MaskGCT zero-shot TTS, run locally on-site from participant recordings",MaskGCT,2024.667,zero-shot cloning,coded,MaskGCT zero-shot TTS (named in full text)
+ST120-a,ST120,audiovisual,"FakeAVCeleb dataset (FaceSwap, 'Tacotrin' [SV2TTS], FSGAN, Wav2Lip)",SV2TTS (speaker-verification transfer TTS);Wav2Lip;FaceSwap (open-source);FSGAN,2019.165,face-swap autoencoder,coded,"FakeAVCeleb constituents, rule 7"
+ST120-b,ST120,audiovisual,"FakeAVCeleb dataset (FaceSwap, 'Tacotrin' [SV2TTS], FSGAN, Wav2Lip)",SV2TTS (speaker-verification transfer TTS);Wav2Lip;FaceSwap (open-source);FSGAN,2019.165,face-swap autoencoder,coded,"FakeAVCeleb constituents, rule 7"
+ST121-a,ST121,audio,"PhonemeFake (PF) variants (LM-guided segmental edit + unnamed ""TTS model""); original spoofs from ITW and ASV21 benchmark datasets",,,,not_needed,
+ST122-a,ST122,video,,,,,not_needed,
+ST123-a,ST123,video,,,,,not_needed,
+ST124-a,ST124,video,"Google DeepFakeDetection dataset (face-swap deepfakes, ""DeepFakes autoencoder method"")","DFD (Google DeepFakeDetection, dataset)",2019.729,mixed (dataset),coded,
+ST125-a,ST125,video,WavePaint inpainting of ballot-box digits in video (custom pipeline),,,,exploratory,"ballot-video inpainting, not faces or voices"
+ST125-b,ST125,video,digit images pasted into ballot video after WavePaint inpainting (custom pipeline),,,,exploratory,"ballot-video inpainting, not faces or voices"
+ST126-a,ST126,audio,"ElevenLabs TTS, 'Eleven Multilingual v2' model, default settings",ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,
+ST127-a,ST127,audio,"The Fake-or-Real (FoR) dataset, York University (Kaggle), plus a few Lovo, PlayHT and ResembleAI clones",FoR Fake-or-Real (dataset),2019.786,mixed (dataset),coded,majority of stimuli from FoR; few commercial clones not separable
+ST128-a,ST128,audiovisual,"""Fabricated content was created with Eleven Labs for audio synthesis and synclabs.so for video manipulation."" (speeches written by ChatGPT)",,,,not_needed,
+ST129-a,ST129,audio,"""three AI-cloning software programs"" (not named)",,,,excluded_rule8,tools not named
+ST130-a,ST130,audio,AI voice cloning (tool not named in abstracts),,,,not_needed,
+ST131-a,ST131,audio,RTVC (2019),SV2TTS (speaker-verification transfer TTS),2018.444,zero-shot cloning,coded,RTVC
+ST131-b,ST131,audio,YourTTS (2022),YourTTS,2021.923,zero-shot cloning,coded,
+ST131-c,ST131,audio,ElevenLabs (2024),ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,ElevenLabs 2024
+ST132-a,ST132,audio,ElevenLabs speech-to-speech voice changer,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,"ElevenLabs speech-to-speech, rule 3"
+ST132-b,ST132,audio,ElevenLabs speech-to-speech voice changer,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,"ElevenLabs speech-to-speech, rule 3"
+ST132-c,ST132,audio,ElevenLabs speech-to-speech voice changer,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,"ElevenLabs speech-to-speech, rule 3"
+ST132-d,ST132,audio,ElevenLabs speech-to-speech voice changer,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,"ElevenLabs speech-to-speech, rule 3"
+ST132-e,ST132,audio,ElevenLabs speech-to-speech voice changer,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,"ElevenLabs speech-to-speech, rule 3"
+ST132-f,ST132,audio,ElevenLabs speech-to-speech voice changer,ElevenLabs Multilingual v2,2023.638,zero-shot cloning,coded,"ElevenLabs speech-to-speech, rule 3"
+ST133-a,ST133,video,"DF26 dataset: seven text-to-video / image-to-video models incl. Grok Imagine 1.0, Kling 3.0, Veo 3.1, Wan variants, LTX 2.3 I2V (partial list as retrieved)",Wan 2.6;Veo 3.1;Grok Imagine 1.0;Kling 3.0;Wan 2.2;HunyuanVideo 1.5;LTX 2.3,2025.934,diffusion/transformer text-to-video,coded,DF26 generators from its Table 1; 3-option response
+ST133-b,ST133,video,"Celeb-DF++ (CDFv3); Table S1 rows include AniTalker, BlendFace, CDFv2, DaGAN, ...",Celeb-DF++ (dataset),2025.534,mixed (dataset),coded,
+ST133-c,ST133,video,DeepSpeak v2 (DSv2),DeepSpeak v2 (dataset),2025.496,mixed (dataset),coded,
+ST134-a,ST134,audio,"ElevenLabs voice clone (education licence), pre-recorded message played on speakerphone",,,,not_needed,
+ST135-a,ST135,audiovisual,,,,,not_needed,
+ST136-a,ST136,audio,,,,,not_needed,
+ST137-a,ST137,audiovisual,text-to-video and video-to-audio GenAI models (not named in abstract),,,,not_needed,
+ST138-a,ST138,audiovisual,"ElevenLabs (synthetic speech), Suno (music), Revid.ai (video)",,,,not_needed,
+ST139-a,ST139,video,"WAN 2.2 via ComfyUI (text/image-to-video, actor replacement, motion transfer)",Wan 2.2,2025.57,diffusion/transformer text-to-video,coded,
+ST141-a,ST141,video,ByteDance Seedance Pro 1,Seedance 1.0 Pro,2025.438,diffusion/transformer text-to-video,coded,
+ST141-b,ST141,video,Google Veo 3.1,Veo 3.1,2025.786,diffusion/transformer text-to-video,coded,
+ST141-c,ST141,video,Sora 2,Sora 2,2025.745,diffusion/transformer text-to-video,coded,
+ST141-d,ST141,video,"Google Veo 3.1, ByteDance Seedance Pro 1, and Sora 2",Veo 3.1;Seedance 1.0 Pro;Sora 2,2025.656,diffusion/transformer text-to-video,coded,
+ST141-e,ST141,video,"Google Veo 3.1, ByteDance Seedance Pro 1, and Sora 2",Veo 3.1;Seedance 1.0 Pro;Sora 2,2025.656,diffusion/transformer text-to-video,coded,
+ST142-a,ST142,audio,multimodal LLM-based vishing framework (TTS not identified),,,,not_needed,
+ST143-a,ST143,audio,,,,,not_needed,
+ST144-a,ST144,audiovisual,"in-the-wild celebrity deepfakes from public sources: face swap, lip sync, reenactment with synthetic audio; one fully AI-generated actor (tools not named)",,,,unresolved,"in-the-wild deepfakes, tools not named"
+ST145-a,ST145,video,"Face Forensics++, BioDeepAV, DFW, DDL",,,,unresolved,BioDeepAV/DFW/DDL undated
+ST145-b,ST145,video,"Face Forensics++, BioDeepAV, DFW, DDL",,,,unresolved,BioDeepAV/DFW/DDL undated
+ST145-c,ST145,video,"Face Forensics++, BioDeepAV, DFW, DDL",,,,unresolved,BioDeepAV/DFW/DDL undated
+ST146-a,ST146,audiovisual,"BuzzFeed Obama/Jordan Peele deepfake (face-grafting; ""Peele's production team has digitally reconstructed Obama's face to mirror his""; voice is human impersonation by Jordan Peele)",DeepFakes (original Reddit autoencoder),2017.953,face-swap autoencoder,coded,2018 Obama/Peele (FakeApp); voice human
+ST147-a,ST147,video,"custom deepfakes ""tailored for the specific audience and where suited, are created from scratch"" (tool not named)",,,,not_needed,
+ST148-a,ST148,video,First Order Motion (FOM) model (video-to-video synthesis; audio from driving video),First Order Motion Model,2019.953,GAN reenactment,coded,
+ST148-b,ST148,video,First Order Motion (FOM) model,First Order Motion Model,2019.953,GAN reenactment,coded,
+ST148-c,ST148,video,First Order Motion (FOM) model,First Order Motion Model,2019.953,GAN reenactment,coded,
+ST148-d,ST148,video,First Order Motion (FOM) model,First Order Motion Model,2019.953,GAN reenactment,coded,
+ST117-a,ST117,audiovisual,FaceFusion (InSwapper-128-fp16 + GPEN-BFR-2048) face swap; SyncTalk lip sync; HierSpeech++ TTS; Seed-VC voice conversion,FaceFusion;SyncTalk;HierSpeech++;Seed-VC,2024.074,speech-to-speech conversion,coded,pooled over four manipulation families (rule 6); family tie resolved to newest
+ST117-b,ST117,audiovisual,FaceFusion (InSwapper-128-fp16 + GPEN-BFR-2048) face swap; SyncTalk lip sync; HierSpeech++ TTS; Seed-VC voice conversion,FaceFusion;SyncTalk;HierSpeech++;Seed-VC,2024.074,speech-to-speech conversion,coded,pooled over four manipulation families (rule 6); family tie resolved to newest
+ST117-c,ST117,audiovisual,FaceFusion (InSwapper-128-fp16 + GPEN-BFR-2048) face swap; SyncTalk lip sync; HierSpeech++ TTS; Seed-VC voice conversion,FaceFusion;SyncTalk;HierSpeech++;Seed-VC,2024.074,speech-to-speech conversion,coded,pooled over four manipulation families (rule 6); family tie resolved to newest
+ST117-d,ST117,audiovisual,FaceFusion (InSwapper-128-fp16 + GPEN-BFR-2048) face swap; SyncTalk lip sync; HierSpeech++ TTS; Seed-VC voice conversion,FaceFusion;SyncTalk;HierSpeech++;Seed-VC,2024.074,speech-to-speech conversion,coded,pooled over four manipulation families (rule 6); family tie resolved to newest
+ST140-a,ST140,video,DeepFaceLab (real-time deepfake),DeepFaceLab,2018.422,face-swap autoencoder,coded,real-time DeepFaceLab

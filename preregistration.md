@@ -60,7 +60,7 @@ Prediction from the pilot, stated for scoring later: audio is still above chance
 - Manipulations that are not generative (splicing, speed changes, cheap-fakes)
 - Non-English reports without an available translation
 
-Two coders screen titles, abstracts and full texts independently; disagreements go to discussion, then a third coder. If a second coder is not available, a random 20% of records will be double-coded by a volunteer and agreement (Cohen's kappa) reported.
+A single author screens titles, abstracts and full texts and extracts all data. To limit drift, screening decisions and every coding judgment are logged with a one-line reason, and a random 20% of records are re-coded by the same author at least two weeks later, with intra-rater agreement (Cohen's kappa) reported. Single-coder screening and extraction is disclosed as a limitation.
 
 ## Coding scheme
 
@@ -121,8 +121,8 @@ Analyses run in R (metafor) or Python (statsmodels), with code published before 
 
 **Deviations:** any change after archiving is listed in a deviations table in the paper, with the date, the reason and whether it was made before or after seeing outcome data. Results from changed analyses are labeled exploratory; the registered analysis is always reported too.
 
-**Open questions before archiving:**
+**Decisions recorded at archiving:**
 
-- [ ] Who serves as second coder
-- [ ] Whether text and faces get a formal re-analysis under this scheme (exploratory only) in the same paper
-- [ ] Target venue after arXiv
+- Coding: single author, with a delayed 20% re-code for intra-rater agreement (see Search strategy and eligibility).
+- H3 threshold: +2 points per year.
+- Faces and text may be re-analyzed under this scheme in the same paper; any such analysis is labeled exploratory.

@@ -6,13 +6,16 @@ authors:
   - family-names: Bussing
     given-names: Jonathan
     affiliation: Independent researcher
-version: 0.2.0
-date-released: 2026-09-27
+version: 0.3.0
+date-released: 2026-09-28
 doi: 10.5281/zenodo.22989632
 identifiers:
   - type: doi
     value: 10.5281/zenodo.22989632
     description: Zenodo archive of release v0.1.0 (preregistration snapshot)
+  - type: doi
+    value: 10.5281/zenodo.23002314
+    description: Zenodo archive of release v0.2.0 (frozen generator lookup table)
 license: MIT
 keywords:
   - AI-generated content
@@ -22,7 +25,9 @@ keywords:
   - preregistration
 abstract: >-
   Pilot re-analysis of 50 face experiments and 17 text results separating
-  generator release date from study date. Human detection accuracy falls with
-  generator capability within architecture lineages, resets when a new family
-  appears, does not improve with background exposure, and rises sharply with
-  hands-on expertise. Includes six preregistered predictions for audio and video.
+  generator release date from study date, a three-factor model (Turing Decay),
+  and a preregistered meta-analysis of human detection of AI-generated audio
+  and video (125 participant groups, 58 studies). People still detect AI audio
+  and video about 17 percentage points above chance; audio sensitivity falls
+  0.23 d' per year of newer generator; within text-to-video generators the
+  margin above chance halves in about 1.3 years.
