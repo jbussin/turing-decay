@@ -12,6 +12,7 @@
 :root{
   --ground:#F5F6F8; --surface:#FFFFFF; --ink:#15181D; --muted:#5B6370; --faint:#8A919C; --rule:#DCE0E6;
   --gan:#2F56E0; --t2i:#0E8F7E; --chance:#9AA1AB; --chip:#EBEEF3; --focus:#2F56E0;
+  --warn:#B4542A; --warn-soft:rgba(180,84,42,.10); --gan-soft:rgba(47,86,224,.12); --t2i-soft:rgba(14,143,126,.16);
   --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
   --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -21,12 +22,14 @@
     color-scheme:dark;
     --ground:#0E1116; --surface:#151A21; --ink:#E6E9EE; --muted:#9AA3AF; --faint:#6E7682; --rule:#262D37;
     --gan:#7C9BFF; --t2i:#3CC7B0; --chance:#6E7682; --chip:#1D232C; --focus:#7C9BFF;
+    --warn:#E58A5F; --warn-soft:rgba(229,138,95,.13); --gan-soft:rgba(124,155,255,.16); --t2i-soft:rgba(60,199,176,.16);
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
   --ground:#0E1116; --surface:#151A21; --ink:#E6E9EE; --muted:#9AA3AF; --faint:#6E7682; --rule:#262D37;
   --gan:#7C9BFF; --t2i:#3CC7B0; --chance:#6E7682; --chip:#1D232C; --focus:#7C9BFF;
+    --warn:#E58A5F; --warn-soft:rgba(229,138,95,.13); --gan-soft:rgba(124,155,255,.16); --t2i-soft:rgba(60,199,176,.16);
 }
 *{box-sizing:border-box}
 body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;padding-inline:20px;padding-block:0}
@@ -68,7 +71,7 @@ section{display:flex;flex-direction:column;gap:16px}
 .mctl .ctl{display:flex;flex-direction:column;gap:4px}
 .mctl .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .mctl label,.mctl .lab{font-weight:600;font-size:.88rem}
-.mctl output{font:500 .82rem var(--mono);font-variant-numeric:tabular-nums;color:var(--muted)}
+.mctl output{white-space:nowrap;font:500 .82rem var(--mono);font-variant-numeric:tabular-nums;color:var(--muted)}
 .mctl input[type=range]{width:100%;accent-color:var(--gan)}
 .mstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
 .mstats div{display:flex;flex-direction:column;border-top:2px solid var(--ink);padding-top:8px}
@@ -76,6 +79,12 @@ section{display:flex;flex-direction:column;gap:16px}
 .mstats span{font-size:.8rem;color:var(--muted)}
 .mctl .seg{display:flex;align-self:stretch;border-radius:10px}
 .mctl .seg button{flex:1 1 auto;padding:6px 8px;border-radius:8px}
+.law.eqn{font-family:var(--serif);font-size:clamp(1.1rem,3vw,1.45rem);line-height:1.6}
+.law.eqn sub,.law.eqn sup{font-size:.62em}
+.term{padding:1px 4px;border-radius:4px}
+.t-cap{background:var(--gan-soft)}
+.t-dep{background:var(--warn-soft)}
+.t-exp{background:var(--t2i-soft)}
 .lawnum{font:400 .85rem var(--mono);color:var(--muted);white-space:normal;margin-top:6px}
 .lawnum b{color:var(--ink);font-weight:500}
 .seg{display:inline-flex;border:1px solid var(--rule);border-radius:999px;padding:3px;background:var(--chip);align-self:flex-start;flex-wrap:wrap}
@@ -161,7 +170,7 @@ svg text{font-family:var(--sans)}
 <section aria-labelledby="model">
   <h2 id="model">The model</h2>
   <p>The human advantage over chance, A, is set by three factors. Within a generator family it decays as the family's generators improve, halving every half-life. Deployment effort D pushes it down, below zero if the prompting is good enough. Hands-on expertise E is the only factor that pushes back.</p>
-  <div class="law" aria-live="polite">A = A<sub>0</sub> · e<sup>−λt</sup> − δ·D + γ·E, &nbsp;λ = ln 2 / half-life<div class="lawnum" id="m-eq"></div></div>
+  <div class="law eqn" aria-live="polite">A = <span class="term t-cap">A<sub>0</sub> · e<sup>−λ·t</sup></span> − <span class="term t-dep">δ · D</span> + <span class="term t-exp">γ · E</span><div class="lawnum" id="m-eq">λ = ln 2 / half-life</div></div>
   <div class="figure" id="model-explorer">
     <div class="chips" id="m-presets" role="group" aria-label="Generator family"></div>
     <div class="mstats">
@@ -434,19 +443,19 @@ PYTHONPATH=analysis python analysis/av_sensitivity.py</pre>
       const lam = Math.LN2 / st.hl, A = edge(st.t, true), acc = Math.max(0, Math.min(100, 50 + A));
       $('m-a0-o').textContent = '+' + st.a0.toFixed(1) + ' pts'; $('m-hl-o').textContent = fmtY(st.hl); $('m-t-o').textContent = st.t.toFixed(1) + ' yr';
       $('m-d-o').textContent = '−' + DELTA * st.d + ' pts'; $('m-e-o').textContent = '+' + st.e + ' pts';
-      $('m-eq').innerHTML = `= <b>${st.a0.toFixed(1)}</b> · e<sup>−${lam.toFixed(2)} × ${st.t.toFixed(1)}</sup> − <b>${DELTA * st.d}</b> + <b>${st.e}</b> = <b>${sg(A)}</b> points, accuracy ≈ <b>${acc.toFixed(1)}%</b>`;
+      $('m-eq').innerHTML = `λ = ln 2 / ${fmtY(st.hl)} = ${lam.toFixed(2)}; &nbsp;A = <b>${st.a0.toFixed(1)}</b> · e<sup>−${lam.toFixed(2)} × ${st.t.toFixed(1)}</sup> − <b>${DELTA * st.d}</b> + <b>${st.e}</b> = <b>${sg(A)}</b> points, accuracy ≈ <b>${acc.toFixed(1)}%</b>`;
       $('m-acc').textContent = acc.toFixed(0) + '%'; $('m-edge').textContent = sg(A); $('m-hl').textContent = fmtY(st.hl);
       $('m-near').textContent = st.a0 > 2 ? fmtY(st.hl * Math.log2(st.a0 / 2)) : 'already';
       const svg = $('m-plot'); while (svg.firstChild) svg.removeChild(svg.firstChild);
       const W = Math.max(340, Math.min(720, svg.clientWidth || 720)), sm = W < 520; svg.setAttribute('viewBox', `0 0 ${W} 340`);
       const L = sm ? 40 : 52, R = W - 16, T = 16, B = 290, X1 = 8, x = v => L + v / X1 * (R - L), y = v => B - v / 100 * (B - T);
-      el('rect', {x:L, y:y(50), width:R - L, height:B - y(50), fill:'var(--chip)'}, svg);
-      el('text', {x:R - 6, y:B - 8, 'text-anchor':'end', 'font-size':12, fill:'var(--muted)'}, svg, sm ? 'fooled' : 'fooled more often than chance');
+      el('rect', {x:L, y:y(50), width:R - L, height:B - y(50), fill:'var(--warn-soft)'}, svg);
+      el('text', {x:R - 6, y:B - 8, 'text-anchor':'end', 'font-size':12, fill:'var(--warn)'}, svg, sm ? 'fooled' : 'fooled more often than chance');
       for (let v = 0; v <= 100; v += 25) { el('line', {x1:L, x2:R, y1:y(v), y2:y(v), stroke:'var(--rule)'}, svg); el('text', {x:L - 8, y:y(v) + 4, 'text-anchor':'end', 'font-size':12, fill:'var(--muted)'}, svg, v + '%'); }
       for (let v = 0; v <= X1; v += sm ? 2 : 1) el('text', {x:x(v), y:B + 20, 'text-anchor':'middle', 'font-size':12, fill:'var(--muted)'}, svg, v);
       el('text', {x:(L + R) / 2, y:B + 42, 'text-anchor':'middle', 'font-size':12, fill:'var(--muted)'}, svg, 'Years since the family’s first generator');
       el('line', {x1:L, x2:R, y1:y(50), y2:y(50), stroke:'var(--chance)', 'stroke-width':1.5, 'stroke-dasharray':'5 5'}, svg);
-      el('text', {x:L + 6, y:y(50) - 6, 'font-size':12, fill:'var(--muted)'}, svg, 'coin flip');
+      el('text', {x:L + 6, y:y(50) - 6, 'font-size':12, fill:'var(--muted)'}, svg, 'chance (50%)');
       for (let k = 1; k <= 3; k++) { const th = k * st.hl; if (th > X1) break;
         el('line', {x1:x(th), x2:x(th), y1:T, y2:B, stroke:'var(--gan)', 'stroke-opacity':0.35, 'stroke-dasharray':'2 4'}, svg);
         el('text', {x:x(th) + 4, y:T + 12, 'font-size':12, fill:'var(--gan)'}, svg, [sm ? '1/2' : '1/2 left','1/4','1/8'][k - 1]); }
