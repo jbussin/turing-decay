@@ -64,6 +64,20 @@ section{display:flex;flex-direction:column;gap:16px}
 .law{font-family:var(--mono);font-size:clamp(.85rem,2.6vw,1.05rem);background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;overflow-x:auto;white-space:nowrap}
 .factors{display:flex;flex-direction:column;gap:20px}
 .factor-head{display:flex;flex-direction:column;gap:4px}
+.mctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 20px}
+.mctl .ctl{display:flex;flex-direction:column;gap:4px}
+.mctl .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.mctl label,.mctl .lab{font-weight:600;font-size:.88rem}
+.mctl output{font:500 .82rem var(--mono);font-variant-numeric:tabular-nums;color:var(--muted)}
+.mctl input[type=range]{width:100%;accent-color:var(--gan)}
+.mstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.mstats div{display:flex;flex-direction:column;border-top:2px solid var(--ink);padding-top:8px}
+.mstats b{font-family:var(--serif);font-size:1.5rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.mstats span{font-size:.8rem;color:var(--muted)}
+.mctl .seg{display:flex;align-self:stretch;border-radius:10px}
+.mctl .seg button{flex:1 1 auto;padding:6px 8px;border-radius:8px}
+.lawnum{font:400 .85rem var(--mono);color:var(--muted);white-space:normal;margin-top:6px}
+.lawnum b{color:var(--ink);font-weight:500}
 .seg{display:inline-flex;border:1px solid var(--rule);border-radius:999px;padding:3px;background:var(--chip);align-self:flex-start;flex-wrap:wrap}
 .seg button{font:500 .82rem var(--sans);border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
@@ -146,8 +160,26 @@ svg text{font-family:var(--sans)}
 
 <section aria-labelledby="model">
   <h2 id="model">The model</h2>
-  <p>The human advantage over chance, A, is set by three factors. Within an architecture family f it decays as generator capability C rises. Deployment effort D pushes it down, below zero if the prompting is good enough. Hands-on expertise E is the only factor that pushes back.</p>
-  <div class="law" aria-label="A equals A zero f times e to the minus lambda f times C minus C zero f, minus delta D, plus gamma E">A = A<sub>0,f</sub> · e<sup>−λ<sub>f</sub>(C − C<sub>0,f</sub>)</sup> − δ·D + γ·E</div>
+  <p>The human advantage over chance, A, is set by three factors. Within a generator family it decays as the family's generators improve, halving every half-life. Deployment effort D pushes it down, below zero if the prompting is good enough. Hands-on expertise E is the only factor that pushes back.</p>
+  <div class="law" aria-live="polite">A = A<sub>0</sub> · e<sup>−λt</sup> − δ·D + γ·E, &nbsp;λ = ln 2 / half-life<div class="lawnum" id="m-eq"></div></div>
+  <div class="figure" id="model-explorer">
+    <div class="chips" id="m-presets" role="group" aria-label="Generator family"></div>
+    <div class="mstats">
+      <div><b id="m-acc"></b><span>accuracy at the chosen year</span></div>
+      <div><b id="m-edge"></b><span>points above chance</span></div>
+      <div><b id="m-hl"></b><span>half-life</span></div>
+      <div><b id="m-near"></b><span>until within 2 points of chance</span></div>
+    </div>
+    <svg id="m-plot" viewBox="0 0 720 340" role="img" aria-label="Detection accuracy over years since a generator family's first release"></svg>
+    <div class="mctl">
+      <div class="ctl"><div class="row"><label for="m-a0">Starting edge, A<sub>0</sub></label><output id="m-a0-o"></output></div><input type="range" id="m-a0" min="0" max="45" step="0.5"></div>
+      <div class="ctl"><div class="row"><label for="m-hlr">Half-life</label><output id="m-hl-o"></output></div><input type="range" id="m-hlr" min="0" max="100" step="1"></div>
+      <div class="ctl"><div class="row"><label for="m-t">Years since first release</label><output id="m-t-o"></output></div><input type="range" id="m-t" min="0" max="8" step="0.1"></div>
+      <div class="ctl"><div class="row"><span class="lab">Deployment effort, D</span><output id="m-d-o"></output></div><div class="seg" id="m-d" role="group" aria-label="Deployment effort"></div></div>
+      <div class="ctl"><div class="row"><span class="lab">Observer expertise, E</span><output id="m-e-o"></output></div><div class="seg" id="m-e" role="group" aria-label="Observer expertise"></div></div>
+    </div>
+    <p class="caption">Presets use the half-lives estimated in the meta-analysis: text-to-video starts about 33 points above chance and halves in 1.3 years (18 groups, 14 release dates); zero-shot voice cloning starts at 26 points and halves in about 5 years (30 groups); GAN faces halved in roughly 6 to 12 months (pilot, few generators; starting edge approximate). Solid line: untrained viewers, raw outputs. Dashed line: with the chosen effort and expertise. Each effort step subtracts 10 points and the expertise steps add 7 (training, faces) or 42 (heavy users, text); these are illustrative magnitudes, not fitted values. Half-lives rest on few release dates, so treat them as rough.</p>
+  </div>
 </section>
 
 <section aria-labelledby="factors">
@@ -375,6 +407,60 @@ PYTHONPATH=analysis python analysis/av_sensitivity.py</pre>
   }
   segN.addEventListener('click', () => setExp(false)); segE.addEventListener('click', () => setExp(true));
   setExp(false);
+
+  /* ---------- Model explorer ---------- */
+  (function(){
+    const $ = id => document.getElementById(id);
+    const P = [{id:'t2v', name:'Text-to-video', a0:33, hl:1.3, t:1.5}, {id:'voice', name:'Voice cloning', a0:26, hl:5.0, t:3}, {id:'gan', name:'GAN faces', a0:12, hl:0.75, t:1}];
+    const DL = [['Raw',0],['Curated',1],['Processed',2],['Persona',3]], EL = [['Untrained',0],['Trained',7],['Heavy user',42]], DELTA = 10;
+    const st = {p:'t2v', a0:33, hl:1.3, t:1.5, d:0, e:0};
+    const hlFrom = v => 0.25 * Math.pow(40, v / 100), hlTo = h => Math.round(Math.log(h / 0.25) / Math.log(40) * 100);
+    const fmtY = y => y < 1 ? Math.round(y * 12) + ' mo' : y.toFixed(1) + ' yr';
+    const sg = v => (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(1);
+    const pr = $('m-presets');
+    P.forEach(p => { const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = p.name; b.dataset.id = p.id;
+      b.addEventListener('click', () => { Object.assign(st, {p:p.id, a0:p.a0, hl:p.hl, t:p.t}); sync(); }); pr.appendChild(b); });
+    const seg = (host, lv, key) => lv.forEach(([lab, v]) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = lab; b.dataset.v = v; b.addEventListener('click', () => { st[key] = v; draw(); }); $(host).appendChild(b); });
+    seg('m-d', DL, 'd'); seg('m-e', EL, 'e');
+    $('m-a0').addEventListener('input', e => { st.a0 = +e.target.value; st.p = ''; draw(); });
+    $('m-hlr').addEventListener('input', e => { st.hl = hlFrom(+e.target.value); st.p = ''; draw(); });
+    $('m-t').addEventListener('input', e => { st.t = +e.target.value; draw(); });
+    function sync(){ $('m-a0').value = st.a0; $('m-hlr').value = hlTo(st.hl); $('m-t').value = st.t; draw(); }
+    const edge = (t, de) => st.a0 * Math.exp(-Math.LN2 / st.hl * t) - (de ? DELTA * st.d - st.e : 0);
+    function draw(){
+      [...pr.children].forEach(b => b.setAttribute('aria-pressed', b.dataset.id === st.p ? 'true' : 'false'));
+      [...$('m-d').children].forEach(b => b.setAttribute('aria-pressed', +b.dataset.v === st.d ? 'true' : 'false'));
+      [...$('m-e').children].forEach(b => b.setAttribute('aria-pressed', +b.dataset.v === st.e ? 'true' : 'false'));
+      const lam = Math.LN2 / st.hl, A = edge(st.t, true), acc = Math.max(0, Math.min(100, 50 + A));
+      $('m-a0-o').textContent = '+' + st.a0.toFixed(1) + ' pts'; $('m-hl-o').textContent = fmtY(st.hl); $('m-t-o').textContent = st.t.toFixed(1) + ' yr';
+      $('m-d-o').textContent = '−' + DELTA * st.d + ' pts'; $('m-e-o').textContent = '+' + st.e + ' pts';
+      $('m-eq').innerHTML = `= <b>${st.a0.toFixed(1)}</b> · e<sup>−${lam.toFixed(2)} × ${st.t.toFixed(1)}</sup> − <b>${DELTA * st.d}</b> + <b>${st.e}</b> = <b>${sg(A)}</b> points, accuracy ≈ <b>${acc.toFixed(1)}%</b>`;
+      $('m-acc').textContent = acc.toFixed(0) + '%'; $('m-edge').textContent = sg(A); $('m-hl').textContent = fmtY(st.hl);
+      $('m-near').textContent = st.a0 > 2 ? fmtY(st.hl * Math.log2(st.a0 / 2)) : 'already';
+      const svg = $('m-plot'); while (svg.firstChild) svg.removeChild(svg.firstChild);
+      const W = Math.max(340, Math.min(720, svg.clientWidth || 720)), sm = W < 520; svg.setAttribute('viewBox', `0 0 ${W} 340`);
+      const L = sm ? 40 : 52, R = W - 16, T = 16, B = 290, X1 = 8, x = v => L + v / X1 * (R - L), y = v => B - v / 100 * (B - T);
+      el('rect', {x:L, y:y(50), width:R - L, height:B - y(50), fill:'var(--chip)'}, svg);
+      el('text', {x:R - 6, y:B - 8, 'text-anchor':'end', 'font-size':12, fill:'var(--muted)'}, svg, sm ? 'fooled' : 'fooled more often than chance');
+      for (let v = 0; v <= 100; v += 25) { el('line', {x1:L, x2:R, y1:y(v), y2:y(v), stroke:'var(--rule)'}, svg); el('text', {x:L - 8, y:y(v) + 4, 'text-anchor':'end', 'font-size':12, fill:'var(--muted)'}, svg, v + '%'); }
+      for (let v = 0; v <= X1; v += sm ? 2 : 1) el('text', {x:x(v), y:B + 20, 'text-anchor':'middle', 'font-size':12, fill:'var(--muted)'}, svg, v);
+      el('text', {x:(L + R) / 2, y:B + 42, 'text-anchor':'middle', 'font-size':12, fill:'var(--muted)'}, svg, 'Years since the family’s first generator');
+      el('line', {x1:L, x2:R, y1:y(50), y2:y(50), stroke:'var(--chance)', 'stroke-width':1.5, 'stroke-dasharray':'5 5'}, svg);
+      el('text', {x:L + 6, y:y(50) - 6, 'font-size':12, fill:'var(--muted)'}, svg, 'coin flip');
+      for (let k = 1; k <= 3; k++) { const th = k * st.hl; if (th > X1) break;
+        el('line', {x1:x(th), x2:x(th), y1:T, y2:B, stroke:'var(--gan)', 'stroke-opacity':0.35, 'stroke-dasharray':'2 4'}, svg);
+        el('text', {x:x(th) + 4, y:T + 12, 'font-size':12, fill:'var(--gan)'}, svg, [sm ? '1/2' : '1/2 left','1/4','1/8'][k - 1]); }
+      const path = de => { let d = ''; for (let i = 0; i <= 160; i++) { const tv = i / 160 * X1, a = Math.max(0, Math.min(100, 50 + edge(tv, de))); d += (i ? 'L' : 'M') + x(tv).toFixed(1) + ' ' + y(a).toFixed(1); } return d; };
+      const de = st.d !== 0 || st.e !== 0;
+      el('path', {d:path(false), fill:'none', stroke:'var(--gan)', 'stroke-width':2.5}, svg);
+      if (de) el('path', {d:path(true), fill:'none', stroke:'var(--ink)', 'stroke-width':2, 'stroke-dasharray':'6 5'}, svg);
+      el('line', {x1:x(st.t), x2:x(st.t), y1:T, y2:B, stroke:'var(--ink)', 'stroke-opacity':0.25}, svg);
+      el('circle', {cx:x(st.t), cy:y(acc), r:6, fill:de ? 'var(--ink)' : 'var(--gan)', stroke:'var(--surface)', 'stroke-width':2}, svg);
+      el('text', {x:Math.min(x(st.t) + 10, R - 44), y:Math.max(T + 28, y(acc) - 10), 'font-size':13, 'font-weight':600, fill:'var(--ink)'}, svg, acc.toFixed(0) + '%');
+    }
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(draw, 120); });
+    sync();
+  })();
 
   /* ---------- Hypothesis slider ---------- */
   const H = [
