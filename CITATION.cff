@@ -9,8 +9,14 @@ authors:
     email: jbussing@ucsd.edu
 version: 0.3.0
 date-released: 2026-09-28
-doi: 10.5281/zenodo.22989632
+doi: 10.5281/zenodo.23010813
 identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22989631
+    description: Concept DOI (all versions)
+  - type: doi
+    value: 10.5281/zenodo.23010813
+    description: Zenodo archive of release v0.3.0 (audio/video meta-analysis and manuscript)
   - type: doi
     value: 10.5281/zenodo.22989632
     description: Zenodo archive of release v0.1.0 (preregistration snapshot)

@@ -1,6 +1,6 @@
 # Turing Decay
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22989632.svg)](https://doi.org/10.5281/zenodo.22989632)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22989631.svg)](https://doi.org/10.5281/zenodo.22989631)
 
 **A three-factor model of human detection of AI-generated content, with preregistered predictions for audio and video.**
 
@@ -12,13 +12,16 @@ Project page: https://jbussin.github.io/turing-decay/ · Paper: [`paper/turing_d
 
 ## Citation
 
-Bussing, J. (2026). *Turing Decay: A Three-Factor Model of Human Detection of AI-Generated Content, with Preregistered Predictions for Audio and Video* (v0.3.0). Zenodo. https://doi.org/10.5281/zenodo.22989632
+Bussing, J. (2026). *Turing Decay: A Three-Factor Model of Human Detection of AI-Generated Content, with Preregistered Predictions for Audio and Video* (v0.3.0). Zenodo. https://doi.org/10.5281/zenodo.23010813
+
+To cite the project as a whole (all versions), use the concept DOI [10.5281/zenodo.22989631](https://doi.org/10.5281/zenodo.22989631).
 
 | Release | Contents | DOI |
 | --- | --- | --- |
 | v0.1.0 (27 Sep 2026) | Pilot and preregistration of H1–H6 | [10.5281/zenodo.22989632](https://doi.org/10.5281/zenodo.22989632) |
+| v0.1.1 (27 Sep 2026) | Links and metadata only | [10.5281/zenodo.22989850](https://doi.org/10.5281/zenodo.22989850) |
 | v0.2.0 (27 Sep 2026) | Frozen generator lookup table, archived before any audio or video accuracy value was extracted | [10.5281/zenodo.23002314](https://doi.org/10.5281/zenodo.23002314) |
-| v0.3.0 (28 Sep 2026) | Audio and video meta-analysis, predictions scored, full manuscript | minted by Zenodo on release |
+| v0.3.0 (28 Sep 2026) | Audio and video meta-analysis, predictions scored, full manuscript | [10.5281/zenodo.23010813](https://doi.org/10.5281/zenodo.23010813) |
 
 Any change to the registered analysis plan is recorded as a dated deviation in [`deviations.md`](deviations.md).
 
