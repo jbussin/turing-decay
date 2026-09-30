@@ -73,6 +73,18 @@ for m in ['audio', 'video']:
     o['exclude_approx_N'] = slope([d for d in S if not d['approx_n']])
     # 6. exclude dataset-coded rows (constituents not split)
     o['exclude_dataset_rows'] = slope([d for d in S if not d['is_dataset']])
+    # 6b. base rate: rows with unequal real/fake counts in single-item tasks -> balanced accuracy where hit/FA exist, else drop
+    def _unequal(r):
+        nr, nf = P.num(r['n_real_stimuli']), P.num(r['n_fake_stimuli'])
+        tf = r['task_format'].lower()
+        return nr is not None and nf is not None and max(nr, nf) / max(min(nr, nf), 1) > 1.25 and not any(k in tf for k in ('afc', 'paired', 'alternative'))  # >25% imbalance
+    Sb = []
+    for d in S:
+        r = ext[d['row']]
+        if not _unequal(r): Sb.append(d); continue
+        h, fa = P.num(r['hit_rate_pct']), P.num(r['false_alarm_pct'])
+        if h is not None and fa is not None: Sb.append(dict(d, y=(h + 100 - fa) / 200 - 0.5))
+    o['balanced_base_rate'] = slope(Sb)
     # 7. audiovisual separately (video only)
     if m == 'video':
         o['video_only_no_av'] = slope([d for d in S if d['raw_modality'] == 'video'])
@@ -119,7 +131,8 @@ L = ['# Sensitivity analyses (preliminary data)', '', 'GenDate slope in accuracy
 def fmt(s): return '—' if not s else f"{s['b']:+.2f} [{s['lo']:+.2f}, {s['hi']:+.2f}] (k={s['k']}, papers={s['papers']})"
 rowsmd = [('Primary, GenDate only', 'primary_gendate_only'), ('Primary, full model', 'primary_full'),
           ('Drop influential rows', 'drop_influential'), ('Exact variance only', 'exact_variance_only'),
-          ('Exclude approximate N', 'exclude_approx_N'), ('Exclude dataset-coded rows', 'exclude_dataset_rows')]
+          ('Exclude approximate N', 'exclude_approx_N'), ('Exclude dataset-coded rows', 'exclude_dataset_rows'),
+          ('Unequal real/fake counts: balanced accuracy or dropped', 'balanced_base_rate')]
 L += ['| Analysis | Audio | Video |', '|---|---|---|']
 for lab, key in rowsmd:
     L.append(f"| {lab} | {fmt(out['audio'][key])} | {fmt(out['video'][key])} |")
