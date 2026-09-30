@@ -62,19 +62,21 @@ back. We preregistered six predictions for audio and video and tested
 them in a meta-analysis of 125 participant groups from 58 studies,
 screened from 7,609 records. That test is consistent with the model but
 does not confirm it. People still detect AI-generated audio and video
-about 17 percentage points above chance. For audio, sensitivity (d′, a
-measure of discrimination that is not affected by a tendency to answer
-``real'' or ``fake'') falls 0.23 per year of generator release; the
-accuracy slope (−1.3 points per year) points the same way but is not
-significant and shrinks when influential groups are dropped. Video shows
-no decline overall; an exploratory fit within text-to-video generators
-suggests the margin above chance halves in about 1.3 years. No
-directional prediction survives the registered correction for multiple
-tests, and deployment effort, expertise and family resets are still too
-rarely studied to test. The claim the evidence supports is narrower than
-the model: within a generator lineage, detection falls as generators
-improve and does not recover with calendar time, and hands-on expertise
-may counteract it.
+above chance: by model estimates, about 12 percentage points for the
+newest audio generators and 16 for the newest video generators, down
+from about 17 for generators released in 2020. For audio, sensitivity
+(d′, a measure of discrimination that is not affected by a tendency to
+answer ``real'' or ``fake''; a secondary measure, not the registered
+primary test) falls 0.23 per year of generator release; the accuracy
+slope (−1.3 points per year) points the same way but is not significant
+and shrinks when influential groups are dropped. Video shows no decline
+overall; an exploratory fit within text-to-video generators suggests the
+margin above chance halves in about 1.3 years. No directional prediction
+survives the registered correction for multiple tests, and deployment
+effort, expertise and family resets are still too rarely studied to
+test. The claim the evidence supports is narrower than the model: within
+a generator lineage, detection falls as generators improve and does not
+recover with calendar time, and hands-on expertise may counteract it.
 \end{abstract}
 
 \paragraph{Highlights}
@@ -86,10 +88,11 @@ may counteract it.
 \item
   Newer generators are harder to spot; exposure gave no detectable gain.
 \item
-  People still detect AI audio and video about 17 points above chance.
+  People still beat chance on AI audio and video, by about 12--16 points
+  today.
 \item
-  For audio, sensitivity (d′) falls 0.23 per year of newer generator
-  release.
+  Audio sensitivity (d′, a secondary measure) falls 0.23 per year of
+  newer generator.
 \item
   Audio and video results are consistent with the model but not
   confirmatory.
@@ -409,11 +412,12 @@ is set by three factors:
 
 The \emph{half-life} of the advantage within a family is ln 2 / λf: the
 generator progress it takes for people's margin above chance to halve.
-For GAN faces the pilot suggests roughly 6 to 12 months, an
-order-of-magnitude estimate from few generators. For text it cannot be
-estimated, because the advantage had already reached zero by GPT-3. In
-the audio and video data (Section 9) the estimates are about 1.3 years
-for text-to-video and about 5 years for zero-shot voice cloning.
+For GAN faces an exploratory fit from the pilot suggests roughly 6 to 12
+months, an order-of-magnitude estimate from few generators. For text it
+cannot be estimated, because the advantage had already reached zero by
+GPT-3. In the audio and video data (Section 9) the exploratory estimates
+are about 1.3 years for text-to-video and about 5 years for zero-shot
+voice cloning.
 
 The model's practical implication is that detection by eye is a
 transient skill tied to specific generators. If hands-on familiarity
@@ -589,14 +593,17 @@ at extraction or verification (3 ineligible on full reading, 3 dropped).
 \hypertarget{audio-and-video-results}{%
 \section{Audio and video: results}\label{audio-and-video-results}}
 
-People still beat chance by about 17 points on both audio and video
-(chance is 50\% in almost every study). For audio, detection declines
-with newer generators when measured as sensitivity (d′), and only weakly
-when measured as accuracy; video shows no overall decline. These results
-are consistent with the model but not confirmatory. They come from 125
-participant groups in 58 studies (58 audio groups from 27 studies; 67
-video or audiovisual groups from 32). In the table, a negative slope
-means people do worse against newer generators.
+People still beat chance on both audio and video (chance is 50\% in
+almost every study): by about 17--18 points for generators released in
+2020, and by about 12 points for the newest audio generator (2024) and
+16 for the newest video generator (2025). For audio, detection declines
+with newer generators when measured as sensitivity (d′, a secondary
+measure), and only weakly when measured as accuracy; video shows no
+overall decline. These results are consistent with the model but not
+confirmatory. They come from 125 participant groups in 58 studies (58
+audio groups from 27 studies; 67 video or audiovisual groups from 32).
+In the table, a negative slope means people do worse against newer
+generators.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -628,11 +635,12 @@ H3 year the study was run, generator held fixed & −0.3 {[}−9.5, +8.8{]}
 
 \textbf{H1, generator date.} For audio, accuracy falls about 1.3 points
 per year of newer generator (one-sided p = .15), and sensitivity falls
-0.23 d′ per year, an interval that excludes zero. For video the slope is
-flat. Pooling both modalities, the slope is −1.2 {[}−3.2, +0.8{]} points
-per year (one-sided p = .11). None of the directional tests in the full
-model survives the registered Holm correction for multiple tests (audio
-H1 adjusted p = .71).
+0.23 d′ per year, an interval that excludes zero. d′ is a secondary
+measure, not the registered primary test, which used accuracy, and video
+d′ is flat. For video the slope is flat. Pooling both modalities, the
+slope is −1.2 {[}−3.2, +0.8{]} points per year (one-sided p = .11). None
+of the directional tests in the full model survives the registered Holm
+correction for multiple tests (audio H1 adjusted p = .71).
 
 The audio accuracy slope was steeper (−2.1) before the last six studies
 were added. Two of those studies had listeners judge clones of their own
@@ -667,7 +675,10 @@ show no decay across their few dates.
 of audio-only fakes against 90\% for hearing viewers, while all groups
 reached 84--87\% on fully audiovisual fakes (Pasternak et al., 2026).
 Whether a fake is detectable depends on the channels an observer can
-use, not only on the generator.
+use, not only on the generator. These are observer characteristics
+(sensory channel, familiarity with the voice), not hands-on generator
+use, so they do not support the expertise term E as defined; they point
+to a broader observer term for a future version of the model.
 
 \hypertarget{sensitivity-analyses}{%
 \subsection{Sensitivity analyses}\label{sensitivity-analyses}}
@@ -814,7 +825,9 @@ the time, against chance for strangers hearing the same clones (Rosi et
 al., 2025; Sanchez et al., 2026), and d/Deaf viewers caught 41\% of
 audio-only fakes against 90\% for hearing viewers (Pasternak et al.,
 2026). Detection is a property of the observer, the channel and the
-generator together, not of the generator alone.
+generator together, not of the generator alone. This is the paper's
+strongest observer-side evidence, and it concerns channel and
+familiarity, not the hands-on use that E measures.
 
 The model's other factors could not yet be tested. Only five groups were
 experts, few studies report how stimuli were selected or processed, and
@@ -940,7 +953,11 @@ the frozen generator table (release v0.2.0,
 \href{https://doi.org/10.5281/zenodo.23002314}{doi:10.5281/zenodo.23002314}),
 and the audio and video analysis with the manuscript (release v0.3.0,
 \href{https://doi.org/10.5281/zenodo.23010813}{doi:10.5281/zenodo.23010813};
-revised in v0.3.1) are archived on Zenodo. The extraction sheet with
+revised in v0.3.1,
+\href{https://doi.org/10.5281/zenodo.23049109}{doi:10.5281/zenodo.23049109},
+and v0.3.2) are archived on Zenodo; the concept DOI
+\href{https://doi.org/10.5281/zenodo.22989631}{10.5281/zenodo.22989631}
+always resolves to the latest version. The extraction sheet with
 verbatim quotes, the search and screening records, the deviation log and
 all analysis code are at
 \href{https://github.com/jbussin/turing-decay}{github.com/jbussin/turing-decay}.
