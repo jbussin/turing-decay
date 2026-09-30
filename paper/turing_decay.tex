@@ -32,7 +32,7 @@
 
 \title{Turing Decay: A Three-Factor Model of Human Detection of AI-Generated Content, with Preregistered Predictions for Audio and Video}
 \author{Jonathan Bussing\\ Independent researcher\\ \small\texttt{jbussing@ucsd.edu}}
-\date{28 September 2026 \\ \small Version 0.3.0}
+\date{28 September 2026 \\ \small Version 0.3.1}
 
 \begin{document}
 \maketitle
@@ -50,45 +50,49 @@ text-to-image generators reset detectability upward before it decayed
 again, so the decline looks like a sawtooth rather than a single curve.
 For text, untrained readers were at chance by GPT-3 (2020); holding
 release date fixed, accuracy fell 6.5 points per tenfold increase in
-model size, so capability, not calendar time, drives the decline.
-Frequent users of language models, however, detected AI text about 95\%
-of the time, and a humanlike persona prompt cut Turing-test detection
-from 79\% to 27\%.
+model size, so capability, not calendar time, drives the decline. In one
+small study, frequent users of language models detected AI text about
+95\% of the time, and a humanlike persona prompt cut Turing-test
+detection from 79\% to 27\%.
 
 From these results we propose Turing Decay, a three-factor model:
 generator capability and the effort spent deploying a generator push
-human accuracy toward and below chance, and hands-on expertise is the
-only factor that pushes back. We preregistered six predictions for audio
-and video and tested them in a meta-analysis of 125 participant groups
-from 58 studies, screened from 7,609 records. People still detect
-AI-generated audio and video about 17 percentage points above chance.
-For audio, sensitivity (d′, a measure of discrimination that is not
-affected by a tendency to answer ``real'' or ``fake'') falls 0.23 per
-year of generator release; the accuracy slope (−1.3 points per year)
-points the same way but is not significant. Video shows no decline
-overall, but within text-to-video generators the margin above chance
-halves in about 1.3 years. No directional prediction survives the
-registered correction for multiple tests, and expertise, deployment
-effort and family resets are still too rarely studied to test.
+human accuracy toward and below chance, and hands-on expertise may push
+back. We preregistered six predictions for audio and video and tested
+them in a meta-analysis of 125 participant groups from 58 studies,
+screened from 7,609 records. That test is consistent with the model but
+does not confirm it. People still detect AI-generated audio and video
+about 17 percentage points above chance. For audio, sensitivity (d′, a
+measure of discrimination that is not affected by a tendency to answer
+``real'' or ``fake'') falls 0.23 per year of generator release; the
+accuracy slope (−1.3 points per year) points the same way but is not
+significant and shrinks when influential groups are dropped. Video shows
+no decline overall; an exploratory fit within text-to-video generators
+suggests the margin above chance halves in about 1.3 years. No
+directional prediction survives the registered correction for multiple
+tests, and deployment effort, expertise and family resets are still too
+rarely studied to test. The claim the evidence supports is narrower than
+the model: within a generator lineage, detection falls as generators
+improve and does not recover with calendar time, and hands-on expertise
+may counteract it.
 \end{abstract}
 
 \paragraph{Highlights}
 \begin{itemize}
 \tightlist
 \item
-  People still detect AI audio and video about 17 points above chance.
-\item
   Detection tracks the generator's release date, not the year a study
   was run.
+\item
+  Newer generators are harder to spot; exposure gave no detectable gain.
+\item
+  People still detect AI audio and video about 17 points above chance.
 \item
   For audio, sensitivity (d′) falls 0.23 per year of newer generator
   release.
 \item
-  Within text-to-video, people's advantage over chance halves in about
-  1.3 years.
-\item
-  Knowing the voice or the tools matters as much as which generator made
-  the fake.
+  Audio and video results are consistent with the model but not
+  confirmatory.
 \end{itemize}
 
 \hypertarget{introduction}{%
@@ -131,8 +135,8 @@ This paper makes three contributions:
 \item
   Pilot estimates showing a \textbf{generator-driven decay} within
   architecture lineages, a \textbf{reset} when a new architecture family
-  appears, \textbf{no measurable gain from background exposure}, and a
-  large gain from \textbf{hands-on expertise}.
+  appears, \textbf{no measurable gain from background exposure}, and, in
+  one small study, a large gain from \textbf{hands-on expertise}.
 \item
   A three-factor model, \textbf{Turing Decay}, with \textbf{six
   preregistered, falsifiable predictions} for audio and video, stated
@@ -272,10 +276,12 @@ Text-to-image reset & 47 & +33 pts above the GAN trend (SE 6.4) &
 Training or feedback & 39 & +7.0 pts (SE 2.4) & .007 \\
 \end{longtable}
 
-\textbf{The observer clock is null.} Holding the generator fixed at
-StyleGAN2, experiments run from 2021 to 2026 show no gain in accuracy.
-Background exposure to synthetic faces over that period did not make
-people better at detecting them.
+\textbf{No observer clock was detected.} Holding the generator fixed at
+StyleGAN2, experiments run from 2021 to 2026 show no gain in accuracy
+(+0.2 points per year, SE 0.9). The interval cannot rule out a gain of
+up to about 2 points per year. Participants in later studies had also
+seen other kinds of synthetic media in daily life, so holding the
+generator fixed does not hold their exposure fixed.
 
 \textbf{The rising trend by publication year disappears once studies are
 weighted properly.} With publication year as the only time variable, the
@@ -357,13 +363,13 @@ parameters, essentially the 175B model itself.
 \label{fig:gpt3}
 \end{figure}
 
-\textbf{Expertise works, background exposure does not.} Non-experts
-judging GPT-4o, Claude 3.5 and o1-pro text were at 52.5\%. People who
-frequently use ChatGPT for writing were at 94.6\%, and their majority
-vote misclassified 1 of 300 articles. Unlike faces, where years of
-public exposure bought nothing, heavy hands-on use of the generators
-produced near-perfect detection. That comparison rests on 4 non-experts
-and 5 experts.
+\textbf{Expertise may help where exposure does not.} Non-experts judging
+GPT-4o, Claude 3.5 and o1-pro text were at 52.5\%. People who frequently
+use ChatGPT for writing were at 94.6\%, and their majority vote
+misclassified 1 of 300 articles. This is a single study with 4
+non-experts and 5 experts: one strong data point, not an established
+effect. It also does not show whether the advantage carries over to
+generators the experts have not used.
 
 \textbf{Deployment effort can push accuracy below chance.} In
 three-party Turing tests, interrogators identified GPT-4o without a
@@ -396,8 +402,9 @@ is set by three factors:
   drive it below zero, meaning people are fooled more often than chance.
 \item
   \textbf{Observer expertise (E).} Heavy hands-on use of the generator
-  raises the advantage by γ. Training helps a little. Background
-  exposure through daily life does not measurably help.
+  raises the advantage by γ; the evidence is one small study. Training
+  helps a little. We detected no gain from background exposure through
+  daily life.
 \end{enumerate}
 
 The \emph{half-life} of the advantage within a family is ln 2 / λf: the
@@ -409,10 +416,17 @@ the audio and video data (Section 9) the estimates are about 1.3 years
 for text-to-video and about 5 years for zero-shot voice cloning.
 
 The model's practical implication is that detection by eye is a
-transient skill tied to specific generators. Only hands-on familiarity
-with the current generation keeps pace, which suggests provenance
-systems, rather than human judgment, will carry the weight of
-authenticating content.
+transient skill tied to specific generators. If hands-on familiarity
+with the current generation is the only thing that keeps pace,
+provenance systems rather than human judgment will have to carry the
+weight of authenticating content.
+
+\textbf{How much of the model is tested.} Of the three factors, only
+generator capability has solid support, from the face and text pilot and
+the audio d′ slope. Deployment effort could not be tested, because in
+the published record it is confounded with the generator. Expertise
+rests on a single small study. The model is best read as one supported
+factor and two hypotheses.
 
 \hypertarget{preregistered-predictions-for-audio-and-video}{%
 \section{Preregistered predictions for audio and
@@ -579,9 +593,10 @@ People still beat chance by about 17 points on both audio and video
 (chance is 50\% in almost every study). For audio, detection declines
 with newer generators when measured as sensitivity (d′), and only weakly
 when measured as accuracy; video shows no overall decline. These results
-come from 125 participant groups in 58 studies (58 audio groups from 27
-studies; 67 video or audiovisual groups from 32). In the table, a
-negative slope means people do worse against newer generators.
+are consistent with the model but not confirmatory. They come from 125
+participant groups in 58 studies (58 audio groups from 27 studies; 67
+video or audiovisual groups from 32). In the table, a negative slope
+means people do worse against newer generators.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -640,13 +655,13 @@ processed their stimuli (for example, through a phone codec) or said how
 they selected them. Estimates are in Section 10.
 
 \textbf{Decay within a lineage.} Fitting the above-chance margin as an
-exponential decay within each lineage (a registered secondary estimate)
-shows the sawtooth most clearly. Within text-to-video, people start
-about 33 points above chance and the margin halves in about 1.3 years
-(18 groups, 14 release dates, 2023--2026). Within zero-shot voice
-cloning it starts at 26 points and halves in about 5 years (30 groups).
-Face-swap autoencoders and early neural TTS show no decay across their
-few dates.
+exponential decay within each lineage (registered as a secondary
+estimate; exploratory) shows the sawtooth most clearly. Within
+text-to-video, people start about 33 points above chance and the margin
+halves in about 1.3 years (18 groups, 14 release dates, 2023--2026).
+Within zero-shot voice cloning it starts at 26 points and halves in
+about 5 years (30 groups). Face-swap autoencoders and early neural TTS
+show no decay across their few dates.
 
 \textbf{Who listens matters.} In one study, d/Deaf viewers caught 41\%
 of audio-only fakes against 90\% for hearing viewers, while all groups
@@ -657,9 +672,13 @@ use, not only on the generator.
 \hypertarget{sensitivity-analyses}{%
 \subsection{Sensitivity analyses}\label{sensitivity-analyses}}
 
-The audio decline is negative under every check except exact variances
-only (19 groups), but it is not robust to dropping influential groups;
-the video slope stays at zero throughout.
+The audio accuracy slope is negative under every check except exact
+variances only (19 groups), but it is not robust to dropping influential
+groups, which leaves −0.4 points per year; the d′ slope is the more
+stable result. Twelve groups used single-item tasks with more than 25\%
+more stimuli of one class; using balanced accuracy for seven of them and
+dropping five leaves both slopes essentially unchanged. The video slope
+stays at zero throughout.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -690,6 +709,8 @@ Dataset-coded groups excluded & −1.4 {[}−4.5, +1.7{]}, k = 47 & −0.4
 {[}−2.0, +1.2{]}, k = 42 \\
 Familiar-voice groups excluded & −1.6 {[}−4.3, +1.2{]}, k = 43 & +0.1
 {[}−1.1, +1.4{]}, k = 48 \\
+Unequal real/fake counts: balanced accuracy or dropped & −1.3 {[}−3.8,
++1.3{]}, k = 55 & −0.3 {[}−1.4, +0.9{]}, k = 65 \\
 Audiovisual groups removed & --- & −0.3 {[}−1.3, +0.7{]}, k = 48 \\
 d′ instead of accuracy (d′ per year) & −0.23 {[}−0.43, −0.04{]}, k = 31
 & −0.01 {[}−0.10, +0.08{]}, k = 41 \\
@@ -752,16 +773,31 @@ Point: video decays at under half the GAN-face rate (2.7 pts/yr) & --- &
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-Across four media the same pattern appears with different strength. For
-faces and text, the generator clock is clear: accuracy falls with each
-newer release inside a lineage and does not recover with calendar time.
-For audio the decline is visible in sensitivity (d′) but only weakly in
-raw accuracy. The two measures can diverge because accuracy mixes
-discrimination with response bias, and audio studies differ widely in
-bias: warnings, nudges and ``half the clips are fake'' instructions
-shift how often people answer ``AI'' without changing how well they tell
-the classes apart (Kirk, 2026). Sensitivity is therefore the better
-measure of the generator clock for audio, and it declines.
+The claim these data support is narrow: within a generator lineage,
+human detection falls as generators improve and does not recover with
+calendar time, and hands-on expertise may counteract it. The face and
+text pilot carries most of that claim. The preregistered audio and video
+test is consistent with it but underpowered: the audio decline is clear
+only in sensitivity (d′), the accuracy slope shrinks when influential
+groups are dropped, and nothing survives the correction for multiple
+tests. We see that as the paper's main value: a preregistered pilot that
+shows where the evidence is strong and where it is not. For audio, d′ is
+also the better measure of the generator clock, because accuracy mixes
+discrimination with response bias, and warnings, nudges and ``half the
+clips are fake'' instructions shift how often people answer ``AI''
+without changing how well they tell the classes apart (Kirk, 2026).
+
+\textbf{Why faces and text differ.} Untrained readers reached chance on
+text by GPT-3 in mid-2020, about a year after GAN faces reached it with
+StyleGAN2; text-to-image faces then reset the curve and fell again. Two
+differences may explain why faces keep a measurable slope while text
+sits on a floor. Judging a face is a perceptual task with physical cues
+such as skin texture, lighting and symmetry, which each generator
+removes a little more, while judging a passage relies on style and
+plausibility, which language models matched early. Face studies also
+keep reusing older generators, so the face record samples more of each
+lineage's decline. Both explanations are testable, and neither is
+established here.
 
 Video shows no decline when all lineages are pooled, yet the fastest
 decay in the whole dataset sits inside video: text-to-video generators
@@ -853,7 +889,31 @@ The audio and video meta-analysis has limitations of its own:
 \item
   \textbf{AI-assisted extraction and coding.} Extraction and generator
   coding were done with AI assistants and re-checked against sources by
-  one author, without an independent second coder.
+  one author, without an independent second coder. In a paper about
+  detecting AI-generated content this is a real concern; a second human
+  coder, starting with the expertise and familiarity codes, is the most
+  important next step.
+\item
+  \textbf{The two clocks are not fully separable.} Holding the generator
+  fixed does not hold exposure fixed: participants in later studies had
+  seen other kinds of synthetic media in daily life. The observer-clock
+  test therefore measures exposure to the media environment as a whole,
+  not to one generator.
+\item
+  \textbf{Reset or quality?} Early text-to-image faces may have been
+  easier to spot partly because their images were rougher, not only
+  because they came from a new family. The reset term cannot separate
+  the two.
+\item
+  \textbf{Expertise transfer.} The one expertise contrast does not show
+  whether heavy users of one generator detect the output of others as
+  well, or only the artifacts they already know.
+\item
+  \textbf{Base rates.} Twelve groups used single-item tasks with more
+  than 25\% more stimuli of one class, where accuracy minus 50\%
+  overstates or understates the margin. Using balanced accuracy for
+  seven and dropping five leaves both slopes essentially unchanged
+  (Section 9).
 \item
   \textbf{Generator dates.} 51 generators were added to the frozen
   table; 18 of their dates are medium or low confidence. Dataset-coded
@@ -878,11 +938,11 @@ The preregistration (release v0.1.0,
 \href{https://doi.org/10.5281/zenodo.22989632}{doi:10.5281/zenodo.22989632}),
 the frozen generator table (release v0.2.0,
 \href{https://doi.org/10.5281/zenodo.23002314}{doi:10.5281/zenodo.23002314}),
-and this version of the paper with its data (release v0.3.0,
-\href{https://doi.org/10.5281/zenodo.23010813}{doi:10.5281/zenodo.23010813}) are
-archived on Zenodo. The extraction sheet with verbatim quotes, the
-search and screening records, the deviation log and all analysis code
-are at
+and the audio and video analysis with the manuscript (release v0.3.0,
+\href{https://doi.org/10.5281/zenodo.23010813}{doi:10.5281/zenodo.23010813};
+revised in v0.3.1) are archived on Zenodo. The extraction sheet with
+verbatim quotes, the search and screening records, the deviation log and
+all analysis code are at
 \href{https://github.com/jbussin/turing-decay}{github.com/jbussin/turing-decay}.
 
 \section*{References}
