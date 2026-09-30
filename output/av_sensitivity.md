@@ -10,6 +10,7 @@ GenDate slope in accuracy points per year of generator release, 95% CI. Generate
 | Exact variance only | +2.24 [-4.01, +8.49] (k=19, papers=8) | -1.02 [-3.37, +1.33] (k=13, papers=8) |
 | Exclude approximate N | -1.73 [-4.30, +0.85] (k=54, papers=25) | -0.37 [-1.49, +0.76] (k=65, papers=31) |
 | Exclude dataset-coded rows | -1.44 [-4.53, +1.65] (k=47, papers=22) | -0.40 [-1.97, +1.18] (k=42, papers=19) |
+| Unequal real/fake counts: balanced accuracy or dropped | -1.25 [-3.80, +1.30] (k=55, papers=26) | -0.28 [-1.44, +0.88] (k=65, papers=31) |
 | Video only (audiovisual removed) | | -0.32 [-1.33, +0.70] (k=48, papers=24) |
 
 ## Audio
