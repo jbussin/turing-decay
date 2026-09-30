@@ -12,16 +12,17 @@ Project page: https://jbussin.github.io/turing-decay/ · Paper: [`paper/turing_d
 
 ## Citation
 
-Bussing, J. (2026). *Turing Decay: A Three-Factor Model of Human Detection of AI-Generated Content, with Preregistered Predictions for Audio and Video* (v0.3.0). Zenodo. https://doi.org/10.5281/zenodo.23010813
+Bussing, J. (2026). *Turing Decay: A Three-Factor Model of Human Detection of AI-Generated Content, with Preregistered Predictions for Audio and Video* (v0.3.2). Zenodo. https://doi.org/10.5281/zenodo.22989631
 
-To cite the project as a whole (all versions), use the concept DOI [10.5281/zenodo.22989631](https://doi.org/10.5281/zenodo.22989631).
+The concept DOI above always resolves to the latest version; each release also has its own DOI, listed below.
 
 | Release | Contents | DOI |
 | --- | --- | --- |
 | v0.1.0 (27 Sep 2026) | Pilot and preregistration of H1–H6 | [10.5281/zenodo.22989632](https://doi.org/10.5281/zenodo.22989632) |
 | v0.1.1 (27 Sep 2026) | Links and metadata only | [10.5281/zenodo.22989850](https://doi.org/10.5281/zenodo.22989850) |
 | v0.2.0 (27 Sep 2026) | Frozen generator lookup table, archived before any audio or video accuracy value was extracted | [10.5281/zenodo.23002314](https://doi.org/10.5281/zenodo.23002314) |
-| v0.3.1 (29 Sep 2026) | Reframed after review: claims narrowed to what the evidence supports, base-rate check added, new limitations | minted by Zenodo on release |
+| v0.3.2 (30 Sep 2026) | Polish after second review: current margins lead, d′ marked as a secondary measure, half-lives hedged alike, observer-channel evidence separated from expertise | minted by Zenodo on release |
+| v0.3.1 (30 Sep 2026) | Reframed after review: claims narrowed to what the evidence supports, base-rate check added, new limitations | [10.5281/zenodo.23049109](https://doi.org/10.5281/zenodo.23049109) |
 | v0.3.0 (28 Sep 2026) | Audio and video meta-analysis, predictions scored, full manuscript | [10.5281/zenodo.23010813](https://doi.org/10.5281/zenodo.23010813) |
 
 Any change to the registered analysis plan is recorded as a dated deviation in [`deviations.md`](deviations.md).
@@ -69,8 +70,8 @@ Six falsifiable predictions for audio and video are in [`preregistration.md`](pr
 
 148 studies are included (see `search/prisma.md`); 58 enter the quantitative synthesis (125 participant groups: 58 audio, 67 video or audiovisual). 54 included studies report no usable numbers and, by decision (D6), authors were not contacted. Deviations from the registered plan are listed in `deviations.md` (D1–D6). Full scorecard: `output/av_results.md`.
 
-- People still detect AI audio and video about 17 points above chance.
-- **H1:** audio sensitivity falls 0.23 d′ per year of generator release [−0.43, −0.04]; the accuracy slope (−1.3 points per year [−3.7, +1.2]) is not significant, and nothing survives Holm correction. Video is flat overall.
+- People still detect AI audio and video above chance: about 12 points for the newest audio generators and 16 for the newest video generators, down from about 17 for generators released in 2020.
+- **H1:** audio sensitivity (d′, a secondary measure) falls 0.23 per year of generator release [−0.43, −0.04]; the registered accuracy test (−1.3 points per year [−3.7, +1.2]) is not significant, and nothing survives Holm correction. Video is flat overall.
 - Exploratory: within text-to-video, the above-chance margin starts at about 33 points and halves in about 1.3 years.
 - Overall, the audio and video results are consistent with the model but not confirmatory. The supported claim: within a generator lineage, detection falls as generators improve and does not recover with calendar time; expertise may counteract it.
 - **H6** is in the predicted direction (video declines more slowly than audio) but not significant. **H3** is inconclusive; **H2, H4, H5** could not be tested adequately (few reset, expert or post-processed groups).

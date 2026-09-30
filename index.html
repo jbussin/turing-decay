@@ -123,14 +123,14 @@ svg text{font-family:var(--sans)}
 <div class="wrap">
 
 <header class="hero">
-  <span class="eyebrow">Preregistered pilot and meta-analysis · v0.3.1 · September 2026</span>
+  <span class="eyebrow">Preregistered pilot and meta-analysis · v0.3.2 · September 2026</span>
   <h1>Turing Decay</h1>
   <p class="subtitle">A three-factor model of human detection of AI-generated content, with preregistered predictions for audio and video</p>
-  <p class="byline"><strong>Jonathan Bussing</strong> · Independent researcher · <a href="https://doi.org/10.5281/zenodo.23010813">doi:10.5281/zenodo.23010813</a></p>
+  <p class="byline"><strong>Jonathan Bussing</strong> · Independent researcher · <a href="https://doi.org/10.5281/zenodo.22989631">doi:10.5281/zenodo.22989631</a></p>
   <div class="buttons">
     <a class="btn" href="paper/turing_decay.pdf">Paper (PDF)</a>
     <a class="btn" href="#reproduce">Code &amp; data</a>
-    <a class="btn" href="https://doi.org/10.5281/zenodo.23010813">Zenodo · DOI</a>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.22989631">Zenodo · DOI</a>
     <a class="btn" href="#av-results">Audio &amp; video results</a>
     <a class="btn" href="#predictions">Predictions</a>
     <a class="btn" href="#citation">Cite</a>
@@ -160,11 +160,11 @@ svg text{font-family:var(--sans)}
   <h2 id="av-results">Audio and video: what the meta-analysis found</h2>
   <p>We tested the preregistered predictions on 125 participant groups from 58 studies of AI-generated audio and video, screened from 7,609 records. A negative slope means people do worse against newer generators.</p>
   <div class="findings">
-    <div class="finding"><span class="num">+17</span><h3>points above chance</h3><p>People still tell real from AI-generated audio and video better than a coin flip, for audio and video alike.</p></div>
-    <div class="finding"><span class="num">−0.23</span><h3>d′ per generator-year, audio</h3><p>Listeners' sensitivity falls with each year of newer voice generator (95% CI −0.43 to −0.04). Raw accuracy points the same way but is not significant.</p></div>
+    <div class="finding"><span class="num">12–16</span><h3>points above chance today</h3><p>People still beat a coin flip against the newest audio (about +12) and video (about +16) generators in the data, down from about +17 for generators released in 2020.</p></div>
+    <div class="finding"><span class="num">−0.23</span><h3>d′ per generator-year, audio</h3><p>Listeners' sensitivity falls with each year of newer voice generator (95% CI −0.43 to −0.04). d′ is a secondary measure; the registered test on accuracy points the same way but is not significant.</p></div>
     <div class="finding"><span class="num">1.3 yr</span><h3>half-life, text-to-video</h3><p>Video shows no decline overall, but an exploratory fit within text-to-video generators suggests people's margin above chance halves in about 1.3 years.</p></div>
   </div>
-  <p class="note">Who is watching matters too: people caught clones of their own or a friend's voice 86–90% of the time, while strangers were at chance on the same clones. The audio and video results are consistent with the model but not confirmatory: no directional prediction survives the registered correction for multiple tests, and 54 included studies report no usable numbers.</p>
+  <p class="note">Who is watching matters too: people caught clones of their own or a friend's voice 86–90% of the time, while strangers were at chance on the same clones. That is about familiarity and sensory channel, not the hands-on expertise term in the model. The audio and video results are consistent with the model but not confirmatory: no directional prediction survives the registered correction for multiple tests, and 54 included studies report no usable numbers.</p>
 </section>
 
 <section aria-labelledby="model">
@@ -187,7 +187,7 @@ svg text{font-family:var(--sans)}
       <div class="ctl"><div class="row"><span class="lab">Deployment effort, D</span><output id="m-d-o"></output></div><div class="seg" id="m-d" role="group" aria-label="Deployment effort"></div></div>
       <div class="ctl"><div class="row"><span class="lab">Observer expertise, E</span><output id="m-e-o"></output></div><div class="seg" id="m-e" role="group" aria-label="Observer expertise"></div></div>
     </div>
-    <p class="caption">Presets use the exploratory half-lives estimated in the meta-analysis: text-to-video starts about 33 points above chance and halves in 1.3 years (18 groups, 14 release dates); zero-shot voice cloning starts at 26 points and halves in about 5 years (30 groups); GAN faces halved in roughly 6 to 12 months (pilot, few generators; starting edge approximate). Solid line: untrained viewers, raw outputs. Dashed line: with the chosen effort and expertise. Each effort step subtracts 10 points and the expertise steps add 7 (training, faces) or 42 (heavy users, text); these are illustrative magnitudes, not fitted values. Half-lives rest on few release dates, so treat them as rough.</p>
+    <p class="caption">Presets use the exploratory half-lives estimated in the meta-analysis: text-to-video starts about 33 points above chance and halves in 1.3 years (18 groups, 14 release dates); zero-shot voice cloning starts at 26 points and halves in about 5 years (30 groups); GAN faces halved in roughly 6 to 12 months (exploratory pilot fit, few generators; starting edge approximate). Solid line: untrained viewers, raw outputs. Dashed line: with the chosen effort and expertise. Each effort step subtracts 10 points and the expertise steps add 7 (training, faces) or 42 (heavy users, text); these are illustrative magnitudes, not fitted values. Half-lives rest on few release dates, so treat them as rough.</p>
   </div>
 </section>
 
@@ -285,9 +285,9 @@ PYTHONPATH=analysis python analysis/av_sensitivity.py</pre>
   author = {Bussing, Jonathan},
   year   = {2026},
   publisher = {Zenodo},
-  doi    = {10.5281/zenodo.23010813},
-  url    = {https://doi.org/10.5281/zenodo.23010813},
-  note   = {Version 0.3.0: pilot, preregistration and audio/video meta-analysis}
+  doi    = {10.5281/zenodo.22989631},
+  url    = {https://doi.org/10.5281/zenodo.22989631},
+  note   = {Latest version (concept DOI): pilot, preregistration and audio/video meta-analysis}
 }</pre>
     <button class="btn" type="button" id="copy-bib">Copy</button>
   </div>

@@ -7,9 +7,9 @@ authors:
     given-names: Jonathan
     affiliation: Independent researcher
     email: jbussing@ucsd.edu
-version: 0.3.1
-date-released: 2026-09-29
-doi: 10.5281/zenodo.23010813
+version: 0.3.2
+date-released: 2026-09-30
+doi: 10.5281/zenodo.22989631
 identifiers:
   - type: doi
     value: 10.5281/zenodo.22989631
@@ -17,6 +17,9 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.23010813
     description: Zenodo archive of release v0.3.0 (audio/video meta-analysis and manuscript)
+  - type: doi
+    value: 10.5281/zenodo.23049109
+    description: Zenodo archive of release v0.3.1 (reframed after review)
   - type: doi
     value: 10.5281/zenodo.22989632
     description: Zenodo archive of release v0.1.0 (preregistration snapshot)
